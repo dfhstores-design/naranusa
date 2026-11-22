@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { questions, sourcesByIds, subjectById, subjects, topics, type Question, type SubjectId } from "@/content/curriculum";
+import { getLearnerAvailableQuestions } from "@/lib/learner-questions";
 import { useLearningStore } from "@/store/learning-store";
 import NaraMascot from "@/components/nara-mascot";
 import { Progress } from "@/components/ui";
@@ -102,7 +103,8 @@ export default function LearningDashboard() {
   const correctCount = Object.values(answered).filter(Boolean).length;
 
   const focusTopics = useMemo(() => topics.filter((topic) => topic.subjectId === focusSubject), [focusSubject]);
-  const focusQuestions = useMemo(() => questions.filter((question) => question.subjectId === focusSubject), [focusSubject]);
+  const learnerQuestions = useMemo(() => getLearnerAvailableQuestions(questions), []);
+  const focusQuestions = useMemo(() => learnerQuestions.filter((question) => question.subjectId === focusSubject), [focusSubject, learnerQuestions]);
 
   function setPage(next: View) {
     setView(next);
@@ -115,8 +117,8 @@ export default function LearningDashboard() {
   }
 
   function startQuiz(mode: QuizMode, subjectId?: SubjectId, topicId?: string) {
-    const pool = questions.filter((question) => (!subjectId || question.subjectId === subjectId) && (!topicId || question.topicId === topicId));
-    const items = mode === "Mode cepat" ? pool.slice(0, 1) : pool.slice(0, 4);
+    const pool = learnerQuestions.filter((question) => (!subjectId || question.subjectId === subjectId) && (!topicId || question.topicId === topicId));
+    const items = mode === "Mode cepat" ? pool.slice(0, 1) : topicId || mode === "Ujian mini" ? pool : pool.slice(0, 4);
     if (items.length === 0) {
       setToast("Soal untuk topik ini sedang disiapkan.");
       return;
@@ -258,14 +260,15 @@ export default function LearningDashboard() {
                 </div>
                 <div className="subject-grid">
                   {subjects.map((subject, index) => {
-                    const subjectQuestion = questions.find((question) => question.subjectId === subject.id);
+                    const subjectQuestion = learnerQuestions.find((question) => question.subjectId === subject.id);
+                    const subjectQuestionCount = learnerQuestions.filter((question) => question.subjectId === subject.id).length;
                     const done = subjectQuestion ? answered[subjectQuestion.id] === true : false;
                     return (
                       <motion.button key={subject.id} className="subject-card" onClick={() => openSubject(subject.id)} style={{ "--subject-color": subject.color, "--subject-tint": subject.tint } as React.CSSProperties} whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }}>
                         <div className="subject-card-top"><span className="subject-emoji">{subject.icon}</span><span className="subject-number">0{index + 1}</span></div>
                         <h3>{subject.name}</h3>
                         <p>{subject.description}</p>
-                        <div className="subject-card-bottom"><span>{done ? "1 soal contoh selesai" : "1 soal contoh tersedia"}</span><span className="subject-arrow"><ChevronRight size={17} /></span></div>
+                        <div className="subject-card-bottom"><span>{subjectQuestionCount ? `${subjectQuestionCount} soal tersedia` : "Soal sedang disiapkan"}</span><span className="subject-arrow"><ChevronRight size={17} /></span></div>
                         <div className="subject-progress"><span style={{ width: done ? "100%" : "8%" }} /></div>
                       </motion.button>
                     );
@@ -310,11 +313,11 @@ export default function LearningDashboard() {
               </div>
               <div className="topic-list">
                 {focusTopics.map((topic, index) => {
-                  const relatedQuestion = focusQuestions.find((question) => question.topicId === topic.id);
+                  const relatedQuestions = focusQuestions.filter((question) => question.topicId === topic.id);
                   return <article className="topic-row" key={topic.id}>
                     <span className="topic-index" style={{ color: subjectById(focusSubject).color, background: subjectById(focusSubject).tint }}>{String(index + 1).padStart(2, "0")}</span>
                     <div className="topic-copy"><p>{topic.chapter}</p><h3>{topic.title}</h3><span>{topic.objective}</span></div>
-                    {relatedQuestion ? <button className="topic-action" onClick={() => startQuiz("Latihan topik", focusSubject, topic.id)}>Coba soal <ArrowRight size={15} /></button> : <span className="topic-coming">Soal belum tersedia</span>}
+                    {relatedQuestions.length ? <button className="topic-action" onClick={() => startQuiz("Latihan topik", focusSubject, topic.id)}>Latihan {relatedQuestions.length} soal <ArrowRight size={15} /></button> : <span className="topic-coming">Soal belum tersedia</span>}
                   </article>;
                 })}
               </div>

@@ -1,0 +1,2889 @@
+[
+  {
+    "id": "q-mtk-place-value-001",
+    "subjectId": "matematika",
+    "topicId": "mtk-bilangan",
+    "stem": "Pada bilangan 6.482, angka 4 menempati nilai tempat …",
+    "choices": [
+      "puluhan",
+      "ratusan",
+      "ribuan",
+      "satuan"
+    ],
+    "answerIndex": 1,
+    "explanation": "Pada 6.482, angka 4 berada di tempat ratusan, jadi nilainya 400.",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 1 · nilai tempat; tujuan Bab 1 tercantum pada hlm. 2–3.",
+    "type": "multiple-choice",
+    "reviewStatus": "needs_teacher_review",
+    "learnerAvailability": "available"
+  },
+  {
+    "id": "q-indo-persuasif-001",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-meliuk",
+    "stem": "Kalimat ‘Ayo, gunakan jalur penyeberangan!’ bertujuan untuk …",
+    "choices": [
+      "mengajak pembaca melakukan sesuatu",
+      "menyebutkan nama tokoh",
+      "menceritakan urutan kejadian",
+      "menjelaskan arti kata"
+    ],
+    "answerIndex": 0,
+    "explanation": "Kalimat itu memakai kata ‘Ayo’ untuk mengajak pembaca melakukan sesuatu. Bab 4 memuat pembahasan kalimat persuasif.",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Bab 4 · Meliuk dan Menerjang; tujuan bab tercantum pada hlm. 70–71.",
+    "type": "multiple-choice",
+    "reviewStatus": "needs_teacher_review",
+    "learnerAvailability": "available"
+  },
+  {
+    "id": "q-ipas-energy-001",
+    "subjectId": "ipas",
+    "topicId": "ipas-energi",
+    "stem": "Kipas angin dinyalakan. Energi listrik membuat baling-baling bergerak. Perubahan energi yang tampak adalah energi listrik menjadi energi …",
+    "choices": [
+      "gerak",
+      "bunyi saja",
+      "cahaya",
+      "panas saja"
+    ],
+    "answerIndex": 0,
+    "explanation": "Baling-baling yang bergerak menunjukkan perubahan energi listrik menjadi energi gerak, sesuai topik perubahan energi di sekitar kita.",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab I · Mengubah Bentuk Energi, subbab Perubahan Energi di Sekitar Kita.",
+    "type": "multiple-choice",
+    "reviewStatus": "needs_teacher_review",
+    "learnerAvailability": "available"
+  },
+  {
+    "id": "q-pancasila-duty-001",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-disiplin",
+    "stem": "Raka mendapat jadwal piket kelas. Ia menyapu kelas sesuai gilirannya. Tindakan Raka menunjukkan …",
+    "choices": [
+      "hak untuk memilih aturan",
+      "kewajiban yang dilaksanakan",
+      "perbedaan identitas",
+      "hak memakai fasilitas"
+    ],
+    "answerIndex": 1,
+    "explanation": "Raka menjalankan tugas sesuai jadwal. Itu contoh kewajiban yang dilaksanakan di lingkungan sekolah.",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Buku Siswa Bab 2 · Aku Anak yang Disiplin, subbab Mendapatkan Hak dan Melakukan Kewajiban.",
+    "type": "multiple-choice",
+    "reviewStatus": "needs_teacher_review",
+    "learnerAvailability": "available"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "6.092",
+      "6.209",
+      "6.029",
+      "6.902"
+    ],
+    "explanation": "Kedua bilangan memiliki 6 ribuan. Pada tempat ratusan, 6.209 memiliki 2 ratusan, sedangkan 6.092 tidak memiliki ratusan, jadi 6.209 lebih besar.",
+    "id": "q-mtk-bilangan-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 1 · membandingkan bilangan",
+    "stem": "Manakah bilangan yang lebih besar: 6.209 atau 6.092?",
+    "subjectId": "matematika",
+    "topicId": "mtk-bilangan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "3.405, 3.450, 3.504, 3.540",
+      "3.450, 3.405, 3.540, 3.504",
+      "3.405, 3.504, 3.450, 3.540",
+      "3.540, 3.504, 3.450, 3.405"
+    ],
+    "explanation": "Bandingkan nilai tempat dari kiri ke kanan. Urutan naiknya adalah 3.405, 3.450, 3.504, lalu 3.540.",
+    "id": "q-mtk-bilangan-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 1 · mengurutkan bilangan",
+    "stem": "Urutkan bilangan 3.450, 3.405, 3.540, dan 3.504 dari yang terkecil ke terbesar.",
+    "subjectId": "matematika",
+    "topicId": "mtk-bilangan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "3.058",
+      "3.508",
+      "3.580",
+      "5.308"
+    ],
+    "explanation": "Tiga ribuan bernilai 3.000, lima ratusan bernilai 500, nol puluhan bernilai 0, dan delapan satuan bernilai 8. Jika disusun, hasilnya 3.508.",
+    "id": "q-mtk-bilangan-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 1 · menyusun bilangan berdasarkan nilai tempat",
+    "stem": "Bilangan apa yang tersusun dari 3 ribuan, 5 ratusan, 0 puluhan, dan 8 satuan?",
+    "subjectId": "matematika",
+    "topicId": "mtk-bilangan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "9.000 + 600 + 3",
+      "9.000 + 60 + 3",
+      "9.000 + 6 + 3",
+      "900 + 60 + 3"
+    ],
+    "explanation": "Bilangan 9.063 terdiri dari 9 ribuan, 0 ratusan, 6 puluhan, dan 3 satuan. Jadi, bentuk uraiannya adalah 9.000 + 60 + 3.",
+    "id": "q-mtk-bilangan-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 1 · mengurai bilangan berdasarkan nilai tempat",
+    "stem": "Bentuk uraian yang tepat untuk bilangan 9.063 adalah …",
+    "subjectId": "matematika",
+    "topicId": "mtk-bilangan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "1/6",
+      "5/6",
+      "6/1",
+      "1/5"
+    ],
+    "explanation": "Satu dari enam bagian sama besar ditulis 1/6. Pembilangnya satu, sesuai pengenalan pecahan berpembilang satu.",
+    "id": "q-mtk-pecahan-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 2 · Pecahan",
+    "stem": "Sebuah kertas dibagi menjadi 6 bagian sama besar. Jika 1 bagian diwarnai, pecahan bagian yang diwarnai adalah …",
+    "subjectId": "matematika",
+    "topicId": "mtk-pecahan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "2/7",
+      "5/7",
+      "3/7",
+      "Semua sama besar"
+    ],
+    "explanation": "Penyebutnya sama, yaitu 7. Jika penyebut sama, bagian dengan pembilang lebih besar menunjukkan pecahan lebih besar; jadi 5/7 paling besar.",
+    "id": "q-mtk-pecahan-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 2 · Pecahan",
+    "stem": "Dari pecahan 2/7, 5/7, dan 3/7, manakah yang nilainya paling besar?",
+    "subjectId": "matematika",
+    "topicId": "mtk-pecahan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "2/3",
+      "2/4",
+      "3/4",
+      "1/4"
+    ],
+    "explanation": "Satu dari dua bagian sama besar menunjukkan nilai yang sama dengan dua dari empat bagian sama besar. Jadi, 1/2 senilai dengan 2/4.",
+    "id": "q-mtk-pecahan-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 2 · Pecahan",
+    "stem": "Pecahan yang nilainya sama dengan 1/2 adalah …",
+    "subjectId": "matematika",
+    "topicId": "mtk-pecahan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "0,7",
+      "0,07",
+      "7,0",
+      "0,17"
+    ],
+    "explanation": "Tujuh per sepuluh berarti tujuh angka persepuluh, sehingga ditulis 0,7. Ini mengenali bentuk desimal dari pecahan berpenyebut sepuluh.",
+    "id": "q-mtk-pecahan-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 2 · Pecahan",
+    "stem": "Dalam bentuk desimal, pecahan 7/10 ditulis …",
+    "subjectId": "matematika",
+    "topicId": "mtk-pecahan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "25%",
+      "2,5%",
+      "75%",
+      "50%"
+    ],
+    "explanation": "Persen berarti bagian dari seratus. Sebanyak 25 dari 100 kotak ditulis 25%, yang merupakan bentuk persen untuk bagian tersebut.",
+    "id": "q-mtk-pecahan-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 2 · Pecahan",
+    "stem": "Dari 100 kotak pada sebuah gambar, 25 kotak diwarnai. Bagian yang diwarnai sama dengan …",
+    "subjectId": "matematika",
+    "topicId": "mtk-pecahan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "15",
+      "16",
+      "17",
+      "18"
+    ],
+    "explanation": "Bilangan bertambah 3 setiap langkah: 4, 7, 10, 13. Jadi, bilangan berikutnya adalah 13 + 3 = 16.",
+    "id": "q-mtk-pola-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 3 · Pola Gambar dan Pola Bilangan",
+    "stem": "Perhatikan pola bilangan: 4, 7, 10, 13, .... Bilangan berikutnya adalah ....",
+    "subjectId": "matematika",
+    "topicId": "mtk-pola",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 2,
+    "choices": [
+      "10",
+      "12",
+      "14",
+      "16"
+    ],
+    "explanation": "Bilangan berkurang 4 setiap langkah. Setelah 18, pola berlanjut ke 18 − 4 = 14.",
+    "id": "q-mtk-pola-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 3 · Pola Gambar dan Pola Bilangan",
+    "stem": "Pola bilangan pada kartu adalah 30, 26, 22, 18, .... Bilangan berikutnya adalah ....",
+    "subjectId": "matematika",
+    "topicId": "mtk-pola",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "6 bintang",
+      "7 bintang",
+      "8 bintang",
+      "9 bintang"
+    ],
+    "explanation": "Jumlah bintang bertambah 2 pada setiap gambar: 1, 3, lalu 5. Gambar berikutnya memiliki 5 + 2 = 7 bintang.",
+    "id": "q-mtk-pola-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 3 · Pola Gambar dan Pola Bilangan",
+    "stem": "Pola gambar bintang adalah ★ | ★★★ | ★★★★★ | .... Berapa banyak bintang pada gambar berikutnya?",
+    "subjectId": "matematika",
+    "topicId": "mtk-pola",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 2,
+    "choices": [
+      "20",
+      "21",
+      "22",
+      "24"
+    ],
+    "explanation": "Setiap bilangan bertambah 4 dari bilangan sebelumnya. Maka setelah 18 adalah 18 + 4 = 22.",
+    "id": "q-mtk-pola-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 3 · Pola Gambar dan Pola Bilangan",
+    "stem": "Sebuah pola bilangan dimulai dengan 6, 10, 14, 18, .... Bilangan berikutnya adalah ....",
+    "subjectId": "matematika",
+    "topicId": "mtk-pola",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "0 lingkaran",
+      "1 lingkaran",
+      "2 lingkaran",
+      "3 lingkaran"
+    ],
+    "explanation": "Jumlah lingkaran berkurang 2 setiap langkah: 7, 5, lalu 3. Jadi gambar berikutnya memiliki 3 − 2 = 1 lingkaran.",
+    "id": "q-mtk-pola-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 3 · Pola Gambar dan Pola Bilangan",
+    "stem": "Jumlah lingkaran pada pola gambar adalah ●●●●●●● | ●●●●● | ●●● | .... Berapa banyak lingkaran pada gambar berikutnya?",
+    "subjectId": "matematika",
+    "topicId": "mtk-pola",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "9 petak satuan",
+      "20 petak satuan",
+      "15 petak satuan",
+      "25 petak satuan"
+    ],
+    "explanation": "Ada 4 baris dengan 5 petak pada setiap baris, jadi jumlah petaknya 4 × 5 = 20. Luas dinyatakan dengan banyaknya petak satuan yang menutupi permukaan.",
+    "id": "q-mtk-pengukuran-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 4 · Pengukuran Luas dan Volume",
+    "stem": "Untuk menutup papan pajangan, Sita menyusun petak satuan dalam 4 baris. Setiap baris berisi 5 petak. Berapa luas papan yang tertutup?",
+    "subjectId": "matematika",
+    "topicId": "mtk-pengukuran",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Menyusun petak rapat menutupi permukaan tanpa celah atau tumpang tindih",
+      "Menyusun petak hanya di sepanjang tepi meja",
+      "Menumpuk petak setinggi mungkin di tengah meja",
+      "Mengukur banyaknya sudut meja dengan petak"
+    ],
+    "explanation": "Luas permukaan dapat diukur dengan menutupinya menggunakan petak satuan. Petak perlu disusun rapat agar seluruh permukaan terhitung tanpa celah atau hitungan ganda.",
+    "id": "q-mtk-pengukuran-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 4 · Pengukuran Luas dan Volume",
+    "stem": "Danu ingin mengukur luas permukaan meja memakai petak-petak satuan yang sama besar. Cara manakah yang paling tepat?",
+    "subjectId": "matematika",
+    "topicId": "mtk-pengukuran",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "10 petak satuan",
+      "24 petak satuan",
+      "18 petak satuan",
+      "30 petak satuan"
+    ],
+    "explanation": "Perkiraannya 6 baris × sekitar 4 petak per baris, yaitu sekitar 24 petak satuan. Ini merupakan estimasi luas dengan menghitung petak satuan yang menutupi permukaan.",
+    "id": "q-mtk-pengukuran-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 4 · Pengukuran Luas dan Volume",
+    "stem": "Sebuah alas diperkirakan tertutup sekitar 6 baris petak satuan, dengan kira-kira 4 petak pada setiap baris. Berapa perkiraan luas alas itu?",
+    "subjectId": "matematika",
+    "topicId": "mtk-pengukuran",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 2,
+    "choices": [
+      "12 kubus satuan",
+      "20 kubus satuan",
+      "24 kubus satuan",
+      "10 kubus satuan"
+    ],
+    "explanation": "Setiap lapisan berisi 3 × 4 = 12 kubus. Dua lapisan berisi 2 × 12 = 24 kubus satuan, sehingga volumenya 24 kubus satuan.",
+    "id": "q-mtk-pengukuran-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 4 · Pengukuran Luas dan Volume",
+    "stem": "Kotak mainan tersusun dari kubus satuan. Ada 2 lapisan, dan pada setiap lapisan tersusun 3 baris dengan 4 kubus di setiap baris. Berapa volume kotak itu?",
+    "subjectId": "matematika",
+    "topicId": "mtk-pengukuran",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "8 kubus satuan",
+      "16 kubus satuan",
+      "12 kubus satuan",
+      "20 kubus satuan"
+    ],
+    "explanation": "Wadah terisi penuh oleh 16 kubus satuan tanpa celah, jadi volumenya terukur sebesar 16 kubus satuan. Banyaknya kubus satuan yang mengisi wadah digunakan untuk menyatakan volume.",
+    "id": "q-mtk-pengukuran-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022"
+    ],
+    "sourceLocator": "Bab 4 · Pengukuran Luas dan Volume",
+    "stem": "Mira mengisi sebuah wadah hingga penuh dengan 16 kubus satuan yang sama besar, tanpa celah. Berapa volume wadah yang terukur?",
+    "subjectId": "matematika",
+    "topicId": "mtk-pengukuran",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Bentuk tertutup dengan paling sedikit tiga sisi berupa garis lurus",
+      "Bentuk terbuka yang dibatasi tiga ruas garis",
+      "Bentuk tertutup yang seluruh sisinya melengkung",
+      "Bentuk tertutup yang hanya memiliki dua sisi garis lurus"
+    ],
+    "explanation": "Segi banyak adalah bentuk tertutup yang dibatasi paling sedikit tiga ruas garis. Ciri ini membantu kita mendeskripsikan bangun datar.",
+    "id": "q-mtk-bangun-datar-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022"
+    ],
+    "sourceLocator": "Bab 5 · A. Ciri-Ciri Bangun Datar · 1. Segi Banyak",
+    "stem": "Bangun datar manakah yang termasuk segi banyak?",
+    "subjectId": "matematika",
+    "topicId": "mtk-bangun-datar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "segitiga sama sisi",
+      "segitiga sama kaki",
+      "segitiga sembarang",
+      "segiempat"
+    ],
+    "explanation": "Segitiga sama sisi memiliki semua sisi yang sama panjang. Ciri panjang sisi ini membedakannya dari jenis segitiga lainnya.",
+    "id": "q-mtk-bangun-datar-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022"
+    ],
+    "sourceLocator": "Bab 5 · A. Ciri-Ciri Bangun Datar · Segitiga berdasarkan panjang sisi",
+    "stem": "Sebuah segitiga memiliki tiga sisi yang sama panjang. Segitiga itu disebut …",
+    "subjectId": "matematika",
+    "topicId": "mtk-bangun-datar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "segitiga",
+      "segiempat",
+      "segilima",
+      "segienam"
+    ],
+    "explanation": "Segiempat memiliki empat sisi dan empat sudut. Jumlah sisi dan sudut menjadi ciri untuk mengenali bangun datar ini.",
+    "id": "q-mtk-bangun-datar-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022"
+    ],
+    "sourceLocator": "Bab 5 · A. Ciri-Ciri Bangun Datar · 1. Segi Banyak",
+    "stem": "Sebuah bangun tertutup memiliki empat sisi lurus dan empat sudut. Bangun itu disebut …",
+    "subjectId": "matematika",
+    "topicId": "mtk-bangun-datar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "mengurai bangun datar",
+      "menyusun atau mengomposisi bangun datar",
+      "mengukur bangun datar",
+      "mengelompokkan bilangan"
+    ],
+    "explanation": "Menggabungkan beberapa bangun datar untuk membentuk bentuk baru disebut komposisi. Kegiatan Lala menunjukkan cara menyusun bangun datar.",
+    "id": "q-mtk-bangun-datar-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022"
+    ],
+    "sourceLocator": "Bab 5 · B. Komposisi dan Dekomposisi Bangun Datar · 1. Komposisi Bangun Datar",
+    "stem": "Lala merangkai beberapa potongan bangun datar hingga membentuk gambar perahu. Kegiatan Lala disebut …",
+    "subjectId": "matematika",
+    "topicId": "mtk-bangun-datar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "komposisi bangun datar",
+      "dekomposisi atau mengurai bangun datar",
+      "mengukur panjang sisi",
+      "membuat pola bilangan"
+    ],
+    "explanation": "Mengurai satu bangun datar menjadi beberapa bagian disebut dekomposisi. Kegiatan Bima menggunakan cara mengurai bentuk.",
+    "id": "q-mtk-bangun-datar-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022"
+    ],
+    "sourceLocator": "Bab 5 · B. Komposisi dan Dekomposisi Bangun Datar · Dekomposisi Bangun Datar",
+    "stem": "Bima membagi satu bangun datar menjadi beberapa bagian bangun datar yang lebih kecil. Kegiatan Bima disebut …",
+    "subjectId": "matematika",
+    "topicId": "mtk-bangun-datar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "2 buku",
+      "4 buku",
+      "6 buku",
+      "10 buku"
+    ],
+    "explanation": "Kelas A membaca 3 × 2 = 6 buku, sedangkan Kelas B membaca 5 × 2 = 10 buku. Selisihnya 10 − 6 = 4 buku.",
+    "id": "q-mtk-data-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 6 · Piktogram dan Diagram Batang",
+    "stem": "Pada piktogram jumlah buku yang dibaca, 1 gambar buku mewakili 2 buku. Kelas A mendapat 3 gambar buku dan Kelas B mendapat 5 gambar buku. Berapa buku lebih banyak yang dibaca Kelas B?",
+    "subjectId": "matematika",
+    "topicId": "mtk-data",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 2,
+    "choices": [
+      "6 botol",
+      "12 botol",
+      "18 botol",
+      "24 botol"
+    ],
+    "explanation": "Ada 2 + 4 = 6 gambar botol. Karena setiap gambar mewakili 3 botol, jumlahnya 6 × 3 = 18 botol.",
+    "id": "q-mtk-data-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 6 · Piktogram dan Diagram Batang",
+    "stem": "Pada piktogram pengumpulan botol, 1 gambar botol mewakili 3 botol. Hari Rabu terkumpul 2 gambar dan hari Kamis 4 gambar. Berapa jumlah botol yang terkumpul selama dua hari itu?",
+    "subjectId": "matematika",
+    "topicId": "mtk-data",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 2,
+    "choices": [
+      "3 buku",
+      "4 buku",
+      "6 buku",
+      "13 buku"
+    ],
+    "explanation": "Data menunjukkan 6 buku sains. Jadi, batang untuk kategori sains harus mencapai nilai 6 pada diagram.",
+    "id": "q-mtk-data-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 6 · Piktogram dan Diagram Batang",
+    "stem": "Data buku yang dipinjam di kelas adalah: cerita 4 buku, sains 6 buku, dan komik 3 buku. Jika dibuat diagram batang dengan tinggi batang menunjukkan banyak buku, berapa tinggi batang untuk buku sains?",
+    "subjectId": "matematika",
+    "topicId": "mtk-data",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "Senin",
+      "Selasa",
+      "Rabu",
+      "Senin dan Rabu"
+    ],
+    "explanation": "Nilai terbesar pada diagram adalah 8, yaitu pada hari Selasa. Jadi, tanaman paling banyak disiram pada hari Selasa.",
+    "id": "q-mtk-data-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 6 · Piktogram dan Diagram Batang",
+    "stem": "Diagram batang menunjukkan jumlah tanaman yang disiram: Senin 5, Selasa 8, dan Rabu 6. Pada hari apa jumlah tanaman yang disiram paling banyak?",
+    "subjectId": "matematika",
+    "topicId": "mtk-data",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "3 siswa",
+      "5 siswa",
+      "6 siswa",
+      "13 siswa"
+    ],
+    "explanation": "Diagram menunjukkan 9 siswa berjalan kaki dan 4 siswa diantar mobil. Selisihnya adalah 9 − 4 = 5 siswa.",
+    "id": "q-mtk-data-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "matematika-bs-2022",
+      "matematika-bg-2022",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 6 · Piktogram dan Diagram Batang",
+    "stem": "Pada diagram batang cara berangkat ke sekolah, jumlah siswa yang berjalan kaki 9, bersepeda 6, dan diantar mobil 4. Berapa selisih jumlah siswa yang berjalan kaki dan yang diantar mobil?",
+    "subjectId": "matematika",
+    "topicId": "mtk-data",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Mira kesulitan mengikuti irama lagu.",
+      "Mira tidak mau berlatih bersama temannya.",
+      "Mira lupa membawa undangan pentas.",
+      "Mira sudah dapat bermain dengan lancar sejak awal."
+    ],
+    "explanation": "Masalah tokoh adalah kesulitan yang dihadapi dalam cerita. Mira awalnya kesulitan mengikuti irama, lalu berlatih untuk mengatasinya.",
+    "id": "q-indo-sudah-besar-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 1 · Sudah Besar; memahami permasalahan tokoh dalam cerita narasi.",
+    "stem": "Saat latihan pentas, Mira kesulitan mengikuti irama lagu. Ia meminta bantuan temannya dan berlatih setiap sore. Beberapa hari kemudian, Mira dapat bermain lebih lancar. Apa masalah yang dihadapi Mira pada awal cerita?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-sudah-besar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Saudara yang memiliki kakek atau nenek yang sama.",
+      "Teman yang tinggal di rumah sebelah.",
+      "Orang dewasa yang menjadi wali anak.",
+      "Saudara kandung yang lahir pada hari yang sama."
+    ],
+    "explanation": "Sepupu adalah saudara senenek atau saudara misan. Memahami kata baru seperti ini membantu pembaca memahami cerita.",
+    "id": "q-indo-sudah-besar-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 1 · Sudah Besar; kosakata baru dalam cerita.",
+    "stem": "Pada acara keluarga, Bima bermain dengan Sari, anak dari bibinya. Dalam cerita, Bima menyebut Sari sebagai sepupunya. Apa arti kata sepupu?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-sudah-besar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Karena kata “tanaman” menjadi objek dari tindakan menyiram.",
+      "Karena kalimat itu tidak memiliki predikat.",
+      "Karena kalimat itu tidak memerlukan objek.",
+      "Karena kata “Tio” menjadi keterangan tempat."
+    ],
+    "explanation": "Kalimat transitif memerlukan objek. Dalam kalimat ini, “tanaman” adalah objek yang dikenai tindakan menyiram.",
+    "id": "q-indo-sudah-besar-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 1 · Sudah Besar; Kalimat Transitif dan Intransitif.",
+    "stem": "Perhatikan kalimat: “Tio menyiram tanaman.” Mengapa kalimat tersebut termasuk kalimat transitif?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-sudah-besar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Dara tersenyum.",
+      "Dara menyiram bunga.",
+      "Dara membawa tas.",
+      "Dara menutup pintu."
+    ],
+    "explanation": "Kalimat intransitif tidak memerlukan objek. “Dara tersenyum” sudah lengkap tanpa objek, sedangkan pilihan lain memiliki objek.",
+    "id": "q-indo-sudah-besar-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 1 · Sudah Besar; Kalimat Transitif dan Intransitif.",
+    "stem": "Kalimat manakah yang merupakan kalimat intransitif?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-sudah-besar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Ia menjadi lebih percaya diri untuk berbicara.",
+      "Rambutnya menjadi lebih panjang.",
+      "Ia berpindah tempat duduk.",
+      "Ia tidak lagi mengikuti pelajaran."
+    ],
+    "explanation": "Riko berubah dari malu menjadi berani menyampaikan pendapat. Ini contoh perubahan diri yang tidak terlihat secara fisik.",
+    "id": "q-indo-sudah-besar-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 1 · Sudah Besar; perubahan diri, termasuk perubahan yang tidak terlihat.",
+    "stem": "Tahun lalu, Riko malu menyampaikan pendapat di kelas. Sekarang, ia berani memberi saran saat berdiskusi. Perubahan apakah yang dialami Riko?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-sudah-besar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Sita merapikan ruang keluarga agar nyaman digunakan.",
+      "Sita membeli bantal baru untuk ruang keluarga.",
+      "Sita membaca buku sepanjang pagi.",
+      "Sita menutup jendela sebelum berangkat."
+    ],
+    "explanation": "Teks menceritakan beberapa hal yang dilakukan Sita untuk merapikan ruang keluarga. Itulah ide pokoknya; pilihan lain tidak sesuai dengan isi teks.",
+    "id": "q-indo-di-bawah-atap-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 2 · Di Bawah Atap; tujuan belajar memahami ide pokok teks yang dibacakan. Stimulus dirumuskan baru.",
+    "stem": "Dengarkan teks berikut: ‘Setiap pagi, Sita membuka jendela ruang keluarga. Setelah itu, ia merapikan bantal dan mengembalikan buku ke rak. Ia senang melihat ruang itu nyaman untuk digunakan bersama.’ Apa ide pokok teks tersebut?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-di-bawah-atap",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Cukup gelap karena kurang cahaya",
+      "Sangat ramai oleh banyak orang",
+      "Terasa sejuk karena angin",
+      "Penuh dengan barang-barang"
+    ],
+    "explanation": "Keterangan bahwa benda masih terlihat tetapi tidak jelas karena cahaya sedikit membantu menjelaskan kata remang. Dalam teks ini, remang berarti agak gelap atau kurang terang.",
+    "id": "q-indo-di-bawah-atap-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 2 · Di Bawah Atap; tujuan belajar membaca kata baru. Stimulus dirumuskan baru.",
+    "stem": "Bacalah teks berikut: ‘Saat listrik padam, ruang tengah menjadi remang. Benda-benda masih terlihat, tetapi bentuknya tidak jelas karena cahaya sangat sedikit.’ Apa arti kata remang pada teks?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-di-bawah-atap",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Danu pulang sekolah, memungut dan menyusun buku, lalu menaruhnya di rak.",
+      "Danu mengambil buku dari rak, lalu meninggalkannya di lantai.",
+      "Danu membaca buku di sekolah sebelum pulang.",
+      "Danu merapikan rak, kemudian mengeluarkan semua buku."
+    ],
+    "explanation": "Pilihan pertama menceritakan kembali tindakan Danu sesuai urutan dalam teks: pulang, memungut dan menyusun buku, lalu menaruhnya di rak. Ini melatih menceritakan kembali informasi yang didengar.",
+    "id": "q-indo-di-bawah-atap-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 2 · Di Bawah Atap; tujuan belajar menceritakan kembali informasi. Stimulus dirumuskan baru.",
+    "stem": "Dengarkan teks berikut: ‘Sepulang sekolah, Danu melihat beberapa buku di lantai. Ia memungut buku-buku itu, menyusunnya, lalu meletakkannya di rak.’ Cerita ulang manakah yang menyampaikan informasi dengan urutan tepat?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-di-bawah-atap",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Keluarga Lila bekerja bersama membersihkan rumah.",
+      "Lila mengelap meja pada hari sekolah.",
+      "Ayah sedang mencari sapu baru.",
+      "Ibu membaca buku di halaman."
+    ],
+    "explanation": "Kegiatan menyapu, mengelap meja, dan merapikan buku merupakan contoh kerja bersama membersihkan rumah. Gagasan itu merangkum isi teks yang dibacakan.",
+    "id": "q-indo-di-bawah-atap-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 2 · Di Bawah Atap; tujuan belajar memahami ide pokok teks yang dibacakan. Stimulus dirumuskan baru.",
+    "stem": "Dengarkan teks berikut: ‘Pada hari Minggu, keluarga Lila membersihkan rumah bersama. Ayah menyapu halaman, Lila mengelap meja, dan Ibu merapikan buku. Setelah selesai, mereka beristirahat bersama.’ Apa ide pokok teks tersebut?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-di-bawah-atap",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Mira menyiapkan gelas, Kakak menuangkan air, lalu mereka minum bersama.",
+      "Mira mencuci gelas setelah semua orang pergi.",
+      "Kakak menyiapkan meja, lalu Mira pergi bermain.",
+      "Ayah menuangkan air dan menyimpan semua gelas."
+    ],
+    "explanation": "Pilihan pertama menyampaikan rangkaian informasi utama tanpa mengubah siapa yang melakukan setiap tindakan. Memilih ringkasan yang tepat membantu menceritakan kembali isi bacaan.",
+    "id": "q-indo-di-bawah-atap-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 2 · Di Bawah Atap; tujuan belajar menceritakan kembali informasi. Stimulus dirumuskan baru.",
+    "stem": "Bacalah teks berikut: ‘Mira menyiapkan tiga gelas di meja. Kakak menuangkan air, lalu Mira membagikan gelas kepada Ayah, Ibu, dan Kakak. Mereka minum bersama.’ Ringkasan mana yang menceritakan kembali informasi penting dengan tepat?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-di-bawah-atap",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Melihat tanda panah, kemudian menulis nama tempat yang ditunjuk",
+      "Menulis nama tempat sebelum melihat denah",
+      "Menggambar tanda panah baru tanpa membaca denah",
+      "Menceritakan pengalaman berlibur kepada teman"
+    ],
+    "explanation": "Instruksi meminta dua langkah: melihat tanda panah pada denah, lalu menulis nama tempat yang ditunjuk. Jawaban mengikuti urutan instruksi.",
+    "id": "q-indo-lihat-sekitar-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 3 · Lihat Sekitar; tujuan belajar memahami instruksi.",
+    "stem": "Mira membaca instruksi: “Lihat tanda panah pada denah, lalu tulis nama tempat yang ditunjuk.” Apa yang sebaiknya Mira lakukan?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-lihat-sekitar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Mendengarkan sampai Dito selesai, lalu menyampaikan tanggapan dengan sopan",
+      "Memotong pembicaraan agar pendapatnya didengar lebih dulu",
+      "Mengulang pendapat sendiri tanpa memperhatikan topik",
+      "Meninggalkan kelompok saat teman berbicara"
+    ],
+    "explanation": "Dalam diskusi, Rani berpartisipasi dengan mendengarkan dan menanggapi secara sopan. Tanggapannya juga perlu berkaitan dengan pembicaraan.",
+    "id": "q-indo-lihat-sekitar-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 3 · Lihat Sekitar; tujuan belajar berpartisipasi dalam diskusi.",
+    "stem": "Saat diskusi kelompok, Rani ingin menanggapi pendapat Dito. Sikap yang paling tepat adalah …",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-lihat-sekitar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Menurutku, taman sekolah perlu dirawat karena menjadi tempat nyaman untuk beristirahat.",
+      "Taman sekolah berada di sebelah ruang kelas.",
+      "Di taman itu ada bangku panjang dan dua pot bunga.",
+      "Kemarin aku berjalan melewati taman sekolah."
+    ],
+    "explanation": "Kalimat itu menyatakan pendapat tentang taman dan memberikan alasan. Ciri tersebut sesuai dengan tujuan mengenali teks argumentasi.",
+    "id": "q-indo-lihat-sekitar-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 3 · Lihat Sekitar; tujuan belajar mengenali teks argumentasi.",
+    "stem": "Manakah kalimat yang paling jelas menyatakan pendapat disertai alasan?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-lihat-sekitar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Menggambarkan keadaan sudut kelas dengan rincian",
+      "Mengajak teman merapikan buku dengan alasan",
+      "Menceritakan urutan kejadian saat pulang sekolah",
+      "Memberi petunjuk arah menuju ruang kelas"
+    ],
+    "explanation": "Tulisan Lina menyebutkan keadaan dan rincian yang dapat dibayangkan pembaca. Itu menunjukkan tujuan teks deskripsi.",
+    "id": "q-indo-lihat-sekitar-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 3 · Lihat Sekitar; tujuan belajar mengenali teks deskripsi.",
+    "stem": "Lina menulis: “Di sudut kelas ada rak kayu kecil. Di atasnya tersusun buku-buku berwarna-warni.” Tujuan utama tulisan Lina adalah …",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-lihat-sekitar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Menurut saya, halaman perlu dijaga bersih agar nyaman digunakan bersama.",
+      "Halaman sekolah memiliki pohon di dekat pagar.",
+      "Saya pernah bermain di halaman pada hari Senin.",
+      "Pertama, berjalanlah lurus menuju halaman."
+    ],
+    "explanation": "Pilihan pertama menyatakan pendapat dan alasan yang mendukungnya, sehingga sesuai dengan teks argumentasi. Kalimat itu juga relevan dengan topik diskusi.",
+    "id": "q-indo-lihat-sekitar-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 3 · Lihat Sekitar; tujuan belajar berpartisipasi dalam diskusi dan mengenali teks argumentasi.",
+    "stem": "Kelompok B berdiskusi tentang menjaga kebersihan halaman. Kalimat manakah yang paling sesuai untuk menyampaikan pendapat beserta alasan?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-lihat-sekitar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Mereka memulai latihan dengan pemanasan.",
+      "Mereka akan berlibur bersama.",
+      "Mereka sedang memilih nama tim.",
+      "Mereka menonton pentas kelas lain."
+    ],
+    "explanation": "Kalimat tentang pemanasan menjelaskan salah satu kegiatan dalam latihan tim. Jadi, kalimat itu merupakan informasi pendukung bagi ide pokok paragraf.",
+    "id": "q-indo-meliuk-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 4 · Meliuk dan Menerjang (tujuan belajar: menemukan informasi pendukung).",
+    "stem": "Berdasarkan paragraf pada soal sebelumnya, informasi manakah yang mendukung ide pokok tentang latihan tim kelas 4?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-meliuk",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Bagaimana kelompokmu memilih gerakan untuk pentas?",
+      "Apa makanan kesukaanmu di rumah?",
+      "Di mana kamu membeli sepatu sekolah?",
+      "Kapan kamu terakhir menonton televisi?"
+    ],
+    "explanation": "Pertanyaan tentang cara kelompok memilih gerakan sesuai dengan topik latihan gerak untuk pentas. Pertanyaan wawancara sebaiknya berkaitan dengan hal yang ingin diketahui.",
+    "id": "q-indo-meliuk-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 4 · Meliuk dan Menerjang (tujuan belajar: melakukan wawancara).",
+    "stem": "Sari akan mewawancarai teman yang ikut latihan gerak untuk pentas. Pertanyaan manakah yang paling sesuai dengan topik wawancara itu?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-meliuk",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Mengapa kamu senang mengikuti latihan gerak?",
+      "Apakah kamu ikut latihan?",
+      "Kamu datang hari ini, bukan?",
+      "Latihan dimulai pukul berapa?"
+    ],
+    "explanation": "Pertanyaan yang dimulai dengan “Mengapa” meminta alasan, sehingga teman dapat menjelaskan jawabannya. Ini membantu Doni memperoleh informasi melalui wawancara.",
+    "id": "q-indo-meliuk-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 4 · Meliuk dan Menerjang (tujuan belajar: melakukan wawancara).",
+    "stem": "Doni ingin mengetahui alasan temannya menyukai latihan gerak. Pertanyaan wawancara manakah yang paling membantu Doni mendapatkan penjelasan?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-meliuk",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Ayo, berlatih gerak bersama setelah pelajaran!",
+      "Latihan gerak dimulai setelah pelajaran.",
+      "Kelompok itu berlatih di aula.",
+      "Gerakannya tampak rapi dan serasi."
+    ],
+    "explanation": "Kalimat pertama memakai kata “Ayo” untuk mengajak teman melakukan kegiatan. Kalimat persuasif digunakan untuk membujuk atau mengajak.",
+    "id": "q-indo-meliuk-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 4 · Meliuk dan Menerjang (tujuan belajar: mengenali kalimat persuasif).",
+    "stem": "Kalimat manakah yang bersifat persuasif karena mengajak teman melakukan sesuatu?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-meliuk",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Rani mengajak bertukar barang dan meminta persetujuan.",
+      "Rani meminta izin meminjam buku sehari.",
+      "Rani memberi tahu bahwa ia akan membeli buku.",
+      "Rani mengajak temannya membaca bersama."
+    ],
+    "explanation": "Rani menyebut barang yang ingin ditukar dan menanyakan persetujuan temannya. Ini menunjukkan pemahaman isi pesan dalam tema barter.",
+    "id": "q-indo-bertukar-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 5 · Bertukar dan Membayar; tujuan memahami pesan teks.",
+    "stem": "Rani mengirim pesan: ‘Besok aku membawa dua pensil warna untuk ditukar dengan buku ceritamu. Setuju?’ Apa isi utama pesan Rani?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-bertukar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "Menghabiskan uang jajannya setiap Jumat.",
+      "Menyisihkan uang untuk membeli barang nanti.",
+      "Menukar tempat pensil dengan uang teman.",
+      "Meminjam uang untuk membeli tempat pensil."
+    ],
+    "explanation": "Damar mengatakan akan menyimpan sebagian uang jajannya dan menyebut barang yang ingin dibeli nanti. Pesan itu menyampaikan rencana menabung.",
+    "id": "q-indo-bertukar-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 5 · Bertukar dan Membayar; tujuan memahami pesan teks, tema menabung.",
+    "stem": "Damar menulis pesan: ‘Aku akan menyimpan sebagian uang jajanku setiap Jumat. Aku ingin membeli tempat pensil bulan depan.’ Apa rencana Damar?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-bertukar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Minta kesediaan teman, periksa barang bersama, lalu bertukar setelah sepakat.",
+      "Serahkan buku, tanyakan kesediaan teman, lalu periksa barang.",
+      "Periksa barang, serahkan buku, lalu tanyakan apakah teman mau bertukar.",
+      "Tanyakan kesediaan teman, bertukar, lalu periksa barang."
+    ],
+    "explanation": "Urutan itu menjelaskan langkah dengan runtut: meminta kesediaan, memeriksa barang, kemudian bertukar setelah sepakat. Soal ini melatih memahami susunan teks prosedur.",
+    "id": "q-indo-bertukar-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 5 · Bertukar dan Membayar; tujuan menulis teks prosedur, tema barter.",
+    "stem": "Nisa menulis prosedur bertukar buku cerita dengan teman. Urutan langkah mana yang paling masuk akal?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-bertukar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Siapkan celengan dan uang yang akan disimpan.",
+      "Tutup celengan setelah uang dimasukkan.",
+      "Periksa apakah celengan sudah penuh.",
+      "Ceritakan celengan yang paling disukai."
+    ],
+    "explanation": "Menyiapkan celengan dan uang memberi petunjuk awal sebelum tindakan menyimpan dilakukan. Kalimat perintah yang jelas sesuai dengan bentuk teks prosedur.",
+    "id": "q-indo-bertukar-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 5 · Bertukar dan Membayar; tujuan menulis teks prosedur, tema menabung.",
+    "stem": "Lala sedang menulis prosedur menyimpan uang saku dalam celengan. Kalimat mana yang paling tepat sebagai langkah pertama?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-bertukar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "Catatan tabungan itu terlihat rapi.",
+      "Tuliskan tanggal dan jumlah uang yang kamu simpan.",
+      "Apakah kamu suka menabung di rumah?",
+      "Uang tabungan biasanya disimpan dengan baik."
+    ],
+    "explanation": "Kalimat itu menyebut tindakan yang perlu dilakukan, yaitu menuliskan tanggal dan jumlah uang. Petunjuk yang langsung dan jelas membantu pembaca mengikuti prosedur.",
+    "id": "q-indo-bertukar-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 5 · Bertukar dan Membayar; tujuan menulis teks prosedur, tema menabung.",
+    "stem": "Beni menulis prosedur mencatat uang tabungan. Kalimat mana yang memberi petunjuk paling jelas kepada pembaca?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-bertukar",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Mengajak kita menjaga bumi",
+      "Mengajak kita menebang pohon",
+      "Menceritakan cara membuat hujan",
+      "Menggambarkan jalan yang ramai"
+    ],
+    "explanation": "Kata ‘bumi haus, mari kita jaga’ menyampaikan ajakan untuk menjaga bumi. Untuk memahami puisi, pembaca perlu menangkap maksud kata-katanya.",
+    "id": "q-indo-satu-titik-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 6 · Satu Titik — memahami maksud puisi",
+    "stem": "Bacalah puisi pendek ini: ‘Di ujung jalan, / pohon menadah hujan. / Daunnya berbisik, / bumi haus, mari kita jaga.’ Apa maksud puisi itu?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-satu-titik",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Rindu kepada Ibu",
+      "Marah karena berjalan",
+      "Takut melihat hujan",
+      "Senang bermain di rumah"
+    ],
+    "explanation": "Kata ‘kurindukan’ menunjukkan bahwa tokoh merasa rindu kepada Ibu. Kata-kata dalam puisi membantu pembaca memahami maksud dan perasaan yang disampaikan.",
+    "id": "q-indo-satu-titik-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 6 · Satu Titik — memahami maksud puisi",
+    "stem": "Bacalah puisi pendek ini: ‘Kaki kecil melangkah / jauh dari rumah. / Di dalam hati, / wajah Ibu kurindukan.’ Perasaan apa yang paling jelas disampaikan?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-satu-titik",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Agar Riko dapat menemukan pensilnya",
+      "Agar pensil itu tidak bisa dipakai",
+      "Karena Lani ingin membuang pensil",
+      "Agar guru membawa pensil itu pulang"
+    ],
+    "explanation": "Narasi menyebutkan bahwa Lani meletakkan pensil di meja guru supaya Riko dapat mengambilnya. Memahami hubungan antarperistiwa membantu kita menangkap maksud teks narasi.",
+    "id": "q-indo-satu-titik-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 6 · Satu Titik — memahami maksud teks narasi",
+    "stem": "Bacalah narasi pendek ini: ‘Lani menemukan pensil Riko di lantai. Ia meletakkannya di meja guru supaya Riko dapat mengambilnya.’ Mengapa Lani meletakkan pensil itu di meja guru?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-satu-titik",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "berjalan perlahan",
+      "berlari kencang",
+      "melompat tinggi",
+      "berputar-putar"
+    ],
+    "explanation": "‘Berjalan perlahan’ paling sesuai dengan keadaan jalan yang licin dan tujuan agar tidak terpeleset. Pilihan kata yang cermat membuat maksud kalimat jelas.",
+    "id": "q-indo-satu-titik-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 6 · Satu Titik — menggunakan pilihan kata dengan cermat",
+    "stem": "Jalan menuju kelas licin setelah hujan. Kata-kata mana yang paling cermat untuk melengkapi kalimat ini: ‘Maya ___ menuju kelas agar tidak terpeleset.’?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-satu-titik",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Rafi membuka jendela sebelum menyalakan lampu.",
+      "Rafi menyalakan lampu sebelum membuka jendela.",
+      "Rafi membuka jendela karena menyalakan lampu.",
+      "Rafi membuka jendela sambil menyalakan lampu."
+    ],
+    "explanation": "Kata ‘sebelum’ menunjukkan bahwa Rafi membuka jendela lebih dahulu, lalu menyalakan lampu. Susunan kata yang tepat membantu menyampaikan urutan dalam narasi dengan jelas.",
+    "id": "q-indo-satu-titik-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 6 · Satu Titik — menggunakan susunan kata dengan cermat",
+    "stem": "Dalam sebuah cerita, Rafi lebih dulu membuka jendela, lalu menyalakan lampu. Kalimat mana yang paling jelas menyampaikan urutan kejadian itu?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-satu-titik",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Batu berbentuk bulan",
+      "Pohon yang tinggi",
+      "Jembatan kayu",
+      "Burung berwarna biru"
+    ],
+    "explanation": "Dalam narasi rekaan tersebut, Rani melihat batu berbentuk bulan. Soal ini melatih pemahaman informasi yang disebutkan dalam narasi.",
+    "id": "q-indo-asal-usul-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 7 · Asal-Usul; tujuan belajar memahami teks audio/narasi.",
+    "stem": "Dengarkan narasi rekaan ini: “Rani melihat batu berbentuk bulan di tepi jalan. Ia mengajak teman-temannya membersihkan batu itu.” Apa yang dilihat Rani?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-asal-usul",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Memasang pagar kecil",
+      "Memetik semua bibit",
+      "Meninggalkan bukit",
+      "Membuat jalan baru"
+    ],
+    "explanation": "Setelah hujan turun, warga dalam narasi memasang pagar kecil. Jawaban diambil langsung dari urutan peristiwa dalam teks narasi.",
+    "id": "q-indo-asal-usul-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 7 · Asal-Usul; tujuan belajar memahami teks audio/narasi.",
+    "stem": "Dengarkan narasi rekaan ini: “Warga menanam bibit di bukit. Hujan turun deras. Mereka memasang pagar kecil agar bibit tidak hanyut.” Apa yang dilakukan warga setelah hujan turun?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-asal-usul",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Setelah itu",
+      "Namun",
+      "Sebab",
+      "Meskipun"
+    ],
+    "explanation": "“Setelah itu” menghubungkan dua peristiwa yang berlangsung berurutan: Mira menemukan gambar, lalu bertanya kepada nenek.",
+    "id": "q-indo-asal-usul-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 7 · Asal-Usul; tujuan belajar menggunakan kata penghubung antarkalimat.",
+    "stem": "Pilih kata penghubung antarkalimat yang tepat: “Mira menemukan gambar lama tentang asal-usul taman. ____, ia bertanya kepada nenek siapa yang menggambarnya.”",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-asal-usul",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Namun",
+      "Selain itu",
+      "Oleh karena itu",
+      "Setelah itu"
+    ],
+    "explanation": "“Namun” tepat karena kalimat kedua menyatakan keadaan yang berbeda dari harapan Doni untuk segera menemukan penjelasan.",
+    "id": "q-indo-asal-usul-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 7 · Asal-Usul; tujuan belajar menggunakan kata penghubung antarkalimat.",
+    "stem": "Pilih kata penghubung antarkalimat yang tepat: “Doni ingin mencari tahu asal-usul nama bukit. ____, ia belum menemukan catatan yang menjelaskannya.”",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-asal-usul",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Oleh karena itu",
+      "Namun",
+      "Sebaliknya",
+      "Meskipun"
+    ],
+    "explanation": "“Oleh karena itu” menghubungkan informasi yang didengar Siti dengan tindakan yang ia lakukan sebagai akibatnya.",
+    "id": "q-indo-asal-usul-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 7 · Asal-Usul; tujuan belajar menggunakan kata penghubung antarkalimat.",
+    "stem": "Pilih kata penghubung antarkalimat yang tepat: “Dalam cerita rekaan, Siti mendengar bahwa nama telaga berkaitan dengan sebuah pohon. ____, ia menyiapkan pertanyaan untuk ditanyakan kepada warga.”",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-asal-usul",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Kegiatan-kegiatan dalam Pekan Sehat kelas IV",
+      "Poster yang dibuat murid pada hari Rabu",
+      "Jadwal kegiatan pada hari Senin saja",
+      "Tempat murid melakukan peregangan"
+    ],
+    "explanation": "Semua kalimat menceritakan kegiatan yang dilakukan kelas IV selama Pekan Sehat. Jadi, ide pokoknya adalah kegiatan-kegiatan dalam Pekan Sehat.",
+    "id": "q-indo-sehatlah-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 8 · Sehatlah Ragaku; tujuan belajar tentang ide pokok/informasi.",
+    "stem": "Bacalah teks berikut. ‘Kelas IV mengadakan Pekan Sehat. Pada hari Senin, murid berjalan pagi di halaman. Pada hari Selasa, mereka melakukan peregangan. Pada hari Rabu, mereka membuat poster kegiatan sehat.’ Apa ide pokok teks itu?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-sehatlah",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Peregangan bersama dilakukan pada hari Selasa.",
+      "Peregangan bersama adalah kegiatan paling seru.",
+      "Hari Selasa merupakan hari yang paling menyenangkan.",
+      "Semua murid pasti menyukai peregangan."
+    ],
+    "explanation": "Catatan menyebutkan hari pelaksanaan secara jelas, sehingga pernyataan itu dapat diperiksa pada catatan. Pilihan lain berisi penilaian atau dugaan.",
+    "id": "q-indo-sehatlah-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 8 · Sehatlah Ragaku; materi membedakan fakta dan opini.",
+    "stem": "Dalam catatan kegiatan kelas tertulis, ‘Peregangan bersama dilakukan pada hari Selasa.’ Pernyataan manakah yang merupakan fakta sesuai catatan itu?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-sehatlah",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 2,
+    "choices": [
+      "Poster kelas memuat tiga kegiatan.",
+      "Salah satu kegiatan pada poster adalah berjalan pagi.",
+      "Menurutku, permainan bola adalah kegiatan paling menyenangkan.",
+      "Peregangan tercantum pada poster kelas."
+    ],
+    "explanation": "Ungkapan ‘Menurutku’ dan penilaian ‘paling menyenangkan’ menunjukkan pendapat pribadi. Pilihan lain berisi informasi yang dapat diperiksa pada poster.",
+    "id": "q-indo-sehatlah-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 8 · Sehatlah Ragaku; materi membedakan fakta dan opini.",
+    "stem": "Pada poster kelas tertulis tiga kegiatan: berjalan pagi, peregangan, dan permainan bola. Kalimat manakah yang merupakan opini?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-sehatlah",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Murid menuliskan pilihan kegiatan masing-masing pada papan kelas.",
+      "Semua murid memilih kegiatan yang sama.",
+      "Papan kelas hanya berisi jadwal berjalan pagi.",
+      "Sari memilih melakukan peregangan."
+    ],
+    "explanation": "Kalimat terakhir menyatakan bahwa pilihan masing-masing ditulis pada papan kelas. Pilihan lain bertentangan dengan rincian yang disebutkan dalam teks.",
+    "id": "q-indo-sehatlah-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 8 · Sehatlah Ragaku; tujuan belajar memahami informasi pada teks.",
+    "stem": "Bacalah teks berikut. ‘Tari memilih berjalan pagi untuk kegiatan kelas. Bima memilih peregangan. Sari memilih membuat poster. Mereka menuliskan pilihan masing-masing pada papan kelas.’ Informasi apa yang ditunjukkan teks?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-sehatlah",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Kegiatan kelas dimulai pukul 08.00.",
+      "Kegiatan pagi adalah bagian paling menyenangkan.",
+      "Semua anak menyukai kegiatan pagi.",
+      "Pukul 08.00 adalah waktu terbaik untuk belajar."
+    ],
+    "explanation": "Waktu mulai kegiatan tercantum pada papan pengumuman dan dapat diperiksa. Kalimat-kalimat lainnya menyatakan penilaian atau hal yang belum dibuktikan oleh teks.",
+    "id": "q-indo-sehatlah-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "bahasa-bs-2023",
+      "bahasa-bg-2023"
+    ],
+    "sourceLocator": "Buku Siswa Bab 8 · Sehatlah Ragaku; materi membedakan fakta dan opini.",
+    "stem": "Bacalah teks berikut. ‘Di papan pengumuman tertulis: kegiatan kelas dimulai pukul 08.00. Lala berkata, “Kegiatan pagi adalah bagian paling menyenangkan di sekolah.”’ Kalimat manakah yang merupakan fakta?",
+    "subjectId": "bahasa-indonesia",
+    "topicId": "indo-sehatlah",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "energi listrik",
+      "energi bunyi",
+      "energi gerak",
+      "energi panas"
+    ],
+    "explanation": "Buku menjelaskan bahwa panel surya dapat mengubah cahaya matahari menjadi energi listrik. Ini contoh perubahan energi yang dimanfaatkan manusia.",
+    "id": "q-ipas-energi-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab I · Mengubah Bentuk Energi; subbab Perubahan Energi di Sekitar Kita",
+    "stem": "Panel surya membantu mengubah cahaya matahari menjadi energi apa?",
+    "subjectId": "ipas",
+    "topicId": "ipas-energi",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "energi gerak",
+      "energi cahaya",
+      "energi listrik",
+      "energi bunyi"
+    ],
+    "explanation": "Tubuh menggunakan energi kimia dari makanan dan mengubahnya menjadi energi gerak untuk melakukan aktivitas.",
+    "id": "q-ipas-energi-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab I · Mengubah Bentuk Energi; subbab Perubahan Energi di Sekitar Kita",
+    "stem": "Setelah makan, Dito berlari dan bermain. Perubahan energi dalam tubuh yang membantu Dito bergerak adalah energi kimia dari makanan menjadi energi apa?",
+    "subjectId": "ipas",
+    "topicId": "ipas-energi",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "energi cahaya",
+      "energi bunyi",
+      "energi gerak",
+      "energi listrik"
+    ],
+    "explanation": "Tumbuhan menggunakan energi cahaya matahari untuk membuat makanannya sendiri melalui fotosintesis.",
+    "id": "q-ipas-energi-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab I · Mengubah Bentuk Energi; subbab Fotosintesis, Proses Penting di Bumi",
+    "stem": "Saat fotosintesis, energi dari matahari yang diserap daun digunakan tumbuhan untuk membuat makanannya. Energi apakah yang digunakan tumbuhan?",
+    "subjectId": "ipas",
+    "topicId": "ipas-energi",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "karbon dioksida",
+      "oksigen",
+      "klorofil",
+      "karbohidrat"
+    ],
+    "explanation": "Daun menyerap karbon dioksida untuk fotosintesis. Proses ini juga menghasilkan makanan dan oksigen.",
+    "id": "q-ipas-energi-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab I · Mengubah Bentuk Energi; subbab Fotosintesis, Proses Penting di Bumi",
+    "stem": "Dalam fotosintesis, daun menyerap gas dari udara. Gas apakah yang diserap daun?",
+    "subjectId": "ipas",
+    "topicId": "ipas-energi",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "membuat benda bergerak",
+      "mengubah warna benda",
+      "menghilangkan benda",
+      "mengubah benda menjadi lebih ringan"
+    ],
+    "explanation": "Dorongan Sari membuat keranjang yang diam menjadi bergerak. Ini menunjukkan bahwa gaya dapat memengaruhi gerak benda.",
+    "id": "q-ipas-gaya-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab II · Gaya di Sekitar Kita, subbab A · Apa itu Gaya?",
+    "stem": "Sari mendorong keranjang yang semula diam. Keranjang itu lalu bergerak. Pengamatan ini menunjukkan bahwa gaya dapat …",
+    "subjectId": "ipas",
+    "topicId": "ipas-gaya",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "Ke kanan, searah gerak kotak",
+      "Ke kiri, berlawanan arah gerak kotak",
+      "Ke atas, menjauhi lantai",
+      "Ke bawah, menuju lantai"
+    ],
+    "explanation": "Gaya gesek arahnya berlawanan dengan arah gerak benda. Karena kotak bergerak ke kanan, gaya gesek bekerja ke kiri.",
+    "id": "q-ipas-gaya-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab II · Gaya di Sekitar Kita, subbab B · Menyelidiki Gaya Gesek",
+    "stem": "Sebuah kotak bergerak ke arah kanan di atas lantai. Ke arah manakah gaya gesek antara kotak dan lantai bekerja?",
+    "subjectId": "ipas",
+    "topicId": "ipas-gaya",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Pada permukaan kasar",
+      "Pada permukaan licin",
+      "Sama besar pada kedua permukaan",
+      "Tidak ada gaya gesek pada kedua permukaan"
+    ],
+    "explanation": "Permukaan kasar memperbesar gaya gesek, sedangkan permukaan licin memperkecilnya. Jadi, gaya gesek lebih besar pada permukaan kasar.",
+    "id": "q-ipas-gaya-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab II · Gaya di Sekitar Kita, subbab B · Menyelidiki Gaya Gesek",
+    "stem": "Rafi membandingkan dua permukaan untuk mengamati gaya gesek: satu licin dan satu kasar. Menurut sifat gaya gesek, pada permukaan manakah gaya gesek lebih besar?",
+    "subjectId": "ipas",
+    "topicId": "ipas-gaya",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Paku besi",
+      "Penghapus karet",
+      "Penggaris plastik",
+      "Balok kayu"
+    ],
+    "explanation": "Magnet dapat menarik benda yang terbuat dari besi, termasuk paku besi. Gaya magnet dapat menarik benda besi tanpa menyentuhnya secara langsung.",
+    "id": "q-ipas-gaya-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab II · Gaya di Sekitar Kita, subbab C · Menyelidiki Gaya Magnet",
+    "stem": "Mika mendekatkan magnet ke empat benda tanpa menyentuhnya. Benda manakah yang dapat ditarik magnet?",
+    "subjectId": "ipas",
+    "topicId": "ipas-gaya",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Kedua magnet saling menolak",
+      "Kedua magnet saling menarik",
+      "Satu magnet menarik benda dari kayu",
+      "Kedua magnet tidak dapat memberi gaya"
+    ],
+    "explanation": "Dua kutub sejenis yang didekatkan akan saling menolak. Hal ini menunjukkan bahwa magnet dapat memberikan gaya dorong.",
+    "id": "q-ipas-gaya-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab II · Gaya di Sekitar Kita, subbab C · Menyelidiki Gaya Magnet",
+    "stem": "Dito mendekatkan dua magnet batang dengan kutub utara saling berhadapan. Apa yang akan terjadi?",
+    "subjectId": "ipas",
+    "topicId": "ipas-gaya",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 2,
+    "choices": [
+      "Utara",
+      "Selatan",
+      "Timur",
+      "Barat"
+    ],
+    "explanation": "Pada informasi peta, perpustakaan berada di sebelah timur sekolah. Membaca posisi tempat pada peta membantu kita mengetahui letaknya.",
+    "id": "q-ipas-peta-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023"
+    ],
+    "sourceLocator": "Bab III · Di Sini Tempat Tinggalku!; penggunaan peta untuk memperoleh informasi letak.",
+    "stem": "Pada peta lingkungan, panah menunjukkan utara ke arah atas. Sekolah berada di tengah, rumah Sita di sebelah selatan sekolah, dan perpustakaan di sebelah timur sekolah. Di arah mana perpustakaan dari sekolah?",
+    "subjectId": "ipas",
+    "topicId": "ipas-peta",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "Gunung",
+      "Sungai",
+      "Dataran rendah",
+      "Jalan"
+    ],
+    "explanation": "Legenda peta menjelaskan arti simbol yang dipakai. Pada peta ini, garis biru berkelok berarti sungai.",
+    "id": "q-ipas-peta-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023"
+    ],
+    "sourceLocator": "Bab III · Di Sini Tempat Tinggalku!; penggunaan peta untuk membaca bentang alam.",
+    "stem": "Peta daerah Lestari memiliki legenda: ▲ berarti gunung, garis biru berkelok berarti sungai, dan bidang hijau berarti dataran rendah. Jika kamu melihat garis biru berkelok pada peta, bentang alam apakah yang ditunjukkannya?",
+    "subjectId": "ipas",
+    "topicId": "ipas-peta",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 2,
+    "choices": [
+      "Sawah",
+      "Bukit",
+      "Sungai",
+      "Balai desa"
+    ],
+    "explanation": "Peta menyatakan sungai terletak di sebelah timur balai desa. Informasi posisi pada peta dapat digunakan untuk mengetahui letak tempat atau bentang alam.",
+    "id": "q-ipas-peta-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023"
+    ],
+    "sourceLocator": "Bab III · Di Sini Tempat Tinggalku!; penggunaan peta untuk memperoleh informasi letak dan bentang alam.",
+    "stem": "Pada peta desa, balai desa berada di tengah. Sawah terletak di utara balai desa, bukit di baratnya, dan sungai di timurnya. Bentang alam apa yang berada di sebelah timur balai desa?",
+    "subjectId": "ipas",
+    "topicId": "ipas-peta",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 3,
+    "choices": [
+      "Utara",
+      "Selatan",
+      "Timur",
+      "Barat"
+    ],
+    "explanation": "Menurut keterangan pada peta, garis pantai berada di sisi barat desa. Membaca letak bentang alam pada peta membantu kita mengetahui sisi daerah yang berdekatan dengannya.",
+    "id": "q-ipas-peta-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023"
+    ],
+    "sourceLocator": "Bab III · Di Sini Tempat Tinggalku!; penggunaan peta untuk menelaah letak daerah dan bentang alam.",
+    "stem": "Pada peta wilayah, garis pantai berada di sisi barat Desa Pesisir dan gunung berada di sisi timurnya. Di sisi manakah desa itu berdekatan dengan pantai?",
+    "subjectId": "ipas",
+    "topicId": "ipas-peta",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "Desa berada di utara gunung dan sungai.",
+      "Desa berada di antara gunung dan sungai.",
+      "Gunung dan sungai berada di utara desa.",
+      "Desa berada di selatan gunung dan sungai."
+    ],
+    "explanation": "Gunung berada di utara desa, sedangkan sungai berada di selatannya. Jadi, pada peta desa terletak di antara keduanya.",
+    "id": "q-ipas-peta-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023"
+    ],
+    "sourceLocator": "Bab III · Di Sini Tempat Tinggalku!; penggunaan peta untuk membaca letak dan bentang alam.",
+    "stem": "Pada peta sederhana, gunung terletak di utara Desa Nusa dan sungai berada di selatan desa. Pernyataan manakah yang sesuai dengan letak pada peta?",
+    "subjectId": "ipas",
+    "topicId": "ipas-peta",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Musim/iklim, efek rumah kaca, dan gas karbon",
+      "Energi, gaya, dan peta",
+      "Bentang alam, budaya, dan kerja sama",
+      "Tumbuhan, magnet, dan sumber daya daerah"
+    ],
+    "explanation": "Tujuan topik ini secara khusus menyebut musim/iklim, efek rumah kaca, dan gas karbon. Pokok lain pada pilihan tidak tercantum dalam tujuan Bab IV ini.",
+    "id": "q-ipas-iklim-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023"
+    ],
+    "sourceLocator": "Bab IV · Iklim dan Perubahannya",
+    "stem": "Dari daftar berikut, kelompok manakah yang memuat semua pokok pengenalan dalam tujuan Bab IV?",
+    "subjectId": "ipas",
+    "topicId": "ipas-iklim",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 3,
+    "choices": [
+      "Bab I · Mengubah Bentuk Energi",
+      "Bab II · Gaya di Sekitar Kita",
+      "Bab III · Di Sini Tempat Tinggalku!",
+      "Bab IV · Iklim dan Perubahannya"
+    ],
+    "explanation": "Musim/iklim, efek rumah kaca, dan gas karbon termasuk tujuan Bab IV, yang berjudul Iklim dan Perubahannya.",
+    "id": "q-ipas-iklim-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023"
+    ],
+    "sourceLocator": "Bab IV · Iklim dan Perubahannya",
+    "stem": "Nisa mencari bab yang membahas musim/iklim, efek rumah kaca, dan gas karbon. Bab manakah yang perlu ia buka?",
+    "subjectId": "ipas",
+    "topicId": "ipas-iklim",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Musim",
+      "Gaya",
+      "Peta",
+      "Energi"
+    ],
+    "explanation": "Tujuan Bab IV menyebut pengenalan musim/iklim. Karena itu, musim adalah istilah yang dipasangkan dengan iklim pada tujuan tersebut.",
+    "id": "q-ipas-iklim-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023"
+    ],
+    "sourceLocator": "Bab IV · Iklim dan Perubahannya",
+    "stem": "Pada daftar kata kunci Bab IV, istilah manakah yang disebut bersama kata iklim dalam tujuan belajar?",
+    "subjectId": "ipas",
+    "topicId": "ipas-iklim",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Efek rumah kaca",
+      "Gaya magnet",
+      "Bentang alam",
+      "Keragaman budaya"
+    ],
+    "explanation": "Efek rumah kaca disebut langsung dalam tujuan topik Iklim dan Perubahannya. Pilihan lain merujuk pada pokok bahasan berbeda.",
+    "id": "q-ipas-iklim-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023"
+    ],
+    "sourceLocator": "Bab IV · Iklim dan Perubahannya",
+    "stem": "Salah satu istilah yang tercantum sebagai pokok Bab IV adalah …",
+    "subjectId": "ipas",
+    "topicId": "ipas-iklim",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Gas karbon",
+      "Gaya gesek",
+      "Peta daerah",
+      "Energi gerak"
+    ],
+    "explanation": "Tujuan Bab IV juga menyebut gas karbon sebagai hal yang dikenali, selain musim/iklim dan efek rumah kaca.",
+    "id": "q-ipas-iklim-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023"
+    ],
+    "sourceLocator": "Bab IV · Iklim dan Perubahannya",
+    "stem": "Kata manakah yang melengkapi pokok pengenalan “musim/iklim dan efek rumah kaca” dalam tujuan Bab IV?",
+    "subjectId": "ipas",
+    "topicId": "ipas-iklim",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "ada beragam jenis makhluk hidup",
+      "semua benda di kebun dibuat manusia",
+      "kebun hanya memiliki satu jenis tumbuhan",
+      "semua makhluk hidup di kebun melakukan kegiatan yang sama"
+    ],
+    "explanation": "Catatan menyebut beberapa jenis tumbuhan dan hewan. Beragam jenis makhluk hidup merupakan contoh keanekaragaman hayati.",
+    "id": "q-ipas-daerah-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023"
+    ],
+    "sourceLocator": "Bab V · Ini Khas Daerahku!; keanekaragaman hayati",
+    "stem": "Di sebuah kebun, murid mencatat ada pohon mangga, tanaman cabai, kupu-kupu, dan burung. Catatan itu menunjukkan keanekaragaman hayati karena ...",
+    "subjectId": "ipas",
+    "topicId": "ipas-daerah",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "sumber daya alam",
+      "bangunan umum",
+      "alat buatan warga",
+      "hasil kerajinan"
+    ],
+    "explanation": "Air, tanah, dan sinar matahari berasal dari alam. Dalam cerita, warga memanfaatkannya sebagai sumber daya untuk merawat kebun.",
+    "id": "q-ipas-daerah-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023"
+    ],
+    "sourceLocator": "Bab V · Ini Khas Daerahku!; sumber daya",
+    "stem": "Dalam sebuah catatan daerah, warga menyebut menggunakan air sungai, tanah, dan sinar matahari untuk merawat kebun. Ketiganya termasuk ...",
+    "subjectId": "ipas",
+    "topicId": "ipas-daerah",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Kegiatan yang dilakukan warga",
+      "Warna atap rumah warga",
+      "Jumlah awan di langit",
+      "Bentuk jalan menuju pasar"
+    ],
+    "explanation": "Menanam, menangkap ikan, dan menjual hasil kebun adalah kegiatan warga. Kegiatan tersebut menggambarkan kehidupan masyarakat dalam cerita.",
+    "id": "q-ipas-daerah-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023"
+    ],
+    "sourceLocator": "Bab V · Ini Khas Daerahku!; kehidupan masyarakat daerah",
+    "stem": "Dalam cerita tentang suatu daerah, sebagian warga menanam sayur, sebagian menangkap ikan, dan sebagian menjual hasil kebun di pasar. Informasi manakah yang paling jelas menggambarkan kehidupan masyarakat daerah itu?",
+    "subjectId": "ipas",
+    "topicId": "ipas-daerah",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Kelompok A",
+      "Kelompok B",
+      "Keduanya sama beragam",
+      "Tidak ada yang mencatat makhluk hidup"
+    ],
+    "explanation": "Kelompok A mencatat lebih banyak jenis tumbuhan dan hewan daripada kelompok B. Catatan itu menunjukkan ragam makhluk hidup yang lebih banyak di tempat pengamatan A.",
+    "id": "q-ipas-daerah-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023"
+    ],
+    "sourceLocator": "Bab V · Ini Khas Daerahku!; keanekaragaman hayati",
+    "stem": "Dua kelompok mengamati makhluk hidup di tempat berbeda. Kelompok A mencatat 3 jenis tumbuhan dan 2 jenis hewan. Kelompok B mencatat 1 jenis tumbuhan dan 1 jenis hewan. Berdasarkan catatan itu, kelompok mana menemukan jenis makhluk hidup yang lebih beragam?",
+    "subjectId": "ipas",
+    "topicId": "ipas-daerah",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Sumber daya alam dimanfaatkan dalam kegiatan warga",
+      "Semua warga hanya bekerja menjual air sungai",
+      "Sayuran di kebun bukan bagian dari kehidupan warga",
+      "Kegiatan warga tidak berhubungan dengan sumber daya"
+    ],
+    "explanation": "Cerita menunjukkan air sungai dimanfaatkan untuk kebun, lalu hasil kebun digunakan dan dijual warga. Ini menghubungkan sumber daya dengan kehidupan masyarakat daerah.",
+    "id": "q-ipas-daerah-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023"
+    ],
+    "sourceLocator": "Bab V · Ini Khas Daerahku!; sumber daya dan kehidupan masyarakat daerah",
+    "stem": "Di sebuah daerah, warga menggunakan air sungai untuk menyiram tanaman di kebun. Sayuran dari kebun dimakan keluarga dan sebagian dijual. Pernyataan mana yang sesuai dengan cerita?",
+    "subjectId": "ipas",
+    "topicId": "ipas-daerah",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Membagikan lembar kerja kepada kelompok",
+      "Mengerjakan semua soal sendirian",
+      "Menyimpan lembar kerja agar tidak dipakai",
+      "Memilih jawaban untuk kelompok lain"
+    ],
+    "explanation": "Rani menjalankan tugas sesuai peran yang diberikan, yaitu membagikan lembar kerja. Peran dalam kegiatan bersama disertai tugas yang perlu dilakukan.",
+    "id": "q-ipas-peran-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab VI · Peranku di Lingkungan Sekolah dan Masyarakat",
+    "stem": "Dalam tugas kelompok, Rani mendapat peran membagikan lembar kerja kepada teman-temannya. Apa tugas Rani?",
+    "subjectId": "ipas",
+    "topicId": "ipas-peran",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Menunggu giliran sebelum menyampaikan pendapat",
+      "Berbicara terus agar idenya didengar",
+      "Meninggalkan diskusi saat teman berbicara",
+      "Meminta teman lain tidak ikut berbicara"
+    ],
+    "explanation": "Dito sebaiknya mengikuti aturan yang disepakati bersama. Bergiliran berbicara membantu anggota kelompok berinteraksi dan menyampaikan pendapat.",
+    "id": "q-ipas-peran-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab VI · Peranku di Lingkungan Sekolah dan Masyarakat",
+    "stem": "Kelompok B sepakat agar setiap anak mendapat giliran berbicara saat berdiskusi. Apa yang sebaiknya dilakukan Dito?",
+    "subjectId": "ipas",
+    "topicId": "ipas-peran",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Mengumpulkan daun sesuai tugasnya",
+      "Pergi bermain tanpa memberi tahu kelompok",
+      "Menyebarkan kembali daun yang sudah terkumpul",
+      "Menyuruh orang lain menyelesaikan semua tugas"
+    ],
+    "explanation": "Sari menunjukkan tanggung jawab dengan menyelesaikan bagian tugas yang menjadi perannya. Kegiatan bersama berjalan baik ketika tiap orang melakukan tugasnya.",
+    "id": "q-ipas-peran-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab VI · Peranku di Lingkungan Sekolah dan Masyarakat",
+    "stem": "Saat kerja bersama di lingkungan tempat tinggal, Sari mendapat tugas mengumpulkan daun yang sudah disapu. Apa tindakan yang menunjukkan tanggung jawab?",
+    "subjectId": "ipas",
+    "topicId": "ipas-peran",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Menunggu sampai gilirannya tiba",
+      "Mengambil alat dari tangan teman",
+      "Menyembunyikan alat agar dipakai sendiri",
+      "Meminta teman lain tidak boleh memakai alat"
+    ],
+    "explanation": "Menunggu giliran berarti menaati aturan penggunaan bersama. Sikap ini juga membantu menjaga interaksi yang tertib dengan teman.",
+    "id": "q-ipas-peran-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab VI · Peranku di Lingkungan Sekolah dan Masyarakat",
+    "stem": "Di sekolah, beberapa anak sedang menunggu giliran menggunakan alat bersama. Apa tindakan yang sesuai dengan aturan giliran?",
+    "subjectId": "ipas",
+    "topicId": "ipas-peran",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Mendengarkan pendapat teman lalu membicarakan pembagian tugas bersama",
+      "Menolak berbicara dengan kelompok",
+      "Memaksakan pendapat tanpa mendengar teman",
+      "Meninggalkan semua tugas untuk teman"
+    ],
+    "explanation": "Mendengarkan dan membicarakan pembagian tugas bersama merupakan interaksi sosial yang membantu kelompok menentukan cara bekerja. Setiap anggota tetap perlu bertanggung jawab pada tugas yang disepakati.",
+    "id": "q-ipas-peran-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023",
+      "ipas-bg-2023",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab VI · Peranku di Lingkungan Sekolah dan Masyarakat",
+    "stem": "Dalam kelompok, pendapat Bima berbeda dari pendapat teman-temannya tentang cara membagi tugas. Apa yang sebaiknya dilakukan Bima?",
+    "subjectId": "ipas",
+    "topicId": "ipas-peran",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Bertanya dengan sopan kepada warga dan menyimak penjelasan mereka",
+      "Menganggap tradisi itu pasti sama di semua daerah",
+      "Menertawakan tradisi karena berbeda dari kebiasaannya",
+      "Menyimpulkan sendiri maknanya tanpa mencari tahu"
+    ],
+    "explanation": "Bertanya dengan sopan membantu Nisa mengenali tradisi setempat dengan menghargai orang yang menjalaninya. Ia tidak membuat dugaan sendiri tentang budaya tersebut.",
+    "id": "q-ipas-budaya-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab VII · Keragaman Budaya dan Kearifan Lokal; fokus tujuan: mengenali tradisi/budaya setempat dan menghargai keberagaman.",
+    "stem": "Saat berkunjung ke suatu daerah, Nisa melihat warga melakukan tradisi yang belum ia kenal. Apa cara terbaik untuk memahaminya?",
+    "subjectId": "ipas",
+    "topicId": "ipas-budaya",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Mendengarkan cerita teman dan menghargai perbedaan tradisi",
+      "Meminta semua teman mengikuti tradisi keluarganya",
+      "Mengatakan bahwa tradisi yang berbeda pasti keliru",
+      "Menghindari teman yang tradisinya tidak sama"
+    ],
+    "explanation": "Mendengarkan dan menghargai cerita teman menunjukkan sikap menghormati keberagaman budaya. Perbedaan tradisi bukan alasan untuk merendahkan atau menjauhi orang lain.",
+    "id": "q-ipas-budaya-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab VII · Keragaman Budaya dan Kearifan Lokal; fokus tujuan: sikap menghargai keberagaman.",
+    "stem": "Doni bercerita tentang tradisi yang dikenal di keluarganya. Tradisi teman-temannya ternyata berbeda. Sikap apa yang sebaiknya ditunjukkan Doni?",
+    "subjectId": "ipas",
+    "topicId": "ipas-budaya",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "Setiap orang di daerah itu pasti melakukan kebiasaan yang sama",
+      "Kebiasaan itu dikenal dalam komunitas tersebut, tetapi orang dapat memiliki kebiasaan berbeda",
+      "Semua daerah memiliki kebiasaan yang persis sama",
+      "Kebiasaan itu harus dilakukan semua orang di Indonesia"
+    ],
+    "explanation": "Satu contoh tradisi tidak berarti setiap orang atau daerah memiliki kebiasaan yang sama. Menghindari generalisasi membantu kita menghargai keberagaman budaya.",
+    "id": "q-ipas-budaya-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab VII · Keragaman Budaya dan Kearifan Lokal; fokus menghormati keragaman tanpa menggeneralisasi budaya.",
+    "stem": "Mira mendengar satu kebiasaan dari sebuah komunitas. Kesimpulan manakah yang paling hati-hati dan menghargai keragaman?",
+    "subjectId": "ipas",
+    "topicId": "ipas-budaya",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Mencari tahu dari warga setempat dengan sikap sopan dan terbuka",
+      "Menentukan sendiri bahwa kebiasaan warga tidak penting",
+      "Menyebarkan dugaan tentang kebiasaan warga tanpa memeriksa",
+      "Membandingkan kebiasaan warga untuk memilih mana yang paling unggul"
+    ],
+    "explanation": "Bertanya dengan sopan dan terbuka membantu kelompok Rafi belajar dari masyarakat setempat. Sikap itu sesuai dengan tujuan mengenali kearifan lokal sekaligus menghargai keberagaman.",
+    "id": "q-ipas-budaya-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab VII · Keragaman Budaya dan Kearifan Lokal; fokus tujuan: mengenali kearifan lokal.",
+    "stem": "Kelompok Rafi ingin mengenali kearifan lokal di lingkungan sekitar. Langkah manakah yang paling sesuai?",
+    "subjectId": "ipas",
+    "topicId": "ipas-budaya",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "‘Menarik. Boleh ceritakan lebih lanjut? Aku ingin memahami.’",
+      "‘Budayaku lebih baik, jadi kita tak perlu membahas yang lain.’",
+      "‘Kalau berbeda dari pengalamanku, berarti ceritamu salah.’",
+      "‘Semua budaya pasti sama, jadi tidak perlu dijelaskan.’"
+    ],
+    "explanation": "Tanggapan Sari menunjukkan rasa ingin tahu yang santun dan menghormati pengalaman temannya. Sikap terbuka membantu siswa mengenali budaya yang beragam tanpa merendahkan atau menyamaratakan.",
+    "id": "q-ipas-budaya-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab VII · Keragaman Budaya dan Kearifan Lokal; fokus tujuan: tradisi/budaya setempat dan sikap menghargai keberagaman.",
+    "stem": "Dalam diskusi kelas, Sari mendengar teman menjelaskan budaya daerah yang berbeda dari pengalamannya. Tanggapan manakah yang paling baik?",
+    "subjectId": "ipas",
+    "topicId": "ipas-budaya",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "polusi udara",
+      "pencemaran air",
+      "berkurangnya fasilitas umum",
+      "bertambahnya sampah plastik di sungai"
+    ],
+    "explanation": "Asap dari pembakaran sampah dapat mencemari udara sehingga udara menjadi kotor dan tidak sehat. Ini contoh ancaman lingkungan yang dibahas pada Bab VIII.",
+    "id": "q-ipas-pahlawan-lingkungan-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab VIII · Menjadi Pahlawan Lingkungan, subbab A. Lingkungan Kita sedang Terancam; Belajar Lebih Lanjut: Udara Bersih karena Tumbuhan",
+    "stem": "Di dekat rumah Dita, sampah dibakar dan asapnya membuat udara kotor. Masalah lingkungan yang terjadi adalah ...",
+    "subjectId": "ipas",
+    "topicId": "ipas-pahlawan-lingkungan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Membawa botol minum sendiri yang dapat dipakai berulang kali",
+      "Meminta dua sedotan plastik untuk berjaga-jaga",
+      "Mengambil kantong plastik baru setiap kali berbelanja",
+      "Membuang botol yang masih dapat digunakan setelah sekali pakai"
+    ],
+    "explanation": "Membawa botol sendiri yang dapat digunakan berulang kali membantu mengurangi penggunaan plastik sekali pakai. Buku membahas tindakan ini dalam cara 4M, yaitu Menolak.",
+    "id": "q-ipas-pahlawan-lingkungan-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab VIII · Menjadi Pahlawan Lingkungan, subbab B. Mengurangi Jejak Karbon; cara 4M: Menolak",
+    "stem": "Saat membeli minuman, tindakan mana yang sesuai dengan cara menolak plastik sekali pakai?",
+    "subjectId": "ipas",
+    "topicId": "ipas-pahlawan-lingkungan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Mematikan lampu yang tidak digunakan",
+      "Menyalakan semua lampu di kelas",
+      "Membiarkan lampu menyala sepanjang hari",
+      "Menyalakan alat elektronik lain di kelas"
+    ],
+    "explanation": "Mematikan lampu saat tidak digunakan merupakan cara menghemat energi. Buku menjelaskan bahwa penggunaan energi yang lebih sedikit membantu mengurangi emisi karbon.",
+    "id": "q-ipas-pahlawan-lingkungan-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab VIII · Menjadi Pahlawan Lingkungan, subbab B. Mengurangi Jejak Karbon; Belajar Lebih Lanjut: Jadi Pahlawan Bumi dengan Bijak Energi",
+    "stem": "Lampu di ruang kelas masih menyala setelah semua murid keluar. Apa tindakan yang membantu mengurangi penggunaan energi?",
+    "subjectId": "ipas",
+    "topicId": "ipas-pahlawan-lingkungan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Berjalan kaki atau bersepeda",
+      "Meminta diantar dengan mobil pribadi setiap hari",
+      "Mengendarai sepeda motor untuk jarak dekat",
+      "Membiarkan mesin kendaraan menyala saat menunggu"
+    ],
+    "explanation": "Untuk mengurangi penggunaan kendaraan pribadi, buku menyarankan pilihan seperti berjalan kaki atau bersepeda. Tindakan ini termasuk upaya mengurangi jejak karbon.",
+    "id": "q-ipas-pahlawan-lingkungan-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab VIII · Menjadi Pahlawan Lingkungan, subbab B. Mengurangi Jejak Karbon; Transportasi Ramah Lingkungan",
+    "stem": "Sekolah Rani tidak jauh dari rumahnya. Cara bepergian mana yang sesuai untuk mengurangi penggunaan kendaraan pribadi?",
+    "subjectId": "ipas",
+    "topicId": "ipas-pahlawan-lingkungan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Pohon membantu menyerap karbon dioksida dari udara",
+      "Pohon membuat orang perlu memakai lebih banyak plastik",
+      "Pohon menghasilkan asap dari kendaraan",
+      "Pohon membuat sampah yang dibakar menjadi tidak berbahaya"
+    ],
+    "explanation": "Buku menjelaskan bahwa pepohonan membantu menyerap karbon dioksida dari udara. Menanam pohon dan menjaga lingkungan dapat mendukung upaya mengurangi dampak emisi karbon.",
+    "id": "q-ipas-pahlawan-lingkungan-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "ipas-bs-2023"
+    ],
+    "sourceLocator": "Bab VIII · Menjadi Pahlawan Lingkungan, subbab B. Mengurangi Jejak Karbon; Tanam Pohon dan Jaga Lingkungan",
+    "stem": "Mengapa menanam pohon dan menjaga agar pohon tidak ditebang sembarangan termasuk upaya menjaga lingkungan?",
+    "subjectId": "ipas",
+    "topicId": "ipas-pahlawan-lingkungan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "menyapa dengan sopan dan menghargai perbedaan",
+      "mengejek kebiasaan yang belum ia kenal",
+      "menghindari semua tetangga yang berbeda",
+      "meminta semua orang mengikuti kebiasaannya"
+    ],
+    "explanation": "Menyapa dengan sopan dan menghargai perbedaan menunjukkan sikap yang baik terhadap keberagaman masyarakat sekitar. Sikap ini sesuai dengan tujuan mengenali identitas masyarakat dan menghargai perbedaan.",
+    "id": "q-pancasila-lingkungan-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 1 · Mengenal Lingkungan Sekitar; subbagian dan halaman perlu diverifikasi guru.",
+    "stem": "Di lingkungan Naya, warga memiliki identitas dan kebiasaan yang beragam. Saat bertemu tetangga yang berbeda, sikap Naya sebaiknya …",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-lingkungan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Siapa saja yang tinggal di sana dan keberagaman identitas mereka",
+      "Hanya warna rumah yang paling disukai Sari",
+      "Hanya kegiatan yang dilakukan Sari sendiri",
+      "Nama tokoh dari cerita yang dibaca Sari"
+    ],
+    "explanation": "Mengenali siapa yang tinggal di suatu lingkungan membantu memahami identitas masyarakat di sana. Keberagaman identitas juga perlu dihargai.",
+    "id": "q-pancasila-lingkungan-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 1 · Mengenal Lingkungan Sekitar; subbagian dan halaman perlu diverifikasi guru.",
+    "stem": "Agar mengenal masyarakat di sekitar tempat tinggalnya, informasi apa yang paling sesuai untuk diperhatikan Sari?",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-lingkungan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "orang-orang dan keadaan di sekitar tempat tinggalnya",
+      "tempat tinggal yang hanya ada di dalam buku cerita",
+      "lingkungan yang belum pernah ia ketahui",
+      "hal yang terjadi di rumah orang yang jauh tanpa ia ketahui"
+    ],
+    "explanation": "Mengenali orang-orang dan keadaan di sekitar tempat tinggal membantu Rafi memahami lingkungannya. Soal ini mengarah pada tujuan memahami lingkungan tempat tinggal.",
+    "id": "q-pancasila-lingkungan-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 1 · Mengenal Lingkungan Sekitar; subbagian dan halaman perlu diverifikasi guru.",
+    "stem": "Rafi diminta bercerita tentang lingkungan tempat tinggalnya. Hal yang paling tepat ia kenali untuk diceritakan adalah …",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-lingkungan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Mendengarkan dengan sopan dan menghormati perbedaannya",
+      "Memotong cerita karena perbedaannya tidak penting",
+      "Menertawakan hal yang belum ia kenal",
+      "Meminta tetangga itu menyembunyikan identitasnya"
+    ],
+    "explanation": "Mendengarkan dengan sopan menunjukkan penghargaan terhadap identitas orang lain. Hal ini sesuai dengan tujuan belajar menghargai perbedaan di masyarakat.",
+    "id": "q-pancasila-lingkungan-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 1 · Mengenal Lingkungan Sekitar; subbagian dan halaman perlu diverifikasi guru.",
+    "stem": "Tetangga baru memperkenalkan diri dan menceritakan identitasnya yang berbeda dari kebiasaan sebagian warga. Apa yang sebaiknya dilakukan Lala?",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-lingkungan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Warga di lingkungan kami beragam, dan setiap orang patut dihargai.",
+      "Semua warga harus memiliki identitas yang sama.",
+      "Orang yang berbeda sebaiknya tidak tinggal di lingkungan kami.",
+      "Kebiasaan saya selalu paling benar untuk semua warga."
+    ],
+    "explanation": "Kalimat itu mengakui keberagaman masyarakat dan menyatakan bahwa setiap orang patut dihargai. Sikap tersebut mendukung tujuan mengenali identitas masyarakat dan menghargai perbedaan.",
+    "id": "q-pancasila-lingkungan-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 1 · Mengenal Lingkungan Sekitar; subbagian dan halaman perlu diverifikasi guru.",
+    "stem": "Kalimat mana yang paling menunjukkan bahwa Edo menghargai perbedaan masyarakat di lingkungan tempat tinggalnya?",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-lingkungan",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Merapikan buku sesuai gilirannya",
+      "Meninggalkan semua buku untuk teman",
+      "Menyembunyikan buku agar tidak dipakai",
+      "Mengambil buku kelas untuk dibawa pulang"
+    ],
+    "explanation": "Merapikan buku saat mendapat giliran berarti melaksanakan tugas atau kewajiban di sekolah. Kewajiban dilakukan, bukan dialihkan begitu saja kepada teman.",
+    "id": "q-pancasila-disiplin-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 2 · Aku Anak yang Disiplin; konteks hak dan kewajiban di lingkungan sekolah.",
+    "stem": "Nisa mendapat giliran merapikan buku kelas setelah digunakan. Apa yang sebaiknya Nisa lakukan?",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-disiplin",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Mendapat kesempatan untuk berbicara",
+      "Boleh memotong semua pembicaraan",
+      "Harus mengerjakan tugas teman",
+      "Dapat memilih aturan hanya untuk dirinya"
+    ],
+    "explanation": "Kesempatan menyampaikan pendapat saat mendapat giliran merupakan hak dalam kegiatan bersama. Menghormati giliran teman membantu semua murid memperoleh kesempatan.",
+    "id": "q-pancasila-disiplin-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 2 · Aku Anak yang Disiplin; konteks mendapatkan hak dan melakukan kewajiban.",
+    "stem": "Saat diskusi kelas, teman-teman bergiliran menyampaikan pendapat. Hal baik apa yang dapat dinikmati setiap murid?",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-disiplin",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Menaruh sepatu di tempat yang disepakati",
+      "Membiarkan sepatu menghalangi jalan",
+      "Memindahkan sepatu ke kamar orang lain",
+      "Menunggu anggota keluarga lain membereskannya"
+    ],
+    "explanation": "Dito menaati aturan keluarga dengan menaruh sepatu di tempat yang sudah disepakati. Ini contoh mengenali dan mengikuti aturan di lingkungan sekitar.",
+    "id": "q-pancasila-disiplin-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 2 · Aku Anak yang Disiplin; konteks aturan di lingkungan keluarga.",
+    "stem": "Di rumah, Dito diminta menaruh sepatu di tempat yang disepakati keluarga. Sikap yang menunjukkan disiplin adalah …",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-disiplin",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Mendengarkan saat guru dan teman berbicara",
+      "Mengganggu teman yang sedang belajar",
+      "Mencoret meja kelas",
+      "Mengambil alat tulis teman tanpa izin"
+    ],
+    "explanation": "Mendengarkan saat orang lain berbicara membantu suasana belajar tetap nyaman. Menjaga ketertiban bersama merupakan kewajiban yang mendukung hak murid untuk belajar.",
+    "id": "q-pancasila-disiplin-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 2 · Aku Anak yang Disiplin; konteks hubungan hak dan kewajiban di sekolah.",
+    "stem": "Murid berhak belajar di kelas dengan nyaman. Perilaku mana yang membantu menjaga hak itu sekaligus menunjukkan kewajiban?",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-disiplin",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Mendengarkan usul teman dan membicarakan pilihan bersama",
+      "Meminta semua teman mengikuti kebiasaan satu orang",
+      "Tidak mengajak teman yang kebiasaannya berbeda",
+      "Menolak semua usul yang berbeda dari usul sendiri"
+    ],
+    "explanation": "Mendengarkan usul teman menunjukkan bahwa perbedaan dihargai. Membicarakan pilihan bersama membantu semua murid ikut bekerja sama.",
+    "id": "q-pancasila-kerjasama-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 3 · Kerja Sama di Lingkunganku; kerja sama inklusif dan menghargai perbedaan; halaman perlu verifikasi guru.",
+    "stem": "Murid kelas 4 memiliki kebiasaan keluarga yang berbeda. Saat merencanakan kegiatan kelas, sikap apa yang menunjukkan menghargai keberagaman?",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-kerjasama",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Setiap murid membantu sesuai kesepakatan bersama",
+      "Satu murid mengerjakan semuanya sementara yang lain menonton",
+      "Murid hanya membantu teman dekatnya",
+      "Semua menunggu sampai ruang itu rapi sendiri"
+    ],
+    "explanation": "Gotong royong berarti bekerja bersama untuk menyelesaikan pekerjaan. Membantu sesuai kesepakatan membuat semua dapat berperan.",
+    "id": "q-pancasila-kerjasama-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 3 · Kerja Sama di Lingkunganku; gotong royong; halaman perlu verifikasi guru.",
+    "stem": "Warga kelas bergotong royong merapikan ruang belajar. Tindakan mana yang paling menunjukkan gotong royong?",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-kerjasama",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Mendiskusikan usul dengan tenang lalu menyepakati tugas bersama",
+      "Membagi kelas menjadi kelompok yang saling menolak",
+      "Berhenti bekerja karena usul tidak sama",
+      "Memilih satu teman untuk bekerja sendiri"
+    ],
+    "explanation": "Perbedaan usul tidak harus membuat teman berhenti bekerja bersama. Berdiskusi dan menyepakati tugas membantu menjaga persatuan.",
+    "id": "q-pancasila-kerjasama-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 3 · Kerja Sama di Lingkunganku; persatuan dalam kerja sama; halaman perlu verifikasi guru.",
+    "stem": "Saat menyiapkan kegiatan kelas, beberapa teman mempunyai usul yang berbeda. Apa yang sebaiknya dilakukan agar tetap bersatu?",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-kerjasama",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Bahasa Indonesia",
+      "Bahasa daerah salah satu anggota saja",
+      "Bahasa yang hanya dipahami ketua kelompok",
+      "Tidak berbicara selama kegiatan"
+    ],
+    "explanation": "Bahasa Indonesia berfungsi sebagai bahasa persatuan. Menggunakannya bersama dapat membantu anggota kelompok berkomunikasi saat bekerja sama.",
+    "id": "q-pancasila-kerjasama-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 3 · Kerja Sama di Lingkunganku; Bahasa Indonesia sebagai bahasa persatuan; halaman perlu verifikasi guru.",
+    "stem": "Dalam kelompok kelas, beberapa murid lebih terbiasa memakai bahasa daerah yang berbeda. Bahasa apa yang dapat dipakai bersama agar semua anggota memahami rencana kerja?",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-kerjasama",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "Mengajaknya bergabung dan menjelaskan kesepakatan kelompok",
+      "Membiarkannya bekerja sendiri tanpa penjelasan",
+      "Menyuruhnya meniru tanpa bertanya",
+      "Mengganti kelompok agar tidak perlu bekerja dengannya"
+    ],
+    "explanation": "Mengajak teman bergabung membuatnya ikut dalam kerja sama. Menjelaskan kesepakatan dengan ramah juga menghargai perbedaan kebiasaan.",
+    "id": "q-pancasila-kerjasama-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 3 · Kerja Sama di Lingkunganku; kerja sama inklusif dan menghargai perbedaan; halaman perlu verifikasi guru.",
+    "stem": "Seorang teman baru belum mengenal kebiasaan kelompok saat mengerjakan tugas bersama. Apa tindakan yang paling menunjukkan kerja sama yang menghargai perbedaan?",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-kerjasama",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "masyarakat mengutamakan toleransi dalam beragama dan berkepercayaan",
+      "masyarakat menyelesaikan masalah dengan bermusyawarah",
+      "masyarakat saling menolong atas nama kemanusiaan",
+      "masyarakat mencintai bangsa dan tanah air Indonesia"
+    ],
+    "explanation": "Sila pertama bermakna masyarakat mengutamakan toleransi dalam beragama dan berkepercayaan. Menghormati tetangga yang beribadah menunjukkan sikap tersebut.",
+    "id": "q-pancasila-diri-001",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 4 · A. Makna Sila-Sila Pancasila di Masyarakat",
+    "stem": "Di lingkungan tempat tinggal, warga saling menghormati tetangga yang beribadah menurut agama dan kepercayaannya. Makna sila Pancasila yang paling sesuai dengan sikap itu adalah …",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-diri",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 1,
+    "choices": [
+      "masyarakat yang mencintai bangsa dan tanah air",
+      "masyarakat yang saling menolong atas nama kemanusiaan",
+      "masyarakat yang mengutamakan toleransi dalam beragama",
+      "masyarakat yang menyelesaikan masalah dengan musyawarah"
+    ],
+    "explanation": "Sikap menolong orang yang membutuhkan mencerminkan nilai kemanusiaan. Bab ini memberi contoh menjenguk orang sakit sebagai kegiatan yang memuat nilai kemanusiaan dan kepedulian.",
+    "id": "q-pancasila-diri-002",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 4 · A. Makna Sila-Sila Pancasila di Masyarakat; B. Sikap dan Perilaku yang Mencerminkan Pengamalan Pancasila",
+    "stem": "Warga bersama-sama menjenguk tetangga yang sakit dan menawarkan bantuan. Makna Pancasila yang terutama tampak dalam tindakan saling membantu itu adalah …",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-diri",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 2,
+    "choices": [
+      "masyarakat yang kehidupannya sejahtera",
+      "masyarakat yang mencintai bangsa dan tanah air",
+      "masyarakat yang bermusyawarah dalam menyelesaikan masalah",
+      "masyarakat yang saling menolong atas nama kemanusiaan"
+    ],
+    "explanation": "Bermusyawarah untuk menyelesaikan masalah merupakan makna sila keempat dalam kehidupan bermasyarakat. Warga mendengarkan usul dan membahas pilihan bersama.",
+    "id": "q-pancasila-diri-003",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 4 · A. Makna Sila-Sila Pancasila di Masyarakat",
+    "stem": "Warga berbeda pendapat tentang kegiatan kampung. Mereka mendengarkan usul bersama dan bermusyawarah sebelum menentukan pilihan. Makna sila yang tampak adalah …",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-diri",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 3,
+    "choices": [
+      "Masyarakat yang mengutamakan toleransi dalam beragama dan berkepercayaan",
+      "Masyarakat yang saling menolong atas nama kemanusiaan",
+      "Masyarakat yang bermusyawarah dalam menyelesaikan masalah",
+      "Masyarakat yang kehidupannya sejahtera"
+    ],
+    "explanation": "Makna sila kelima dalam materi Bab 4 digambarkan sebagai masyarakat yang kehidupannya sejahtera. Pilihan lain merupakan makna sila-sila yang berbeda.",
+    "id": "q-pancasila-diri-004",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 4 · A. Makna Sila-Sila Pancasila di Masyarakat",
+    "stem": "Manakah gambaran masyarakat yang sesuai dengan makna sila kelima Pancasila menurut materi Bab 4?",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-diri",
+    "type": "multiple-choice"
+  },
+  {
+    "answerIndex": 0,
+    "choices": [
+      "berani dan berkata benar",
+      "pantang menyerah",
+      "berjiwa besar",
+      "mengutamakan persatuan bangsa"
+    ],
+    "explanation": "Buku menyebut karakter berani berjuang dan berkata benar sebagai teladan dari para perumus Pancasila. Dimas menunjukkan sikap berkata benar dengan mengakui kesalahannya.",
+    "id": "q-pancasila-diri-005",
+    "learnerAvailability": "available",
+    "reviewStatus": "needs_teacher_review",
+    "sourceIds": [
+      "pancasila-bs-catalog",
+      "pancasila-bs-2023",
+      "pancasila-bg-2021",
+      "cp-046-2025"
+    ],
+    "sourceLocator": "Bab 4 · D. Karakter Para Perumus Pancasila",
+    "stem": "Saat menemukan kesalahan dalam catatan kelompoknya, Dimas mengakuinya dan membetulkan catatan itu. Karakter para perumus Pancasila yang paling sesuai untuk diteladani dari sikap Dimas adalah …",
+    "subjectId": "pendidikan-pancasila",
+    "topicId": "pancasila-diri",
+    "type": "multiple-choice"
+  }
+]

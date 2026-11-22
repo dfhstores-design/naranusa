@@ -1,3 +1,5 @@
+import questionBank from "./question-bank.json";
+
 export type SubjectId = "matematika" | "bahasa-indonesia" | "ipas" | "pendidikan-pancasila";
 
 export type CurriculumSource = {
@@ -32,6 +34,7 @@ export type Question = {
   sourceLocator: string;
   type: "multiple-choice";
   reviewStatus: "needs_teacher_review" | "teacher_approved";
+  learnerAvailability: "available" | "hidden";
 };
 
 export const curriculumNote =
@@ -466,60 +469,7 @@ export const topics: Topic[] = [
   },
 ];
 
-export const questions: Question[] = [
-  {
-    id: "q-mtk-place-value-001",
-    subjectId: "matematika",
-    topicId: "mtk-bilangan",
-    stem: "Pada bilangan 6.482, angka 4 menempati nilai tempat …",
-    choices: ["puluhan", "ratusan", "ribuan", "satuan"],
-    answerIndex: 1,
-    explanation: "Pada 6.482, angka 4 berada di tempat ratusan, jadi nilainya 400.",
-    sourceIds: ["matematika-bs-2022", "matematika-bg-2022"],
-    sourceLocator: "Bab 1 · nilai tempat; tujuan Bab 1 tercantum pada hlm. 2–3.",
-    type: "multiple-choice",
-    reviewStatus: "needs_teacher_review",
-  },
-  {
-    id: "q-indo-persuasif-001",
-    subjectId: "bahasa-indonesia",
-    topicId: "indo-meliuk",
-    stem: "Kalimat ‘Ayo, gunakan jalur penyeberangan!’ bertujuan untuk …",
-    choices: ["mengajak pembaca melakukan sesuatu", "menyebutkan nama tokoh", "menceritakan urutan kejadian", "menjelaskan arti kata"],
-    answerIndex: 0,
-    explanation: "Kalimat itu memakai kata ‘Ayo’ untuk mengajak pembaca melakukan sesuatu. Bab 4 memuat pembahasan kalimat persuasif.",
-    sourceIds: ["bahasa-bs-2023", "bahasa-bg-2023"],
-    sourceLocator: "Bab 4 · Meliuk dan Menerjang; tujuan bab tercantum pada hlm. 70–71.",
-    type: "multiple-choice",
-    reviewStatus: "needs_teacher_review",
-  },
-  {
-    id: "q-ipas-energy-001",
-    subjectId: "ipas",
-    topicId: "ipas-energi",
-    stem: "Kipas angin dinyalakan. Energi listrik membuat baling-baling bergerak. Perubahan energi yang tampak adalah energi listrik menjadi energi …",
-    choices: ["gerak", "bunyi saja", "cahaya", "panas saja"],
-    answerIndex: 0,
-    explanation: "Baling-baling yang bergerak menunjukkan perubahan energi listrik menjadi energi gerak, sesuai topik perubahan energi di sekitar kita.",
-    sourceIds: ["ipas-bs-2023", "ipas-bg-2023", "cp-046-2025"],
-    sourceLocator: "Bab I · Mengubah Bentuk Energi, subbab Perubahan Energi di Sekitar Kita.",
-    type: "multiple-choice",
-    reviewStatus: "needs_teacher_review",
-  },
-  {
-    id: "q-pancasila-duty-001",
-    subjectId: "pendidikan-pancasila",
-    topicId: "pancasila-disiplin",
-    stem: "Raka mendapat jadwal piket kelas. Ia menyapu kelas sesuai gilirannya. Tindakan Raka menunjukkan …",
-    choices: ["hak untuk memilih aturan", "kewajiban yang dilaksanakan", "perbedaan identitas", "hak memakai fasilitas"],
-    answerIndex: 1,
-    explanation: "Raka menjalankan tugas sesuai jadwal. Itu contoh kewajiban yang dilaksanakan di lingkungan sekolah.",
-    sourceIds: ["pancasila-bs-catalog", "pancasila-bs-2023", "pancasila-bg-2021", "cp-046-2025"],
-    sourceLocator: "Buku Siswa Bab 2 · Aku Anak yang Disiplin, subbab Mendapatkan Hak dan Melakukan Kewajiban.",
-    type: "multiple-choice",
-    reviewStatus: "needs_teacher_review",
-  },
-];
+export const questions: Question[] = questionBank as unknown as Question[];
 
 export const subjectById = (id: SubjectId) => subjects.find((subject) => subject.id === id)!;
 export const topicById = (id: string) => topics.find((topic) => topic.id === id)!;

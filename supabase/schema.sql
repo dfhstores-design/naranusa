@@ -262,3 +262,109 @@ create policy "teacher admin read question keys" on public.question_keys for sel
 -- No write policies are granted to authenticated browser clients for curriculum, keys,
 -- attempts, scores, badges, or guardian links. Add a trusted server/Edge Function and
 -- narrowly scoped policies only after reviewing the full authorization model.
+
+
+-- NaraNusa revision: learner availability is independent of teacher review status.
+alter table public.profiles drop constraint if exists profiles_role_check;
+alter table public.profiles add constraint profiles_role_check
+  check (role in ('student', 'parent', 'teacher', 'admin', 'owner'));
+
+alter table public.questions
+  add column if not exists learner_availability text not null default 'available'
+    check (learner_availability in ('available', 'hidden')),
+  add column if not exists review_status text not null default 'needs_teacher_review'
+    check (review_status in ('needs_teacher_review', 'teacher_approved'));
+
+create index if not exists questions_topic_learner_availability_idx
+  on public.questions(topic_id, learner_availability);
+
+-- AI secrets are ciphertext only. Browser roles have no table grants or RLS policies;
+-- only server routes using the service-role key may read/write these records.
+create table if not exists public.ai_provider_configs (
+  id uuid primary key default gen_random_uuid(),
+  owner_scope text not null check (owner_scope in ('teacher_admin', 'application_owner')),
+  provider_type text not null check (provider_type in ('gemini', 'claude', 'openai', 'deepseek', 'custom')),
+  model text not null,
+  endpoint_url text,
+  daily_token_limit bigint check (daily_token_limit is null or daily_token_limit > 0),
+  enabled boolean not null default true,
+  priority integer not null default 100 check (priority between 0 and 10000),
+  custom_header_names text[] not null default '{}',
+  credential_set_at timestamptz,
+  secret_ciphertext text not null,
+  secret_iv text not null,
+  secret_tag text not null,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  check ((provider_type = 'custom' and endpoint_url is not null) or (provider_type <> 'custom' and endpoint_url is null))
+);
+create index if not exists ai_provider_configs_pool_idx
+  on public.ai_provider_configs(enabled, priority);
+create index if not exists ai_provider_configs_scope_idx
+  on public.ai_provider_configs(owner_scope, priority);
+
+create table if not exists public.ai_provider_daily_usage (
+  provider_id uuid not null references public.ai_provider_configs(id) on delete cascade,
+  usage_date date not null,
+  tokens_used bigint not null default 0 check (tokens_used >= 0),
+  quota_exhausted boolean not null default false,
+  updated_at timestamptz not null default now(),
+  primary key(provider_id, usage_date)
+);
+
+alter table public.ai_provider_configs enable row level security;
+alter table public.ai_provider_daily_usage enable row level security;
+revoke all on public.ai_provider_configs from anon, authenticated;
+revoke all on public.ai_provider_daily_usage from anon, authenticated;
+grant select, insert, update, delete on public.ai_provider_configs to service_role;
+grant select, insert, update, delete on public.ai_provider_daily_usage to service_role;
+
+-- Usage increments and quota markers are atomic so concurrent tutor requests share
+-- one server-side daily ledger. These RPCs are restricted to service_role.
+create or replace function public.record_ai_provider_usage(p_provider_id uuid, p_usage_date date, p_tokens bigint)
+returns void
+language plpgsql
+security definer
+set search_path = public, pg_temp
+as $$
+begin
+  if p_tokens < 0 then raise exception 'Token usage must not be negative'; end if;
+  insert into public.ai_provider_daily_usage(provider_id, usage_date, tokens_used, updated_at)
+  values (p_provider_id, p_usage_date, p_tokens, now())
+  on conflict (provider_id, usage_date) do update
+    set tokens_used = public.ai_provider_daily_usage.tokens_used + excluded.tokens_used,
+        updated_at = now();
+end;
+$$;
+
+create or replace function public.mark_ai_provider_daily_quota(p_provider_id uuid, p_usage_date date)
+returns void
+language plpgsql
+security definer
+set search_path = public, pg_temp
+as $$
+begin
+  insert into public.ai_provider_daily_usage(provider_id, usage_date, quota_exhausted, updated_at)
+  values (p_provider_id, p_usage_date, true, now())
+  on conflict (provider_id, usage_date) do update
+    set quota_exhausted = true,
+        updated_at = now();
+end;
+$$;
+
+revoke all on function public.record_ai_provider_usage(uuid, date, bigint) from public, anon, authenticated;
+revoke all on function public.mark_ai_provider_daily_quota(uuid, date) from public, anon, authenticated;
+grant execute on function public.record_ai_provider_usage(uuid, date, bigint) to service_role;
+grant execute on function public.mark_ai_provider_daily_quota(uuid, date) to service_role;
+
+-- Learners can read every available item whether or not a teacher has reviewed it.
+-- Teacher approval remains a separate workflow state and is not implied by availability.
+drop policy if exists "authenticated read published questions" on public.questions;
+create policy "authenticated read available questions" on public.questions
+  for select to authenticated using (learner_availability = 'available');
+
+-- Question keys remain restricted to staff; Owner may administer the application bank.
+drop policy if exists "teacher admin read question keys" on public.question_keys;
+create policy "teacher admin owner read question keys" on public.question_keys for select to authenticated using (
+  exists (select 1 from public.profiles p where p.id = auth.uid() and p.role in ('teacher', 'admin', 'owner'))
+);
