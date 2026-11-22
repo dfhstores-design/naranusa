@@ -1,0 +1,15 @@
+{
+  "id": "/",
+  "name": "NaraNusa — Belajar Seru Kelas 4",
+  "short_name": "NaraNusa",
+  "description": "Petualangan belajar Kelas 4 dengan sumber Kurikulum Merdeka.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7f8fc",
+  "theme_color": "#f7f8fc",
+  "lang": "id",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
