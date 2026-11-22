@@ -4,6 +4,7 @@ import { test } from "node:test";
 import { encryptProviderSecret, decryptProviderSecret, providerScopeForRole, canAccessProviderScope, toProviderMetadata } from "../src/lib/ai-provider-security.ts";
 import { ProviderRequestError, isDailyQuotaError, runSharedProviderPool, selectEligibleProviders } from "../src/lib/ai-provider-pool.ts";
 import { getLearnerAvailableQuestions, getLearnerQuestionsForTopic } from "../src/lib/learner-questions.ts";
+import { buildTutorGroundingContext } from "../src/lib/tutor-grounding.ts";
 
 const root = new URL("../src/content/", import.meta.url);
 const questions = JSON.parse(readFileSync(new URL("question-bank.json", root), "utf8")) as Array<Record<string, unknown> & {
@@ -70,6 +71,32 @@ test("provider yang mencapai kuota harian ditandai lalu pool failover ke provide
     { id: "marked", enabled: true, dailyTokenLimit: null, tokensUsedToday: 0, quotaExhaustedToday: true, priority: 2 },
     { id: "good", enabled: true, dailyTokenLimit: 10, tokensUsedToday: 9, quotaExhaustedToday: false, priority: 3 },
   ]).map((item) => item.id), ["good"]);
+});
+
+test("tutor membangun konteks topik dan sumber tanpa contoh teacher_approved", () => {
+  assert.equal(questions.some((question) => question.reviewStatus === "teacher_approved"), false);
+  const context = buildTutorGroundingContext(
+    { subjectId: "matematika", chapter: "Bab 1", title: "Bilangan", objective: "Membaca bilangan sesuai nilai tempat." },
+    [{
+      id: "mock-source", title: "Buku Matematika Kelas IV", publisher: "Pusat Perbukuan", year: "2022",
+      url: "https://example.test/buku", evidence: "Bab 1 membahas bilangan sampai 10.000.",
+    }],
+  );
+  assert.ok(context);
+  assert.equal(context.topic, "Bilangan");
+  const serialized = JSON.stringify(context);
+  assert.match(serialized, /nilai tempat/);
+  assert.match(serialized, /bilangan sampai 10\.000/);
+  assert.doesNotMatch(serialized, /teacher_approved|curatedExampleForGrounding/);
+});
+
+test("tutor gagal tertutup jika topik tidak memiliki sumber bukti HTTPS", () => {
+  const topic = { subjectId: "matematika", chapter: "Bab 1", title: "Bilangan", objective: "Membaca bilangan." };
+  assert.equal(buildTutorGroundingContext(topic, []), null);
+  assert.equal(buildTutorGroundingContext(topic, [{
+    id: "mock-source", title: "Sumber", publisher: "Penerbit", year: "2026",
+    url: "http://example.test/sumber", evidence: "Bukti yang tidak disajikan melalui HTTPS.",
+  }]), null);
 });
 
 test("semua 130 soal tersedia untuk murid, lima per topik, tetap menunggu tinjauan guru", () => {
