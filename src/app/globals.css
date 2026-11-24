@@ -18,7 +18,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; color: var(--ink); background: var(--canvas); font: 16px/1.5 "Nunito Sans", "Avenir Next", Avenir, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0; color: var(--ink); background: var(--canvas); font: 16px/1.5 "Nunito Variable", Nunito, "Avenir Next", Avenir, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
 button, input, select, textarea { font: inherit; }
 button { color: inherit; }
 a { color: inherit; }
@@ -201,3 +201,28 @@ h1, h2, h3, p { margin-top: 0; }
   .login-form-side { padding: 20px 16px 35px; }.login-card { padding: 22px; }
 }
 @media (max-width: 380px) { .login-art { grid-template-columns: minmax(0, 1fr) 125px; padding-inline: 15px; }.login-illustration { width: 125px; }.login-art-copy h1 { font-size: 24px; }.login-art-copy p:last-child { font-size: 13px; } }
+
+/* Sistem desain terkunci: Nunito, teal untuk aksi utama, permukaan bulat. */
+body { font-weight: 700; }
+.button { border-radius: 16px; }
+.button.primary { background: #249d87; box-shadow: 0 5px 0 #197b6a, 0 10px 20px rgba(47,49,91,.1); }
+.button.primary:hover:not(:disabled) { background: #208a78; }
+.button.primary:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 2px 0 #197b6a; }
+.header-nav a:hover, .header-nav a.active, .mobile-dock a.active { color: #167e6d; background: #e7f7f2; }
+.message-card, .admin-panel, .progress-panel, .topic-list, .subject-card, .quiz-card { border-radius: 22px; box-shadow: 0 5px 0 rgba(47,49,91,.08), 0 12px 24px rgba(47,49,91,.06); }
+.login-page { background: #f7f8fc; }
+.login-art { background: #fff8e9; }
+.login-mascot { background: #fff; box-shadow: 0 6px 0 rgba(47,49,91,.07), 0 12px 22px rgba(47,49,91,.08); }
+.login-card { border: 0; background: #fff; border-radius: 24px; box-shadow: 0 5px 0 rgba(47,49,91,.08), 0 14px 32px rgba(47,49,91,.08); }
+.login-card .input-with-icon input { border-color: #d9e8e3; background: #f7f8fc; border-radius: 16px; }
+.login-card .button.primary, .login-card .button.primary:hover:not(:disabled) { color: #fff; background: #249d87; box-shadow: 0 5px 0 #197b6a, 0 10px 20px rgba(47,49,91,.1); }
+.login-role-note { margin: 14px 0 0; color: #77768c; font-size: 13px; line-height: 1.4; }
+.login-roles span { background: #fff8e9; }.login-roles span:nth-child(2) { background: #fff2ee; }.login-roles span:nth-child(3) { color: #167e6d; background: #e7f7f2; }
+@media (max-width: 780px) { .header-nav { display: none; } .login-art { background: #fff8e9; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+.login-illustration { width: min(100%, 430px); }
+.login-mascot { display: flex; justify-content: center; align-items: center; aspect-ratio: auto; min-height: 230px; border-radius: 24px; background: #fff; }
+.login-mascot img { width: 48%; height: auto; object-fit: contain; }
+.header-avatar { width: 40px; height: 40px; border-radius: 50%; }
+@media (max-width: 780px) { .login-illustration { width: 155px; }.login-mascot { min-height: 0; padding: 6px; }.login-mascot img { width: 50%; }.header-avatar { width: 34px; height: 34px; } }
+@media (max-width: 380px) { .login-illustration { width: 125px; } }

@@ -1,15 +1,15 @@
 {
-  "id": "/pwa-edukasi-kelas4/",
+  "id": "/naranusa/",
   "name": "NaraNusa — Belajar Seru Kelas 4",
   "short_name": "NaraNusa",
   "description": "Latihan Kelas 4 dengan soal kurasi dan progres tersimpan aman di server.",
-  "start_url": "/pwa-edukasi-kelas4/",
-  "scope": "/pwa-edukasi-kelas4/",
+  "start_url": "/naranusa/",
+  "scope": "/naranusa/",
   "display": "standalone",
   "background_color": "#f7f8fc",
   "theme_color": "#f7f8fc",
   "lang": "id",
   "icons": [
-    { "src": "/pwa-edukasi-kelas4/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+    { "src": "/naranusa/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
   ]
 }

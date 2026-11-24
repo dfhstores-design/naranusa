@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowRight, BookOpen, Check, Heart, Star, X } from "lucide-react";
+import { ArrowRight, BookOpen, Check, Heart, X } from "lucide-react";
 import AppShell from "@/components/app-shell";
 import NaraMascot from "@/components/nara-mascot";
+import { CharacterArt } from "@/components/character-art";
 import { subjects, topics, sourcesByIds } from "@/content/curriculum";
 import { AnswerResult, gasAction, PublicQuestion } from "@/lib/api";
 import { readSessionToken } from "@/lib/session";
+import "@/components/student-alignment.css";
 
 type QuestionListResponse = { ok: true; questions: PublicQuestion[] };
 type QuizMode = "topic" | "misi" | "ujian" | "cepat";
@@ -124,8 +126,8 @@ function QuizContent() {
     setError("");
   }
 
-  return <>
-    <div className="content-toolbar"><Link href={topic ? `/mapel/${topic.subjectId}` : "/"} className="back-link"><ArrowLeft size={18} /> Kembali</Link><span className="pill-label">{label}</span></div>
+  return <div className="student-alignment student-quiz">
+    <div className="content-toolbar"><Link href={topic ? `/mapel/${topic.subjectId}` : "/"} className="back-link"><X size={18} /> Tutup</Link><span className="pill-label">{label}</span></div>
     {busy && <div className="message-card inline-loading"><div className="mini-spinner" /><p>Menyiapkan soal dari server…</p></div>}
     {!busy && error && questions.length === 0 && <div className="message-card"><div className="mascot-disc"><NaraMascot small /></div><p>{error}</p><button className="button secondary" onClick={() => window.location.reload()}>Coba lagi</button></div>}
     {!busy && current && subject && topic && <section className="quiz-card">
@@ -145,12 +147,11 @@ function QuizContent() {
       {error && questions.length > 0 && <p className="notice" role="status">{error}</p>}
       {result && <div className={`answer-result ${result.correct ? "success" : "try-again"}`} role="status">
         <span className="result-icon">{result.correct ? <Check size={21} /> : <Heart size={21} />}</span><div><strong>{result.correct ? "Hebat, jawabanmu benar!" : "Belum tepat, yuk belajar lagi."}</strong><p>{result.explanation}</p><small>Rujukan: {current.sourceLocator || "materi belajar Kelas 4"}</small></div>
-        {result.correct && <span className="floating-star" aria-hidden="true">+10 XP ✦</span>}
       </div>}
       <div className="quiz-sources"><span><BookOpen size={16} /> Rujukan materi</span><div>{sourceLinks.map((source) => <a href={source.url} target="_blank" rel="noreferrer" key={source.id}>{source.title} ↗</a>)}</div></div>
       <div className="quiz-controls">{!result ? <button className="button primary" disabled={choice === null || submitting} onClick={submitAnswer}>{submitting ? "Memeriksa…" : "Periksa jawaban"} <ArrowRight size={18} /></button> : <button className="button primary" onClick={nextQuestion}>{index + 1 === questions.length ? "Lihat hasil" : "Soal berikutnya"} <ArrowRight size={18} /></button>}</div>
     </section>}
-    {!busy && !error && !current && questions.length > 0 && <section className="message-card finish-card"><div className="mascot-disc"><NaraMascot small /></div><p className="eyebrow">PETUALANGAN SELESAI</p><h2>Kamu sudah berusaha hebat!</h2><p>Benar {correctCount} dari {questions.length} soal. Setiap latihan membuatmu makin paham.</p><div className="reward-badge"><Star size={19} fill="currentColor" /> {correctCount * 10} XP</div><Link className="button primary" href="/">Kembali ke beranda <ArrowRight size={18} /></Link></section>}
+    {!busy && !error && !current && questions.length > 0 && <section className="message-card finish-card"><div className="result-characters"><CharacterArt character="nara" variant={{ type: "expression", name: "celebrating" }} size={124} alt="Nara merayakan usahamu" /><CharacterArt character="nusa" variant={{ type: "expression", name: "laughing" }} size={124} alt="Nusa ikut merayakan" /></div><p className="eyebrow">PETUALANGAN SELESAI</p><h2>Kamu sudah berusaha hebat!</h2><p>Benar {correctCount} dari {questions.length} soal. Setiap latihan membuatmu makin paham.</p><div className="quiz-score">{correctCount}<span>dari {questions.length} benar</span></div><div className="finish-actions">{topic && <Link className="button secondary" href={`/mapel/${topic.subjectId}`}>Pilih topik lain <ArrowRight size={18} /></Link>}<Link className="button primary" href="/">Kembali ke beranda <ArrowRight size={18} /></Link></div></section>}
     {toast && <div className="toast" role="status">{toast}</div>}
-  </>;
+  </div>;
 }

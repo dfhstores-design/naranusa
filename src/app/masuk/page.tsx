@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
-import { ArrowRight, BookOpen, Eye, EyeOff, LockKeyhole, UserRound, WifiOff } from "lucide-react";
+import { ArrowRight, Eye, EyeOff, LockKeyhole, UserRound } from "lucide-react";
 import "@fontsource-variable/nunito";
-import NaraMascot from "@/components/nara-mascot";
+import { CharacterArt } from "@/components/character-art";
 import { ApiError, gasAction } from "@/lib/api";
 import { saveSessionToken } from "@/lib/session";
 
@@ -43,33 +43,31 @@ export default function SignInPage() {
     <main className="login-page">
       <section className="login-art" aria-label="NaraNusa">
         <Link href="/" className="brand-link">
-          <span className="brand-mark" aria-hidden="true"><Image src="/pwa-edukasi-kelas4/icon.svg" alt="" aria-hidden="true" width={44} height={44} /></span>
+          <span className="brand-mark" aria-hidden="true"><Image src="/naranusa/icon.svg" alt="" aria-hidden="true" width={44} height={44} /></span>
           <span><strong>Nara<span>Nusa</span></strong><small>jelajah ilmu, seru!</small></span>
         </Link>
         <div className="login-illustration">
           <span className="login-spark spark-a" aria-hidden="true">✦</span>
-          <div className="login-mascot"><NaraMascot /></div>
+          <div className="login-mascot"><CharacterArt character="nara" alt="Nara melambai" /><CharacterArt character="nusa" alt="Nusa menyapa" /></div>
           <span className="login-spark spark-b" aria-hidden="true">✦</span>
         </div>
-        <div className="login-art-copy"><p className="eyebrow">RUANG BELAJAR KELAS 4</p><h1>Petualangan ilmu menunggumu!</h1><p>Belajar seru bersama Nara, selangkah demi selangkah.</p></div>
+        <div className="login-art-copy"><h1>Belajar seru bareng Nara &amp; Nusa!</h1><p>Satu tempat untuk menjelajah ilmu bersama.</p></div>
       </section>
       <section className="login-form-side" aria-labelledby="login-heading">
         <div className="login-card">
-          <div className="login-card-top"><span className="login-icon"><BookOpen size={26} aria-hidden="true" /></span><span className="login-card-spark" aria-hidden="true">✦</span></div>
-          <p className="eyebrow">SELAMAT DATANG KEMBALI</p>
-          <h2 id="login-heading">Masuk ke NaraNusa</h2>
-          <p className="muted">Belum punya akun? Minta orang tua atau guru menyiapkannya.</p>
+          <h2 id="login-heading">Selamat datang!</h2>
+          <p className="muted">Masuk untuk mulai belajar bersama.</p>
           <form onSubmit={submit} className="stack-form">
             <label htmlFor="username">Username</label>
             <div className="input-with-icon"><UserRound size={19} aria-hidden="true" /><input id="username" name="username" autoComplete="username" required value={username} onChange={(event) => setUsername(event.target.value)} placeholder="Username akunmu" /></div>
             <label htmlFor="password">Kata sandi</label>
             <div className="input-with-icon password-input"><LockKeyhole size={19} aria-hidden="true" /><input id="password" name="password" type={showPassword ? "text" : "password"} autoComplete="current-password" required value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Masukkan kata sandi" /><button type="button" className="password-toggle" aria-label={showPassword ? "Sembunyikan kata sandi" : "Tampilkan kata sandi"} aria-pressed={showPassword} onClick={() => setShowPassword((visible) => !visible)}>{showPassword ? <EyeOff size={20} aria-hidden="true" /> : <Eye size={20} aria-hidden="true" />}</button></div>
             {message && <p className="notice" role="alert">{message}</p>}
-            <button type="submit" className="button primary full" disabled={busy}>{busy ? "Sedang memeriksa…" : <>Masuk dan mulai belajar <ArrowRight size={19} aria-hidden="true" /></>}</button>
+            <button type="submit" className="button primary full" disabled={busy}>{busy ? "Sedang memeriksa…" : <>Masuk <ArrowRight size={19} aria-hidden="true" /></>}</button>
           </form>
-          <p className="privacy-note">Akun memakai username. Kami tidak meminta email atau nama lengkap anak.</p>
+          <p className="privacy-note">Lupa kata sandi? Minta bantuan guru atau wali untuk meresetnya.</p>
           <div className="login-roles" aria-label="Satu halaman masuk untuk semua peran"><span>Murid</span><span>Guru</span><span>Orang tua</span></div>
-          <Link href="/offline/" className="subtle-link"><WifiOff size={16} aria-hidden="true" /> Butuh halaman offline?</Link>
+          <p className="login-role-note">Satu layar masuk untuk semua. Setelah masuk, tampilan menyesuaikan peran.</p>
         </div>
       </section>
     </main>
