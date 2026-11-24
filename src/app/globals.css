@@ -29,7 +29,7 @@ h1, h2, h3, p { margin-top: 0; }
 .app-frame { min-height: 100vh; }
 .app-header { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 24px; min-height: 76px; padding: 10px clamp(16px, 4vw, 56px); border-bottom: 1px solid rgba(231, 231, 240, .86); background: rgba(255, 255, 255, .94); backdrop-filter: blur(14px); }
 .brand-link { display: inline-flex; align-items: center; gap: 10px; flex: 0 0 auto; text-decoration: none; }
-.brand-mark { display: grid; place-items: center; width: 48px; height: 48px; overflow: hidden; border-radius: 16px; background: #f1efff; }
+.brand-mark { display: grid; place-items: center; width: 48px; height: 48px; overflow: hidden; border-radius: 16px; background: #249d87; }
 .brand-mark svg { width: 44px; height: 44px; }
 .brand-text, .brand-link > span:last-child { display: flex; flex-direction: column; gap: 0; }
 .brand-text strong, .brand-link > span:last-child strong { color: #343252; font-size: 17px; font-weight: 900; letter-spacing: -.035em; }
