@@ -202,6 +202,39 @@ h1, h2, h3, p { margin-top: 0; }
 }
 @media (max-width: 380px) { .login-art { grid-template-columns: minmax(0, 1fr) 125px; padding-inline: 15px; }.login-illustration { width: 125px; }.login-art-copy h1 { font-size: 24px; }.login-art-copy p:last-child { font-size: 13px; } }
 
+/* Perbaikan tampilan sesuai mock-up (25 Nov 2026, Muse). Satu sumber kebenaran:
+   palet terkunci navy #2f315b, teal #249d87, amber #f3b545, coral #ec765f,
+   cream #fff8e9, latar #f7f8fc. Tidak ada ungu generik di UI. */
+.button.secondary { border-color: rgba(36, 157, 135, .35); color: #2f315b; background: #fff; }
+.button.secondary:hover:not(:disabled) { background: #fff8e9; }
+.text-button, .text-link { color: #249d87; }
+.icon-button:hover { color: #249d87; background: #fff8e9; }
+.admin-tab[aria-selected="true"] { color: #2f315b; background: #edf7f4; }
+.status-pill { color: #2f315b; background: #edf7f4; }
+.detail-bubble { color: #249d87; background: #edf7f4; }
+.mini-spinner { border-color: rgba(36, 157, 135, .18); border-top-color: #249d87; }
+.loading-strip { color: #2f315b; background: #edf7f4; }
+.source-note a { color: #249d87; }
+.source-note > svg { color: #249d87; }
+.page-footnote { border-left-color: #f3b545; }
+.finish-card .eyebrow, .tutor-placeholder .eyebrow { color: #249d87; }
+.pill-label { color: #2f315b; background: #fff8e9; }
+.score-orb span { max-width: 78px; text-align: center; line-height: 1.25; }
+@keyframes star-pop { 0% { opacity: 0; transform: scale(.4) rotate(-14deg); } 60% { opacity: 1; transform: scale(1.18) rotate(5deg); } 100% { opacity: 1; transform: scale(1) rotate(0); } }
+.finish-stars { display: flex; justify-content: center; gap: 10px; margin: 4px 0 2px; }
+.finish-stars span { color: #f3b545; font-size: 44px; line-height: 1; animation: star-pop .5s ease both; }
+.finish-stars span:nth-child(2) { animation-delay: .14s; }
+.finish-stars span:nth-child(3) { animation-delay: .28s; }
+/* Banner peta Indonesia di halaman masuk (mockup 01): bentuk datar, tanpa gradien. */
+.map-banner { display: flex; align-items: center; gap: 12px; width: min(100%, 430px); padding: 10px 14px; border-radius: 18px; background: #fff; box-shadow: 0 4px 0 rgba(47, 49, 91, .06); }
+.map-banner svg { flex: 0 0 auto; }
+.map-banner .map-steps { display: flex; gap: 6px; }
+.map-banner .map-steps i { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; color: #fff; background: #249d87; font-size: 13px; font-style: normal; font-weight: 950; }
+.map-banner .map-steps i:nth-child(2) { background: #f3b545; color: #2f315b; }
+.map-banner .map-steps i:nth-child(3) { background: #ec765f; }
+.map-banner p { margin: 0; color: #2f315b; font-size: 13px; font-weight: 800; line-height: 1.35; }
+@media (max-width: 780px) { .map-banner { display: none; } }
+
 /* Sistem desain terkunci: Nunito, teal untuk aksi utama, permukaan bulat. */
 body { font-weight: 700; }
 .button { border-radius: 16px; }

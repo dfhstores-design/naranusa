@@ -2,20 +2,15 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowRight, BookOpen, ChartNoAxesColumn, Heart, MessageCircle, Sparkles, Star, Target, Trophy } from "lucide-react";
+import { ArrowRight, BadgeCheck, Flame, Star } from "lucide-react";
 import AppShell, { useSessionUser } from "@/components/app-shell";
 import { CharacterArt } from "@/components/character-art";
 import { gasAction, PublicSubject, ProgressRow } from "@/lib/api";
+import { starsFor, streakFrom } from "@/lib/progress-summary";
 import { readSessionToken } from "@/lib/session";
-import { curriculumNote, subjects as subjectInfo, topics as curriculumTopics } from "@/content/curriculum";
+import { subjects as subjectInfo, topics as curriculumTopics } from "@/content/curriculum";
 import "@/components/student-alignment.css";
-
-const modeCards = [
-  { mode: "topik", title: "Latihan topik", caption: "Pilih mapel dan topik", icon: BookOpen, color: "#6b56d9" },
-  { mode: "misi", title: "Tantangan harian", caption: "Empat soal campuran", icon: Target, color: "#ec765f" },
-  { mode: "ujian", title: "Ujian mini", caption: "Coba soal dari 4 mapel", icon: Trophy, color: "#e4a62b" },
-  { mode: "cepat", title: "Mode cepat", caption: "Satu soal, mulai sekarang", icon: Sparkles, color: "#249d87" },
-];
+import "@/components/mockup.css";
 
 type SubjectResponse = { ok: true; subjects: PublicSubject[] };
 type ProgressResponse = { ok: true; progress: ProgressRow[] };
@@ -50,6 +45,8 @@ function DashboardContent() {
 
   const answered = progress.reduce((sum, row) => sum + row.percobaan, 0);
   const correct = progress.reduce((sum, row) => sum + row.benar, 0);
+  const stars = starsFor(correct);
+  const streak = streakFrom(progress);
   const latestProgress = progress.reduce<ProgressRow | null>((latest, row) => {
     if (!latest) return row;
     const rowDate = Date.parse(row.terakhir_pada) || 0;
@@ -57,45 +54,52 @@ function DashboardContent() {
     return rowDate > latestDate ? row : latest;
   }, null);
   const continueTopic = latestProgress ? curriculumTopics.find((topic) => topic.id === latestProgress.topicId) : undefined;
+  const continueSubject = continueTopic ? subjectInfo.find((item) => item.id === continueTopic.subjectId) : undefined;
+  const continueDone = latestProgress ? Math.min(latestProgress.percobaan, 5) : 0;
 
   return <div className="student-alignment student-home">
-    <section className="welcome-banner">
-      <div><p className="eyebrow light">SELAMAT DATANG DI PETUALANGANMU</p><h2>Halo, {user?.username}! <span aria-hidden="true">✦</span></h2><p>{continueTopic ? `Terakhir kamu belajar: ${continueTopic.title}` : "Pilih mapel yang ingin kamu jelajahi hari ini."}</p>{continueTopic && <Link href={`/latihan?topicId=${encodeURIComponent(continueTopic.id)}`} className="button white-button">Lanjutkan belajar <ArrowRight size={18} /></Link>}</div>
-      <div className="banner-mascot"><CharacterArt character="nara" variant={{ type: "avatar" }} size={168} alt="Avatar Nara" /></div>
-      <span className="banner-star star-one">✦</span><span className="banner-star star-two">✧</span>
+    <div className="greeting-row">
+      <CharacterArt character="nara" variant={{ type: "avatar" }} size={52} className="greeting-avatar" alt="Avatar Nara" />
+      <h2>Halo, {user?.username}!</h2>
+      <span className="star-total"><Star size={18} fill="currentColor" />{busy ? "…" : stars}</span>
+    </div>
+
+    <section className="continue-card" aria-label="Lanjutkan belajar">
+      {continueTopic && continueSubject ? <>
+        <p className="eyebrow light">LANJUTKAN BELAJAR</p>
+        <h3>{continueSubject.name} • {continueTopic.title}</h3>
+        <p>Soal {continueDone} dari 5</p>
+        <div className="continue-progress" role="progressbar" aria-valuenow={continueDone} aria-valuemin={0} aria-valuemax={5}><i style={{ width: `${(continueDone / 5) * 100}%` }} /></div>
+        <Link href={`/latihan?topicId=${encodeURIComponent(continueTopic.id)}`} className="continue-pill">Lanjut <ArrowRight size={18} /></Link>
+      </> : <>
+        <p className="eyebrow light">MULAI PETUALANGANMU</p>
+        <h3>Belajar apa hari ini?</h3>
+        <p>Pilih mapel dan topik pertamamu.</p>
+        <Link href="/mapel/matematika" className="continue-pill">Mulai belajar <ArrowRight size={18} /></Link>
+      </>}
     </section>
 
     {error && <div className="notice" role="status">{error} <button className="text-button" onClick={() => window.location.reload()}>Coba lagi</button></div>}
 
-    <section className="quick-summary" aria-label="Ringkasan progres">
-      <div className="summary-icon purple"><Star size={20} fill="currentColor" /></div><div><strong>{busy ? "Memuat…" : error ? "— jawaban benar" : `${correct} jawaban benar`}</strong><span>{busy ? "Mengambil progres dari server" : error ? "Progres belum tersedia" : `${answered} percobaan tercatat di server`}</span></div>
-      <div className="summary-divider" />
-      <div className="summary-icon green"><ChartNoAxesColumn size={20} /></div><div><strong>{busy ? "Memuat…" : error ? "— mapel" : `${catalog.length} mapel`}</strong><span>Siap kamu jelajahi</span></div>
+    <section className="stat-row" aria-label="Ringkasan bintang dan progres">
+      <div className="stat-card"><span className="stat-icon amber"><Star size={22} fill="currentColor" /></span><strong>{busy ? "…" : stars}</strong><span>Bintang</span></div>
+      <div className="stat-card"><span className="stat-icon coral"><Flame size={22} fill="currentColor" /></span><strong>{busy ? "…" : streak}</strong><span>Hari beruntun</span></div>
+      <div className="stat-card"><span className="stat-icon teal"><BadgeCheck size={22} /></span><strong>{busy ? "…" : answered}</strong><span>Soal selesai</span></div>
     </section>
 
     <section className="content-section">
-      <div className="section-heading"><div><p className="eyebrow">MATERI KELAS 4 · FASE B</p><h2>Belajar apa hari ini?</h2></div><span className="quiet-note">{busy ? "Memuat…" : "Soal dari backend pilot"}</span></div>
-      <div className="subject-grid">
-        {subjectInfo.map((info, index) => {
+      <div className="section-heading"><div><p className="eyebrow">KELAS 4 · FASE B</p><h2>Pilih mapel</h2></div></div>
+      <div className="subject-tiles">
+        {subjectInfo.map((info) => {
           const subject = catalog.find((item) => item.id === info.id);
-          const subjectProgress = progress.filter((row) => row.topicId.startsWith(info.id === "matematika" ? "mtk-" : info.id === "bahasa-indonesia" ? "indo-" : info.id === "pendidikan-pancasila" ? "pancasila-" : "ipas-"));
-          const totalCorrect = subjectProgress.reduce((sum, row) => sum + row.benar, 0);
-          return <Link key={info.id} href={`/mapel/${info.id}`} className={`subject-card subject-${info.id}`} style={{ "--subject-color": info.color, "--subject-tint": `color-mix(in srgb, ${info.color} 11%, white)` } as React.CSSProperties}>
-            <div className="subject-card-top"><span className="subject-icon">{info.icon}</span><span className="subject-index">0{index + 1}</span></div>
-            <h3>{subject?.name || info.name}</h3><p>{subject?.description || info.description}</p>
-            <div className="subject-card-meta"><span>{busy ? "Memuat jumlah soal…" : error || !subject ? "Jumlah soal belum tersedia" : `${subject.soalTersedia} soal tersedia`}</span><span>{error ? "Progres —" : `${totalCorrect} benar`}</span></div>
-            <span className="subject-card-arrow"><ArrowRight size={18} /></span>
+          return <Link key={info.id} href={`/mapel/${info.id}`} className="subject-tile" style={{ background: `color-mix(in srgb, ${info.color} 13%, white)` }}>
+            <span className="tile-icon" style={{ color: info.color }}>{info.icon}</span>
+            <h3>{subject?.name || info.name}</h3>
+            <span>{busy ? "Memuat…" : error || !subject ? "Soal tersedia" : `${subject.soalTersedia} soal`}</span>
+            <ArrowRight size={18} className="tile-arrow" />
           </Link>;
         })}
       </div>
     </section>
-
-    <section className="content-section">
-      <div className="section-heading"><div><p className="eyebrow">CARA BELAJAR</p><h2>Pilih petualanganmu</h2></div></div>
-      <div className="mode-grid">{modeCards.map((item) => { const Icon = item.icon; const contents = <><span className="mode-icon" style={{ background: `color-mix(in srgb, ${item.color} 12%, white)`, color: item.color }}><Icon size={22} /></span><span><strong>{item.title}</strong><small>{item.caption}</small></span><ArrowRight size={18} /></>; return item.mode === "topik" ? <Link className="mode-card" href="/mapel/matematika" key={item.mode}>{contents}</Link> : <Link className="mode-card" href={`/latihan?mode=${item.mode}`} key={item.mode}>{contents}</Link>; })}</div>
-    </section>
-
-    <section className="friendly-card"><span className="friendly-icon"><Heart size={20} fill="currentColor" /></span><div><strong>Belajar pelan-pelan juga hebat!</strong><p>Progres dan jawaban latihan disimpan di server. Tutor belum aktif.</p></div><span className="friendly-status" aria-label="Tutor belum aktif"><MessageCircle size={20} /></span></section>
-    <footer className="page-footnote">{curriculumNote}</footer>
   </div>;
 }
