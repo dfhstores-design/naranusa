@@ -19,13 +19,13 @@ export default function NaraMascot({ small = false }: { small?: boolean }) {
       <path d="M157 70c14 2 23 12 23 26l-2 16c5 8 4 16-3 22 3 8 1 15-6 19l-8-6-5-19-1-30Z" fill="#17171a" />
       <path d="M64 98c6-4 13-3 18 1m-17 9c6-4 13-3 18 1m-16 9c6-4 12-3 17 1m-14 9c5-4 11-3 16 1m-10 9c4-3 8-3 12 0" fill="none" stroke="#302e31" strokeWidth="5" strokeLinecap="round" />
       <path d="M176 98c-6-4-13-3-18 1m17 9c-6-4-13-3-18 1m16 9c-6-4-12-3-17 1m14 9c-5-4-11-3-16 1m10 9c-4-3-8-3-12 0" fill="none" stroke="#302e31" strokeWidth="5" strokeLinecap="round" />
-      <path d="m64 145 9-7 8 8-9 8Z" fill="#f3b545" />
-      <path d="m176 145-9-7-8 8 9 8Z" fill="#f3b545" />
-      <path d="m67 148 10 9m96-9-10 9" stroke="#ec765f" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M72 148 58 138v20Zm0 0 14-10v20Z" fill="#f3b545" stroke="#2f315b" strokeWidth={2} strokeLinejoin="round" /><circle cx="72" cy="148" r="3.5" fill="#f3b545" stroke="#2f315b" strokeWidth={2} />
+      <path d="M167 148 153 138v20Zm0 0 14-10v20Z" fill="#f3b545" stroke="#2f315b" strokeWidth={2} strokeLinejoin="round" /><circle cx="167" cy="148" r="3.5" fill="#f3b545" stroke="#2f315b" strokeWidth={2} />
+      <path d="m67 148 10 9m96-9-10 9" stroke="#f2a18e" strokeWidth="2.5" strokeLinecap="round" />
 
       {/* Pink-coral backpack straps peek over both shoulders. */}
-      <path d="M91 118c-8 5-13 15-13 29l4 22 12-1 1-26c0-9 3-15 8-19Z" fill="#ec765f" />
-      <path d="M149 118c8 5 13 15 13 29l-4 22-12-1-1-26c0-9-3-15-8-19Z" fill="#ec765f" />
+      <path d="M91 118c-8 5-13 15-13 29l4 22 12-1 1-26c0-9 3-15 8-19Z" fill="#f2a18e" />
+      <path d="M149 118c8 5 13 15 13 29l-4 22-12-1-1-26c0-9-3-15-8-19Z" fill="#f2a18e" />
       <path d="M87 135c-2 6-2 13-1 20m66-20c2 6 2 13 1 20" fill="none" stroke="#ffd2c8" strokeWidth="3" strokeLinecap="round" opacity=".9" />
 
       {/* Long yellow trouser legs and bright white sneakers. */}
@@ -79,7 +79,7 @@ export default function NaraMascot({ small = false }: { small?: boolean }) {
       <circle cx="151" cy="45" r="2" fill="#ec765f" />
 
       {/* Orange-coral book and the hand holding it. */}
-      <path d="m165 145 25 5c3 1 5 3 5 6v31c0 2-2 4-5 3l-24-5c-2 0-4-2-4-5v-31c0-3 1-5 3-4Z" fill="#ec765f" stroke="#d9584d" strokeWidth="2" strokeLinejoin="round" />
+      <path d="m165 145 25 5c3 1 5 3 5 6v31c0 2-2 4-5 3l-24-5c-2 0-4-2-4-5v-31c0-3 1-5 3-4Z" fill="#f07732" stroke="#d95f1e" strokeWidth="2" strokeLinejoin="round" />
       <path d="m166 149 19 4v29l-19-4Z" fill="#f3b545" />
       <path d="m185 153 8 2v31l-8-2Z" fill="#fff8e9" />
       <path d="m170 155 11 2m-11 5 11 2m-10 17 9 2" stroke="#fff8e9" strokeWidth="2" strokeLinecap="round" />
