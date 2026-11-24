@@ -4,8 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from "react";
-import { BookOpen, ChartNoAxesColumn, GraduationCap, LogOut, MessageCircle, ShieldCheck } from "lucide-react";
+import { BookOpen, ChartNoAxesColumn, GraduationCap, LogOut, ShieldCheck } from "lucide-react";
 import { ApiError, gasAction } from "@/lib/api";
+import { CharacterArt } from "@/components/character-art";
 import { clearSessionToken, readSessionToken } from "@/lib/session";
 
 export type AppRole = "murid" | "orang_tua" | "guru" | "pemilik_admin";
@@ -40,7 +41,7 @@ export default function AppShell({ children, audience, title }: { children: Reac
       })
       .finally(() => { if (active) setLoading(false); });
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/pwa-edukasi-kelas4/sw.js", { scope: "/pwa-edukasi-kelas4/" }).catch(() => undefined);
+      navigator.serviceWorker.register("/naranusa/sw.js", { scope: "/naranusa/" }).catch(() => undefined);
     }
     return () => { active = false; };
   }, [router]);
@@ -66,18 +67,18 @@ export default function AppShell({ children, audience, title }: { children: Reac
   }
 
   const links = audience === "student"
-    ? [{ href: "/", label: "Beranda", icon: GraduationCap }, { href: "/mapel/matematika", label: "Jelajahi topik", icon: BookOpen }, { href: "/hasil", label: "Progresku", icon: ChartNoAxesColumn }, { href: "/tutor", label: "Tanya Nara", icon: MessageCircle }]
+    ? [{ href: "/", label: "Beranda", icon: GraduationCap }, { href: "/mapel/matematika", label: "Jelajahi topik", icon: BookOpen }, { href: "/hasil", label: "Progresku", icon: ChartNoAxesColumn }]
     : [{ href: "/admin", label: "Workbench dewasa", icon: ShieldCheck }];
 
   return (
     <SessionContext.Provider value={user}>
       <div className="app-frame">
         <header className="app-header">
-          <Link href={audience === "adult" ? "/admin" : "/"} className="brand-link"><span className="brand-mark"><Image src="/pwa-edukasi-kelas4/icon.svg" alt="" aria-hidden="true" width={44} height={44} /></span><span className="brand-text"><strong>NaraNusa</strong><small>{audience === "adult" ? "Workbench dewasa" : "jelajah ilmu, seru!"}</small></span></Link>
+          <Link href={audience === "adult" ? "/admin" : "/"} className="brand-link"><span className="brand-mark"><Image src="/naranusa/icon.svg" alt="" aria-hidden="true" width={44} height={44} /></span><span className="brand-text"><strong>NaraNusa</strong><small>{audience === "adult" ? "Workbench dewasa" : "jelajah ilmu, seru!"}</small></span></Link>
           <nav className="header-nav" aria-label={audience === "adult" ? "Menu dewasa" : "Menu belajar"}>
             {links.map((item) => { const Icon = item.icon; return <Link className={pathname === item.href ? "nav-link active" : "nav-link"} href={item.href} key={item.href}><Icon size={18} /><span>{item.label}</span></Link>; })}
           </nav>
-          <div className="account-bar"><span className="role-chip">{roleLabel}</span><span className="account-name">{user.username}</span><button className="icon-button" onClick={logout} aria-label="Keluar" title="Keluar"><LogOut size={18} /></button></div>
+          <div className="account-bar">{audience === "student" && <CharacterArt character="nara" variant={{ type: "avatar" }} size={40} className="header-avatar" alt="" />}<span className="role-chip">{roleLabel}</span><span className="account-name">{user.username}</span><button className="icon-button" onClick={logout} aria-label="Keluar" title="Keluar"><LogOut size={18} /></button></div>
         </header>
         <main className="page-main"><div className="page-heading"><div><p className="eyebrow">{audience === "adult" ? "AREA DEWASA" : "RUANG BELAJAR KELAS 4"}</p><h1>{title}</h1></div>{audience === "adult" && <span className="secure-label"><ShieldCheck size={16} /> Akses terkelola</span>}</div>{children}</main>
         <nav className="mobile-dock" aria-label="Navigasi bawah">

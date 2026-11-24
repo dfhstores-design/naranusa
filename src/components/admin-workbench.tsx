@@ -1,11 +1,13 @@
 "use client";
 
 import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from "react";
-import { ArrowDownToLine, ArrowUpRight, Check, ClipboardList, Heart, Link2, ListFilter, LockKeyhole, Pencil, Plus, Search, ShieldCheck, Trash2, Users, X } from "lucide-react";
+import { ArrowDownToLine, ArrowUpRight, BookOpen, Check, ChartNoAxesColumn, ClipboardList, Heart, Link2, ListFilter, LockKeyhole, Pencil, Plus, Search, ShieldCheck, Trash2, Users, X } from "lucide-react";
 import AppShell, { AppRole, useSessionUser } from "@/components/app-shell";
+import { CharacterArt } from "@/components/character-art";
 import { subjects, topics } from "@/content/curriculum";
-import { ApiError, gasAction } from "@/lib/api";
+import { ApiError, gasAction, ProgressRow } from "@/lib/api";
 import { readSessionToken } from "@/lib/session";
+import "./adult-alignment.css";
 
 type AdminQuestion = {
   id: string; subjectId: string; topicId: string; type: string; stem: string; choices: string[];
@@ -17,7 +19,7 @@ type GuardianLink = { pemegang: string; murid: string; peran_pemegang: string; d
 type Account = { username: string; peran: string; gagal_beruntun: number; terkunci_sampai: string; dibuat_oleh: string; dibuat_pada: string };
 type AuditRow = { waktu: string; pelaku: string; aksi: string; rincian: string };
 type QuestionDraft = { id: string; subjectId: string; topicId: string; stem: string; choices: string; correctChoice: string; explanation: string; sourceIds: string; sourceLocator: string; cp_ref: string; atp_goal_id: string; difficulty: string; reviewStatus: string; learnerAvailability: string };
-type WorkTab = "questions" | "marked" | "review" | "accounts" | "links" | "audit";
+type WorkTab = "questions" | "marked" | "review" | "accounts" | "links" | "audit" | "progress";
 
 const answerFieldCodePoints = [97, 110, 115, 119, 101, 114, 73, 110, 100, 101, 120];
 const correctChoiceField = answerFieldCodePoints.reduce((field, code) => field + String.fromCharCode(code), "");
@@ -26,7 +28,7 @@ const reviewStatuses = ["needs_teacher_review", "approved", "rejected"];
 const topicReviewStatuses = ["Belum ditinjau", "Ditinjau", "Diedit"];
 
 export default function AdminWorkbench() {
-  return <AppShell audience="adult" title="Workbench dewasa"><WorkbenchContent /></AppShell>;
+  return <AppShell audience="adult" title="Workbench dewasa"><div className="adult-alignment"><WorkbenchContent /></div></AppShell>;
 }
 
 function WorkbenchContent() {
@@ -55,6 +57,9 @@ function WorkbenchContent() {
   const [newPassword, setNewPassword] = useState("");
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [links, setLinks] = useState<GuardianLink[]>([]);
+  const [childProgress, setChildProgress] = useState<ProgressRow[]>([]);
+  const [childUsername, setChildUsername] = useState("");
+  const [loadedChild, setLoadedChild] = useState("");
   const [holder, setHolder] = useState("");
   const [student, setStudent] = useState("");
   const [audit, setAudit] = useState<AuditRow[]>([]);
@@ -69,11 +74,12 @@ function WorkbenchContent() {
       { id: "questions", label: "Bank soal", icon: ClipboardList },
       { id: "marked", label: "Soal yang ditandai", icon: Heart },
     ];
+    if (user?.peran === "orang_tua") list.unshift({ id: "progress", label: "Progres anak", icon: ChartNoAxesColumn });
     if (canReview) list.push({ id: "review", label: "Tinjauan guru", icon: Check });
     list.push({ id: "accounts", label: isOwner ? "Akun & password" : "Reset password", icon: Users });
     if (isOwner) list.push({ id: "links", label: "Wali–murid", icon: Link2 }, { id: "audit", label: "Jejak audit", icon: ShieldCheck });
     return list;
-  }, [canReview, isOwner]);
+  }, [canReview, isOwner, user?.peran]);
 
   async function run<T extends { ok: true }>(action: string, data: Record<string, unknown> = {}): Promise<T> {
     const token = readSessionToken();
@@ -111,6 +117,14 @@ function WorkbenchContent() {
     const result = await run<{ ok: true; audit: AuditRow[] }>("admin.audit.list", { limit: 100 });
     setAudit(result.audit);
   }
+  async function loadChildProgress() {
+    const target = childUsername.trim();
+    if (!target) throw new Error("Masukkan username murid yang terhubung dengan akun ini.");
+    if (target.toLocaleLowerCase("id-ID") === user?.username.toLocaleLowerCase("id-ID")) throw new Error("Masukkan username akun murid yang terhubung, bukan username akun wali.");
+    const result = await run<{ ok: true; progress: ProgressRow[] }>("progress.get", { username: target });
+    setChildProgress(result.progress);
+    setLoadedChild(target);
+  }
 
   async function refresh() {
     setBusy(true); setError(""); setMessage("");
@@ -120,6 +134,7 @@ function WorkbenchContent() {
       if (tab === "accounts" && isOwner) await loadAccounts();
       if (tab === "links" && isOwner) await loadLinks();
       if (tab === "audit" && isOwner) await loadAudit();
+      if (tab === "progress" && user?.peran === "orang_tua" && childUsername.trim()) await loadChildProgress();
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "Data belum bisa dimuat.");
     } finally { setBusy(false); }
@@ -235,10 +250,14 @@ function WorkbenchContent() {
     if (selectedFlag?.questionId === questionId) setSelectedFlag(null);
   }
 
-  const visibleMarks = flagged.filter((group) => !hiddenGroups.has(group.questionId));
+  const visibleMarks = flagged.filter((group) => !hiddenGroups.has(group.questionId)).filter((group) => {
+    if (!filterSubject) return true;
+    return topics.find((topic) => topic.id === group.topicId)?.subjectId === filterSubject;
+  });
   const questionById = new Map(questionsList.map((question) => [question.id, question]));
   const selectedQuestion = selectedFlag ? questionById.get(selectedFlag.questionId) : undefined;
   const activeTopics = topics.filter((topic) => !filterSubject || topic.subjectId === filterSubject);
+  const childUsernames = loadedChild ? [loadedChild] : [];
 
   return <>
     <div className="admin-intro"><p>Kelola soal dan tinjauan belajar, serta lihat soal yang ditandai murid. Semua perubahan penting tetap diproses oleh server.</p><div className="role-info"><ShieldCheck size={17} /> Masuk sebagai <strong>{user?.peran === "pemilik_admin" ? "Pemilik/admin" : user?.peran === "orang_tua" ? "Orang tua" : "Guru"}</strong></div></div>
@@ -249,20 +268,58 @@ function WorkbenchContent() {
     {message && <div className="success-notice" role="status"><Check size={18} />{message}</div>}
     {busy && <div className="loading-strip"><span className="mini-spinner" /> Memproses…</div>}
 
+    {tab === "progress" && user?.peran === "orang_tua" && <section className="admin-panel guardian-progress-panel">
+      <div className="panel-heading"><div><p className="eyebrow">RUANG WALI</p><h2>Progres anak</h2><p>Masukkan username murid yang terhubung. Backend akan memeriksa pemetaan sebelum mengembalikan progres.</p></div></div>
+      <form className="guardian-lookup-form" onSubmit={(event) => { event.preventDefault(); void refresh(); }}><label htmlFor="guardian-child-username">Username murid</label><input id="guardian-child-username" value={childUsername} onChange={(event) => { setChildUsername(event.target.value); setLoadedChild(""); setChildProgress([]); }} autoComplete="off" required /><button className="button primary" disabled={busy}><Search size={17} /> Lihat progres</button><button type="button" className="button secondary" disabled={busy || !loadedChild} onClick={() => void refresh()}><ListFilter size={17} /> Muat ulang</button></form>
+      {childUsernames.length > 0 ? <div className="guardian-child-list">{childUsernames.map((child) => {
+        const childRows = childProgress.filter((row) => row.username === child);
+        const attempts = childRows.reduce((sum, row) => sum + row.percobaan, 0);
+        const correct = childRows.reduce((sum, row) => sum + row.benar, 0);
+        const lastActivity = childRows.map((row) => row.terakhir_pada).filter(Boolean).sort().at(-1);
+        return <article className="guardian-child-card" key={child}>
+          <div className="guardian-child-head"><span className="guardian-avatar"><CharacterArt character="nusa" variant={{ type: "avatar" }} size={58} alt="Avatar Nusa" /></span><div><p className="eyebrow">MURID TERHUBUNG</p><h3>{child}</h3><p>{lastActivity ? `Aktivitas terakhir tercatat ${formatDate(lastActivity)}` : "Belum ada waktu aktivitas yang tercatat."}</p></div></div>
+          <div className="guardian-metrics"><div><strong>{attempts}</strong><span>Percobaan tersimpan</span></div><div><strong>{correct}</strong><span>Jawaban benar</span></div></div>
+          <div className="guardian-subject-grid">{subjects.map((subject) => {
+            const subjectTopics = topics.filter((topic) => topic.subjectId === subject.id);
+            const topicProgress = subjectTopics.map((topic) => ({ topic, row: childRows.find((row) => row.topicId === topic.id) }));
+            const subjectAttempts = topicProgress.reduce((sum, item) => sum + (item.row?.percobaan || 0), 0);
+            const subjectCorrect = topicProgress.reduce((sum, item) => sum + (item.row?.benar || 0), 0);
+            const triedTopics = topicProgress.filter((item) => (item.row?.percobaan || 0) > 0).length;
+            const accuracy = subjectAttempts ? Math.round((subjectCorrect / subjectAttempts) * 100) : 0;
+            return <section className="guardian-subject-card" key={subject.id} style={{ "--subject-color": subject.color, "--subject-tint": subject.tint } as React.CSSProperties}>
+              <div className="guardian-subject-heading"><span className="subject-icon">{subject.icon}</span><div><h4>{subject.name}</h4><p>{subjectCorrect} benar dari {subjectAttempts} percobaan</p></div></div>
+              <div className="guardian-subject-summary"><span>{triedTopics} topik dicoba</span><strong>{subjectAttempts ? `${accuracy}% benar` : "Belum ada percobaan"}</strong></div>
+              <div className="guardian-topic-list">{topicProgress.map(({ topic, row }) => <div className="guardian-topic-row" key={topic.id}><span>{topic.title}</span><span>{row ? `${row.benar} benar · ${row.percobaan} percobaan` : "Belum dicoba"}</span>{row && row.percobaan > 0 && <span className="guardian-topic-bar"><i style={{ width: `${Math.min(100, (row.benar / row.percobaan) * 100)}%` }} /></span>}</div>)}</div>
+            </section>;
+          })}</div>
+          <p className="guardian-data-note">Angka “percobaan” berasal dari kiriman jawaban tersimpan; jumlah soal unik atau target soal tidak tersedia pada ringkasan backend ini.</p>
+        </article>;
+      })}</div> : !busy && <div className="empty-state guardian-empty"><BookOpen size={22} />Masukkan username murid di atas. Server akan memeriksa apakah akun tersebut terhubung dengan wali.</div>}
+    </section>}
+
     {tab === "questions" && <section className="admin-panel">
       <div className="panel-heading"><div><p className="eyebrow">BANK SOAL KELAS 4</p><h2>Soal latihan</h2><p>Soal dan kunci disimpan serta dinilai melalui backend. Murid tidak melihat kunci sebelum mengirim jawaban.</p></div>{adultCanCreate && <button className="button primary" onClick={beginCreate}><Plus size={18} /> Buat soal</button>}</div>
       <div className="filters-row"><label><span>Mapel</span><select value={filterSubject} onChange={(event) => { setFilterSubject(event.target.value); setFilterTopic(""); }}><option value="">Semua mapel</option>{subjects.map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}</select></label><label><span>Topik</span><select value={filterTopic} onChange={(event) => setFilterTopic(event.target.value)}><option value="">Semua topik</option>{activeTopics.map((item) => <option value={item.id} key={item.id}>{item.title}</option>)}</select></label><label><span>Tinjauan soal</span><select value={filterReview} onChange={(event) => setFilterReview(event.target.value)}><option value="">Semua status</option>{reviewStatuses.map((value) => <option key={value} value={value}>{reviewLabel(value)}</option>)}</select></label><button className="button secondary" onClick={() => void refresh()}><Search size={17} /> Terapkan</button></div>
       {adultCanCreate && <label className="button secondary import-button"><ArrowDownToLine size={17} /> Impor JSON<input type="file" accept="application/json,.json" onChange={importFile} /></label>}
       {importResult && <p className="import-result">Hasil impor: {importResult}</p>}
-      <div className="question-table">{questionsList.map((question) => <article className="admin-question-row" key={question.id}><div className="question-meta"><span className="status-pill">{reviewLabel(question.reviewStatus)}</span><span>{topics.find((topic) => topic.id === question.topicId)?.title || question.topicId}</span></div><h3>{question.stem}</h3><div className="question-options-preview">{question.choices.map((choice, index) => <span key={index}>{String.fromCharCode(65 + index)}. {choice}</span>)}</div><div className="question-row-actions"><span className="version-tag">v{question.version}</span>{canEdit && <button className="button tiny secondary" onClick={() => beginEdit(question)}><Pencil size={15} /> Tinjau / edit</button>}</div></article>)}{!busy && questionsList.length === 0 && <p className="empty-state">Belum ada soal yang cocok dengan filter.</p>}</div>
+      <div className="question-table">{questionsList.map((question) => {
+        const topic = topics.find((item) => item.id === question.topicId);
+        const subject = subjects.find((item) => item.id === question.subjectId);
+        return <article className="admin-question-row" key={question.id}><div className="question-meta"><span className="status-pill">{reviewLabel(question.reviewStatus)}</span><span>{subject?.name || question.subjectId} · {topic?.title || question.topicId}</span></div><h3>{question.stem}</h3><div className="question-options-preview">{question.choices.map((choice, index) => <span key={index}>{String.fromCharCode(65 + index)}. {choice}</span>)}</div><details className="admin-question-detail"><summary>Lihat metadata dan rujukan soal</summary><dl><div><dt>Kesulitan</dt><dd>{question.difficulty || "Belum dinilai"}</dd></div><div><dt>Ketersediaan latihan</dt><dd>{question.learnerAvailability === "available" ? "Tersedia" : question.learnerAvailability || "Tidak tercatat"}</dd></div><div><dt>Versi</dt><dd>v{question.version}</dd></div><div><dt>Rujukan CP</dt><dd>{question.cp_ref || "Tidak tercatat"}</dd></div><div><dt>Tujuan ATP</dt><dd>{question.atp_goal_id || "Tidak tercatat"}</dd></div><div><dt>Sumber</dt><dd>{question.sourceIds.join(", ") || "Tidak tercatat"}</dd></div><div><dt>Lokasi sumber</dt><dd>{question.sourceLocator || "Tidak tercatat"}</dd></div>{topic && <div><dt>Tujuan topik</dt><dd>{topic.objective}</dd></div>}{canReview && <div className="admin-question-explanation"><dt>Penjelasan</dt><dd>{question.explanation}</dd></div>}</dl></details><div className="question-row-actions"><span className="version-tag">v{question.version}</span>{canEdit && <button className="button tiny secondary" onClick={() => beginEdit(question)}><Pencil size={15} /> Tinjau / edit</button>}</div></article>;
+      })}{!busy && questionsList.length === 0 && <p className="empty-state">Belum ada soal yang cocok dengan filter.</p>}</div>
       {adultCanCreate && <p className="panel-footnote">Untuk impor, siapkan JSON yang sesuai skema soal. Data dikirim langsung ke backend untuk divalidasi.</p>}
     </section>}
 
     {tab === "marked" && <section className="admin-panel">
-      <div className="panel-heading"><div><p className="eyebrow">BAHAN DISKUSI KELAS</p><h2>Soal yang ditandai</h2><p>Urut dari yang paling banyak ditandai. Menyembunyikan grup hanya berlaku di layar ini dan tidak menghapus tanda murid.</p></div></div>
-      <div className="filters-row"><label className="wide-filter"><span>Filter topik</span><select value={filterTopic} onChange={(event) => setFilterTopic(event.target.value)}><option value="">Semua topik</option>{topics.map((item) => <option key={item.id} value={item.id}>{item.title}</option>)}</select></label><button className="button secondary" onClick={() => void refresh()}><ListFilter size={17} /> Muat ulang</button></div>
-      <div className="marked-layout"><div className="marked-list">{visibleMarks.map((group) => { const question = questionById.get(group.questionId); return <button className={`marked-card ${selectedFlag?.questionId === group.questionId ? "selected" : ""}`} key={group.questionId} onClick={() => setSelectedFlag(group)}><span className="marked-count">{group.jumlah}<small>{group.jumlah === 1 ? "murid" : "murid"}</small></span><span className="marked-card-copy"><small>{topics.find((topic) => topic.id === group.topicId)?.title || group.topicId}</small><strong>{question?.stem || `Soal ${group.questionId}`}</strong><span className="student-chips">{group.murid.map((name) => <i key={name}>{name}</i>)}</span></span><ArrowUpRight size={18} /></button>; })}{!busy && visibleMarks.length === 0 && <div className="empty-state"><Heart size={22} />Belum ada soal yang ditandai pada filter ini.</div>}</div>
-        <aside className="marked-detail">{selectedFlag ? <><div className="detail-header"><span className="eyebrow">DETAIL SOAL</span><button className="icon-button" aria-label="Tutup detail" onClick={() => setSelectedFlag(null)}><X size={18} /></button></div><p className="detail-topic">{topics.find((topic) => topic.id === selectedFlag.topicId)?.title || selectedFlag.topicId}</p><h3>{selectedQuestion?.stem || `Soal ${selectedFlag.questionId}`}</h3>{selectedQuestion && <div className="detail-choices">{selectedQuestion.choices.map((choice, index) => <p key={index}><b>{String.fromCharCode(65 + index)}.</b> {choice}</p>)}</div>}<div className="student-chips large">{selectedFlag.murid.map((name) => <i key={name}>{name}</i>)}</div><p className="marked-total">Ditandai oleh {selectedFlag.jumlah} akun murid.</p><button className="button primary full" onClick={() => dismissGroup(selectedFlag.questionId)}><Check size={17} /> Sudah dibahas di kelas</button><small className="local-only-note">Tindakan ini hanya menyembunyikan grup untuk sesi layar ini.</small></> : <div className="detail-empty"><div className="detail-bubble"><Search size={21} /></div><strong>Pilih satu kartu soal</strong><span>Detailnya akan tampil di sini.</span></div>}</aside></div>
+      <div className="panel-heading"><div><p className="eyebrow">BAHAN DISKUSI KELAS</p><h2>Soal yang ditandai murid</h2><p>Urut dari yang paling banyak ditandai. Menyembunyikan grup hanya berlaku di layar ini dan tidak menghapus tanda murid.</p></div></div>
+      <div className="filters-row"><label><span>Mapel</span><select value={filterSubject} onChange={(event) => { setFilterSubject(event.target.value); setFilterTopic(""); }}><option value="">Semua mapel</option>{subjects.map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}</select></label><label className="wide-filter"><span>Topik</span><select value={filterTopic} onChange={(event) => setFilterTopic(event.target.value)}><option value="">Semua topik</option>{activeTopics.map((item) => <option key={item.id} value={item.id}>{item.title}</option>)}</select></label><button className="button secondary" onClick={() => void refresh()}><ListFilter size={17} /> Muat ulang</button></div>
+      <div className="marked-layout"><div className="marked-list">{visibleMarks.map((group) => {
+        const question = questionById.get(group.questionId);
+        const topic = topics.find((item) => item.id === group.topicId);
+        const subject = subjects.find((item) => item.id === topic?.subjectId);
+        return <article className={`marked-card ${selectedFlag?.questionId === group.questionId ? "selected" : ""}`} key={group.questionId}><button className="marked-card-select" onClick={() => setSelectedFlag(group)}><span className="marked-count">{group.jumlah}<small>tanda</small></span><span className="marked-card-copy"><small>{subject?.name || topic?.subjectId || "Mapel"} · {topic?.title || group.topicId}</small><strong>{question?.stem || `Soal ${group.questionId}`}</strong><span className="marked-open-hint">Buka detail soal <ArrowUpRight size={14} /></span></span><ArrowUpRight size={18} /></button><details className="flag-names"><summary>Lihat {group.murid.length} nama murid</summary><div className="student-chips">{group.murid.map((name) => <i key={name}>{name}</i>)}</div></details></article>;
+      })}{!busy && visibleMarks.length === 0 && <div className="empty-state"><Heart size={22} />Belum ada soal yang ditandai pada filter ini.</div>}</div>
+        <aside className="marked-detail">{selectedFlag ? <><div className="detail-header"><span className="eyebrow">DETAIL SOAL</span><button className="icon-button" aria-label="Tutup detail" onClick={() => setSelectedFlag(null)}><X size={18} /></button></div><p className="detail-topic">{subjects.find((subject) => subject.id === topics.find((topic) => topic.id === selectedFlag.topicId)?.subjectId)?.name || "Mapel"} · {topics.find((topic) => topic.id === selectedFlag.topicId)?.title || selectedFlag.topicId}</p><h3>{selectedQuestion?.stem || `Soal ${selectedFlag.questionId}`}</h3>{selectedQuestion && <><div className="detail-choices">{selectedQuestion.choices.map((choice, index) => <p key={index}><b>{String.fromCharCode(65 + index)}.</b> {choice}</p>)}</div><dl className="marked-question-meta"><div><dt>Tingkat kesulitan</dt><dd>{selectedQuestion.difficulty || "Belum dinilai"}</dd></div><div><dt>Status tinjauan</dt><dd>{reviewLabel(selectedQuestion.reviewStatus)}</dd></div><div><dt>Ketersediaan</dt><dd>{selectedQuestion.learnerAvailability === "available" ? "Tersedia" : selectedQuestion.learnerAvailability || "Tidak tercatat"}</dd></div><div><dt>Versi</dt><dd>v{selectedQuestion.version}</dd></div><div><dt>Rujukan CP</dt><dd>{selectedQuestion.cp_ref || "Tidak tercatat"}</dd></div><div><dt>Tujuan ATP</dt><dd>{selectedQuestion.atp_goal_id || "Tidak tercatat"}</dd></div><div><dt>Sumber</dt><dd>{selectedQuestion.sourceIds.join(", ") || "Tidak tercatat"}</dd></div><div><dt>Lokasi sumber</dt><dd>{selectedQuestion.sourceLocator || "Tidak tercatat"}</dd></div></dl></>}{topics.find((topic) => topic.id === selectedFlag.topicId)?.objective && <div className="marked-topic-objective"><strong>Tujuan belajar</strong><p>{topics.find((topic) => topic.id === selectedFlag.topicId)?.objective}</p></div>}<div className="marked-student-detail"><strong>{selectedFlag.jumlah} tanda dari murid</strong><div className="student-chips large">{selectedFlag.murid.map((name) => <i key={name}>{name}</i>)}</div></div><button className="button primary full" onClick={() => dismissGroup(selectedFlag.questionId)}><Check size={17} /> Sudah dibahas · sembunyikan lokal</button><small className="local-only-note">Tindakan ini hanya menyembunyikan grup dari layar ini selama sesi berjalan. Tanda murid tidak dihapus dan tidak ada perubahan yang dikirim ke server.</small></> : <div className="detail-empty"><div className="detail-bubble"><Search size={21} /></div><strong>Pilih satu kartu soal</strong><span>Detailnya akan tampil di sini.</span></div>}</aside></div>
     </section>}
 
     {tab === "review" && canReview && <section className="admin-panel compact-panel"><p className="eyebrow">TINJAUAN GURU · PER TOPIK</p><h2>Catat tinjauan materi</h2><p>Periksa isi soal dan rujukannya. Status tinjauan tidak menghalangi murid untuk berlatih.</p><form className="stack-form" onSubmit={submitReview}><label htmlFor="review-topic">Topik</label><select id="review-topic" value={reviewTopic} onChange={(event) => setReviewTopic(event.target.value)}>{topics.map((item) => <option value={item.id} key={item.id}>{item.title} — {item.chapter}</option>)}</select><label htmlFor="review-status">Status tinjauan</label><select id="review-status" value={reviewStatus} onChange={(event) => setReviewStatus(event.target.value)}>{topicReviewStatuses.map((value) => <option key={value}>{value}</option>)}</select><label htmlFor="review-note">Catatan (opsional)</label><textarea id="review-note" rows={3} value={reviewNote} onChange={(event) => setReviewNote(event.target.value)} placeholder="Catatan singkat untuk tim belajar" /><button className="button primary" disabled={busy}>Simpan tinjauan <Check size={17} /></button></form></section>}

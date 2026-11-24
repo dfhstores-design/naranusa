@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
+import "@fontsource-variable/nunito";
 import "./globals.css";
 
-const basePath = "/pwa-edukasi-kelas4";
+const basePath = "/naranusa";
 
 export const metadata: Metadata = {
   title: "NaraNusa — Belajar Seru Kelas 4",

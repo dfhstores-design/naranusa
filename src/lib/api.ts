@@ -60,7 +60,7 @@ export async function gasAction<T extends ApiEnvelope>(
   if (!data.ok) {
     if (action !== "auth.login" && data.error?.code === "UNAUTHORIZED" && typeof window !== "undefined") {
       clearSessionToken();
-      window.location.assign("/pwa-edukasi-kelas4/masuk/");
+      window.location.assign("/naranusa/masuk/");
     }
     throw new ApiError(data.error?.code || "UNKNOWN", data.error?.message || "Permintaan belum berhasil. Coba lagi.");
   }

@@ -7,7 +7,7 @@ const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf
 test("Next.js exports to the repository subfolder", () => {
   const config = read("next.config.ts");
   assert.match(config, /output:\s*"export"/);
-  assert.match(config, /basePath:\s*"\/pwa-edukasi-kelas4"/);
+  assert.match(config, /basePath:\s*"\/naranusa"/);
   assert.match(config, /trailingSlash:\s*true/);
 });
 
@@ -26,7 +26,7 @@ test("API wrapper grades through GAS and the worker only caches static app resou
   assert.match(read("src/components/quiz-screen.tsx"), /"answers\.submit"/);
   assert.match(read("src/components/quiz-screen.tsx"), /"questions\.forTopic"/);
   const worker = read("public/sw.js");
-  assert.match(worker, /naranusa-shell-v2/);
+  assert.match(worker, /naranusa-shell-v3/);
   assert.match(worker, /_next\/static/);
   assert.doesNotMatch(worker, /\.post\(|method:\s*["']POST/i);
 });
@@ -47,5 +47,5 @@ test("login uses the approved palette and a reversible password visibility contr
   assert.match(css, /font-family: "Nunito Variable"/);
   assert.match(css, /\.login-art \.brand-link > span:last-child small \{[^}]*color: #2f315b/);
   assert.doesNotMatch(css, /(?:linear|radial|conic)-gradient\s*\(/i);
-  assert.doesNotMatch(css, /#6654c9|#8474dc|#8879df|#e9e5ff/i);
+  assert.doesNotMatch(css, /#6654c9|#8474dc|#725de5|#4c3da2|#e9e5ff|#fcfbff|#8879df/i);
 });

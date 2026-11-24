@@ -18,7 +18,7 @@ pnpm build
 pnpm verify:export
 ```
 
-Hasil ekspor berada di `out/`. Build mengatur `basePath` `/pwa-edukasi-kelas4`, memakai trailing slash untuk halaman, dan tidak mengambil bank soal lokal. Jangan menguji login pilot atau mengirim perubahan data ke backend produksi.
+Hasil ekspor berada di `out/`. Build mengatur `basePath` `/naranusa`, memakai trailing slash untuk halaman, dan tidak mengambil bank soal lokal. Jangan menguji login pilot atau mengirim perubahan data ke backend produksi.
 
 ## Fitur pilot
 
@@ -42,4 +42,4 @@ CP Fase B umumnya mencakup Kelas III–IV; bab buku resmi Kelas IV memberi konte
 
 ## Deployment
 
-Push ke `main` menjalankan workflow GitHub Actions: lint, test, build static export, lalu publish `out/` ke GitHub Pages. Alamat pilot yang direncanakan adalah `https://dfhstores-design.github.io/pwa-edukasi-kelas4/`. Verifikasi deployment hanya memastikan shell statis dan aset termuat; jangan masuk dengan akun pilot saat uji penerbitan.
+Push ke `main` menjalankan workflow GitHub Actions: lint, test, build static export, lalu publish `out/` ke GitHub Pages. Alamat pilot yang direncanakan adalah `https://dfhstores-design.github.io/naranusa/`. Verifikasi deployment hanya memastikan shell statis dan aset termuat; jangan masuk dengan akun pilot saat uji penerbitan.

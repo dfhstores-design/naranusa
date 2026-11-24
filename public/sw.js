@@ -1,5 +1,5 @@
-const BASE_PATH = "/pwa-edukasi-kelas4";
-const CACHE_NAME = "naranusa-shell-v2";
+const BASE_PATH = "/naranusa";
+const CACHE_NAME = "naranusa-shell-v3";
 const ROOT_URL = `${BASE_PATH}/`;
 const OFFLINE_URL = `${BASE_PATH}/offline/`;
 const APP_SHELL = [
