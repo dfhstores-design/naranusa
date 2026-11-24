@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from "react";
 import { BookOpen, ChartNoAxesColumn, GraduationCap, LogOut, MessageCircle, ShieldCheck } from "lucide-react";
 import { ApiError, gasAction } from "@/lib/api";
 import { clearSessionToken, readSessionToken } from "@/lib/session";
-import NaraMascot from "@/components/nara-mascot";
 
 export type AppRole = "murid" | "orang_tua" | "guru" | "pemilik_admin";
 export type SessionUser = { username: string; peran: AppRole };
@@ -73,7 +73,7 @@ export default function AppShell({ children, audience, title }: { children: Reac
     <SessionContext.Provider value={user}>
       <div className="app-frame">
         <header className="app-header">
-          <Link href={audience === "adult" ? "/admin" : "/"} className="brand-link"><span className="brand-mark"><NaraMascot tiny /></span><span className="brand-text"><strong>NaraNusa</strong><small>{audience === "adult" ? "Workbench dewasa" : "jelajah ilmu, seru!"}</small></span></Link>
+          <Link href={audience === "adult" ? "/admin" : "/"} className="brand-link"><span className="brand-mark"><Image src="/pwa-edukasi-kelas4/icon.svg" alt="" aria-hidden="true" width={44} height={44} /></span><span className="brand-text"><strong>NaraNusa</strong><small>{audience === "adult" ? "Workbench dewasa" : "jelajah ilmu, seru!"}</small></span></Link>
           <nav className="header-nav" aria-label={audience === "adult" ? "Menu dewasa" : "Menu belajar"}>
             {links.map((item) => { const Icon = item.icon; return <Link className={pathname === item.href ? "nav-link active" : "nav-link"} href={item.href} key={item.href}><Icon size={18} /><span>{item.label}</span></Link>; })}
           </nav>

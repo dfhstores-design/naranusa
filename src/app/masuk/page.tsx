@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { BookOpen, LockKeyhole, UserRound } from "lucide-react";
@@ -39,7 +40,7 @@ export default function SignInPage() {
   return (
     <main className="login-page">
       <section className="login-art" aria-label="NaraNusa">
-        <Link href="/" className="brand-link"><span className="brand-mark"><NaraMascot tiny /></span><span><strong>NaraNusa</strong><small>jelajah ilmu, seru!</small></span></Link>
+        <Link href="/" className="brand-link"><span className="brand-mark"><Image src="/pwa-edukasi-kelas4/icon.svg" alt="" aria-hidden="true" width={44} height={44} /></span><span><strong>NaraNusa</strong><small>jelajah ilmu, seru!</small></span></Link>
         <div className="login-mascot"><NaraMascot /></div>
         <div className="login-art-copy"><p className="eyebrow light">RUANG BELAJAR KELAS 4</p><h1>Petualangan ilmu menunggumu!</h1><p>Masuk dengan akun yang disiapkan orang tua atau gurumu.</p></div>
         <span className="login-spark spark-a">✦</span><span className="login-spark spark-b">✦</span>
