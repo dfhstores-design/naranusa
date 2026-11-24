@@ -1,12 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <rect width="128" height="128" rx="34" fill="#725de5"/>
-  <circle cx="65" cy="67" r="43" fill="#fff9ec"/>
-  <path d="M42 47c8-17 38-21 54-7 8 7 12 18 10 30-3 17-17 30-35 30-12 0-24-7-29-18-6-11-6-24 0-35Z" fill="#f6bd45"/>
-  <path d="M50 45c9-12 28-17 42-8-4 8-12 12-22 13l-20-5Z" fill="#ef7c60"/>
-  <path d="M76 61c17-7 32-3 39 4-9 7-21 10-37 7l-2-11Z" fill="#ec765f"/>
-  <circle cx="72" cy="59" r="5" fill="#342f51"/>
-  <circle cx="74" cy="57" r="1.5" fill="#fff"/>
-  <path d="M49 97c7 8 23 11 36 5" fill="none" stroke="#4c3da2" stroke-width="5" stroke-linecap="round"/>
-  <path d="M48 111h18m9 0h15" stroke="#e8884e" stroke-width="5" stroke-linecap="round"/>
-  <path d="M98 26 102 16m8 20 10-5" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="NaraNusa hornbill app logo">
+  <rect width="128" height="128" rx="30" fill="#249d87"/>
+  <path d="m48 74-26 8-7 13 29-7-16 18 34-12 19 15 17-4 14-17-8-24-20-7Z" fill="#17171a"/>
+  <path d="m29 88-13 7 1-7 18-7Z" fill="#fff8e9"/>
+  <path d="m30 99-12 8 5-10 17-7Z" fill="#fff8e9"/>
+  <path d="M56 58c8-12 22-17 37-13 13 4 21 16 20 30-1 19-17 34-38 34-18 0-33-11-36-26-2-10 3-19 17-25Z" fill="#17171a"/>
+  <path d="M58 75c8-4 15-5 24-3 8 2 14 8 17 15-5 11-14 18-26 20-10 1-19-3-24-10 2-7 5-15 9-22Z" fill="#302e31"/>
+  <path d="M78 62c7 2 14 1 20-3 5 7 7 15 5 23-2 8-6 14-12 19-1-11-6-20-15-25Z" fill="#fff8e9"/>
+  <path d="M73 48c-7-9-9-18-5-27 5-13 18-18 31-15 14 3 22 14 21 26-1 9-7 15-16 19l-4 6-23-1Z" fill="#f3b545" stroke="#d9584d" strokeWidth="2" strokeLinejoin="round"/>
+  <path d="M79 43c9-11 24-17 38-15-1 9-7 16-16 20l-6 8-17-2Z" fill="#ec765f"/>
+  <path d="M86 52c12-4 25-4 37 1 4 2 5 6 1 9-12 9-26 11-41 6-7-2-11-7-10-12Z" fill="#f3b545" stroke="#d9584d" strokeWidth="1.5" strokeLinejoin="round"/>
+  <path d="M91 66c12 3 23 1 32-4-2 8-9 14-19 16-7 1-13-2-17-7Z" fill="#ec765f"/>
+  <ellipse cx="80" cy="50" rx="5.5" ry="6" fill="#fff8e9"/>
+  <circle cx="82" cy="50" r="2.8" fill="#17171a"/>
+  <circle cx="83" cy="49" r="1" fill="#fff8e9"/>
+  <path d="M58 66c6-6 12-9 18-10" fill="none" stroke="#fff8e9" strokeWidth="2.5" strokeLinecap="round" opacity=".85"/>
 </svg>
