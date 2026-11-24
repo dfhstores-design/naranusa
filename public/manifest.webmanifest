@@ -1,15 +1,15 @@
 {
-  "id": "/",
+  "id": "/pwa-edukasi-kelas4/",
   "name": "NaraNusa — Belajar Seru Kelas 4",
   "short_name": "NaraNusa",
-  "description": "Petualangan belajar Kelas 4 dengan sumber Kurikulum Merdeka.",
-  "start_url": "/",
-  "scope": "/",
+  "description": "Latihan Kelas 4 dengan soal kurasi dan progres tersimpan aman di server.",
+  "start_url": "/pwa-edukasi-kelas4/",
+  "scope": "/pwa-edukasi-kelas4/",
   "display": "standalone",
   "background_color": "#f7f8fc",
   "theme_color": "#f7f8fc",
   "lang": "id",
   "icons": [
-    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+    { "src": "/pwa-edukasi-kelas4/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
   ]
 }

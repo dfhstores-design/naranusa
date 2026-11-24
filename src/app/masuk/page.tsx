@@ -3,76 +3,65 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
-import { ArrowLeft, BookOpen, Eye, EyeOff, LockKeyhole, Mail, ShieldCheck } from "lucide-react";
+import { BookOpen, LockKeyhole, UserRound } from "lucide-react";
 import NaraMascot from "@/components/nara-mascot";
-import { getSupabaseClient } from "@/lib/supabase";
-import { Button } from "@/components/ui";
+import { ApiError, gasAction } from "@/lib/api";
+import { saveSessionToken } from "@/lib/session";
+
+type LoginResponse = { ok: true; token: string; username: string; peran: string };
 
 export default function SignInPage() {
   const router = useRouter();
-  const [mode, setMode] = useState<"sign-in" | "sign-up">("sign-in");
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setMessage("");
-    const supabase = getSupabaseClient();
-    if (!supabase) {
-      setMessage("Akun belum tersambung. Tambahkan URL Supabase dan anon key pada konfigurasi lokal/server untuk mengaktifkan masuk.");
-      return;
-    }
     setBusy(true);
-    const result = mode === "sign-in"
-      ? await supabase.auth.signInWithPassword({ email, password })
-      : await supabase.auth.signUp({ email, password });
-    setBusy(false);
-    if (result.error) {
-      setMessage(result.error.message);
-      return;
+    try {
+      const result = await gasAction<LoginResponse>("auth.login", { username, password });
+      saveSessionToken(result.token);
+      router.replace(result.peran === "murid" ? "/" : "/admin");
+    } catch (error) {
+      if (error instanceof ApiError && error.code === "UNAUTHORIZED") {
+        setMessage("Username atau password salah.");
+      } else {
+        setMessage(error instanceof Error ? error.message : "Tidak bisa masuk sekarang. Coba lagi.");
+      }
+    } finally {
+      setBusy(false);
     }
-    if (mode === "sign-up" && !result.data.session) {
-      setMessage("Akun dibuat. Cek email untuk konfirmasi sebelum masuk.");
-      return;
-    }
-    setMessage("Berhasil masuk. Selamat belajar!");
-    window.setTimeout(() => router.push("/"), 650);
   }
 
   return (
-    <main className="auth-shell">
-      <section className="auth-visual">
-        <Link href="/" className="auth-back"><ArrowLeft size={16} /> Kembali ke beranda</Link>
-        <div className="auth-art-circle"><NaraMascot small /></div>
-        <div className="auth-visual-copy"><span className="hero-kicker"><SparkleIcon /> RUANG BELAJAR NARANUSA</span><h1>Petualangan ilmu<br />menunggumu!</h1><p>Ini halaman masuk prototipe; progres belajar masih tersimpan di perangkat ini.</p></div>
-        <span className="auth-spark auth-spark-one">✦</span><span className="auth-spark auth-spark-two">✦</span>
+    <main className="login-page">
+      <section className="login-art" aria-label="NaraNusa">
+        <Link href="/" className="brand-link"><span className="brand-mark"><NaraMascot tiny /></span><span><strong>NaraNusa</strong><small>jelajah ilmu, seru!</small></span></Link>
+        <div className="login-mascot"><NaraMascot /></div>
+        <div className="login-art-copy"><p className="eyebrow light">RUANG BELAJAR KELAS 4</p><h1>Petualangan ilmu menunggumu!</h1><p>Masuk dengan akun yang disiapkan orang tua atau gurumu.</p></div>
+        <span className="login-spark spark-a">✦</span><span className="login-spark spark-b">✦</span>
       </section>
-      <section className="auth-form-wrap">
-        <div className="auth-brand"><span className="auth-brand-icon"><BookOpen size={18} /></span><strong>NaraNusa</strong></div>
-        <div className="auth-form-card">
-          <p className="section-overline">SELAMAT DATANG</p>
-          <h2>{mode === "sign-in" ? "Masuk ke akunmu" : "Buat akun belajar"}</h2>
-          <p className="auth-subtitle">Gunakan email yang terhubung ke akun belajar keluarga.</p>
-          <form onSubmit={submit}>
-            <label className="auth-label" htmlFor="email">Email</label>
-            <div className="auth-input-wrap"><Mail size={16} /><input id="email" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} placeholder="nama@email.com" /></div>
-            <label className="auth-label" htmlFor="password">Kata sandi</label>
-            <div className="auth-input-wrap"><LockKeyhole size={16} /><input id="password" type={showPassword ? "text" : "password"} autoComplete={mode === "sign-in" ? "current-password" : "new-password"} required minLength={6} value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Minimal 6 karakter" /><button type="button" className="password-toggle" aria-label={showPassword ? "Sembunyikan kata sandi" : "Tampilkan kata sandi"} onClick={() => setShowPassword(!showPassword)}>{showPassword ? <EyeOff size={15} /> : <Eye size={15} />}</button></div>
-            {message && <div className="auth-message" role="status">{message}</div>}
-            <Button type="submit" className="auth-submit" disabled={busy}>{busy ? "Sedang memeriksa…" : mode === "sign-in" ? "Masuk" : "Buat akun"}</Button>
+      <section className="login-form-side">
+        <div className="login-card">
+          <span className="login-icon"><BookOpen size={22} /></span>
+          <p className="eyebrow">SELAMAT DATANG KEMBALI</p>
+          <h2>Masuk ke NaraNusa</h2>
+          <p className="muted">Belum punya akun? Minta orang tua atau guru menyiapkannya.</p>
+          <form onSubmit={submit} className="stack-form">
+            <label htmlFor="username">Username</label>
+            <div className="input-with-icon"><UserRound size={19} aria-hidden="true" /><input id="username" name="username" autoComplete="username" required value={username} onChange={(event) => setUsername(event.target.value)} placeholder="Username akunmu" /></div>
+            <label htmlFor="password">Kata sandi</label>
+            <div className="input-with-icon"><LockKeyhole size={19} aria-hidden="true" /><input id="password" name="password" type="password" autoComplete="current-password" required value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Masukkan kata sandi" /></div>
+            {message && <p className="notice" role="alert">{message}</p>}
+            <button type="submit" className="button primary full" disabled={busy}>{busy ? "Sedang memeriksa…" : "Masuk dan mulai belajar"}</button>
           </form>
-          <p className="auth-toggle">{mode === "sign-in" ? "Belum punya akun?" : "Sudah punya akun?"} <button onClick={() => { setMode(mode === "sign-in" ? "sign-up" : "sign-in"); setMessage(""); }}>{mode === "sign-in" ? "Daftar" : "Masuk"}</button></p>
-          <div className="auth-security"><ShieldCheck size={15} /><span>Gunakan akun yang dikelola orang tua/wali. Prototipe ini tidak meminta nama sekolah atau data sensitif anak.</span></div>
+          <p className="privacy-note">Akun memakai username. Kami tidak meminta email atau nama lengkap anak.</p>
+          <Link href="/offline/" className="subtle-link">Butuh halaman offline?</Link>
         </div>
-        <p className="auth-footer">Sinkronisasi progres belum tersedia, termasuk setelah Supabase dikonfigurasi.</p>
       </section>
     </main>
   );
-}
-
-function SparkleIcon() {
-  return <span aria-hidden="true" style={{ fontSize: 14 }}>✦</span>;
 }

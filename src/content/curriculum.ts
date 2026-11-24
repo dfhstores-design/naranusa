@@ -1,5 +1,3 @@
-import questionBank from "./question-bank.json";
-
 export type SubjectId = "matematika" | "bahasa-indonesia" | "ipas" | "pendidikan-pancasila";
 
 export type CurriculumSource = {
@@ -20,21 +18,6 @@ export type Topic = {
   objective: string;
   sourceIds: string[];
   status: "verified-book" | "phase-context";
-};
-
-export type Question = {
-  id: string;
-  subjectId: SubjectId;
-  topicId: string;
-  stem: string;
-  choices: string[];
-  answerIndex: number;
-  explanation: string;
-  sourceIds: string[];
-  sourceLocator: string;
-  type: "multiple-choice";
-  reviewStatus: "needs_teacher_review" | "teacher_approved";
-  learnerAvailability: "available" | "hidden";
 };
 
 export const curriculumNote =
@@ -468,8 +451,6 @@ export const topics: Topic[] = [
     status: "verified-book",
   },
 ];
-
-export const questions: Question[] = questionBank as unknown as Question[];
 
 export const subjectById = (id: SubjectId) => subjects.find((subject) => subject.id === id)!;
 export const topicById = (id: string) => topics.find((topic) => topic.id === id)!;
