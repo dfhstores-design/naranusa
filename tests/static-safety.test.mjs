@@ -36,3 +36,16 @@ test("deployment workflow blocks publication on public-artifact verification", (
   assert.match(workflow, /pnpm verify:export/);
   assert.match(read("package.json"), /"verify:export"/);
 });
+
+test("login uses the approved palette and a reversible password visibility control", () => {
+  const login = read("src/app/masuk/page.tsx");
+  const css = read("src/app/globals.css");
+  assert.match(login, /type=\{showPassword \? "text" : "password"\}/);
+  assert.match(login, /aria-pressed=\{showPassword\}/);
+  assert.match(login, /Tampilkan kata sandi/);
+  assert.match(login, /Sembunyikan kata sandi/);
+  assert.match(css, /font-family: "Nunito Variable"/);
+  assert.match(css, /\.login-art \.brand-link > span:last-child small \{[^}]*color: #2f315b/);
+  assert.doesNotMatch(css, /(?:linear|radial|conic)-gradient\s*\(/i);
+  assert.doesNotMatch(css, /#6654c9|#8474dc|#8879df|#e9e5ff/i);
+});
