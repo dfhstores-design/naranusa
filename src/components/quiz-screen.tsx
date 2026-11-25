@@ -6,6 +6,7 @@ import { ArrowRight, BadgeCheck, BookOpen, Check, Flag, Heart, Star, X } from "l
 import AppShell, { useSessionUser } from "@/components/app-shell";
 import NaraMascot from "@/components/nara-mascot";
 import { CharacterArt } from "@/components/character-art";
+import { SceneBanner } from "@/components/scene-banner";
 import { subjects, topics, sourcesByIds } from "@/content/curriculum";
 import { AnswerResult, gasAction, PublicQuestion } from "@/lib/api";
 import { readSessionToken } from "@/lib/session";
@@ -156,7 +157,7 @@ function QuizContent() {
       <div className="quiz-sources"><span><BookOpen size={16} /> Rujukan materi</span><div>{sourceLinks.map((source) => <a href={source.url} target="_blank" rel="noreferrer" key={source.id}>{source.title} ↗</a>)}</div></div>
       <div className="quiz-controls">{!result ? <button className="button primary" disabled={choice === null || submitting} onClick={submitAnswer}>{submitting ? "Memeriksa…" : "Periksa dulu, baru lanjut"} <ArrowRight size={18} /></button> : <button className="button primary" onClick={nextQuestion}>{index + 1 === questions.length ? "Lihat hasil" : "Soal berikutnya"} <ArrowRight size={18} /></button>}</div>
     </section>}
-    {!busy && !error && !current && questions.length > 0 && <section className="message-card finish-card"><div className="result-characters"><CharacterArt character="nara" variant={{ type: "expression", name: "celebrating" }} size={124} alt="Nara merayakan usahamu" /><CharacterArt character="nusa" variant={{ type: "expression", name: "laughing" }} size={124} alt="Nusa ikut merayakan" /></div><div className="finish-stars" aria-hidden="true"><span>★</span><span>★</span><span>★</span></div><p className="eyebrow">PETUALANGAN SELESAI</p><h2>Hebat, {user?.username}!{topic ? ` Topik ${topic.title} selesai!` : ""}</h2><p>Benar {correctCount} dari {questions.length} soal. Setiap latihan membuatmu makin paham.</p>
+    {!busy && !error && !current && questions.length > 0 && <section className="message-card finish-card"><SceneBanner className="compact" numbersDy={48}><CharacterArt character="nara" variant={{ type: "expression", name: "celebrating" }} size={124} alt="Nara merayakan usahamu" /><CharacterArt character="nusa" variant={{ type: "expression", name: "laughing" }} size={124} alt="Nusa ikut merayakan" /></SceneBanner><div className="finish-stars" aria-hidden="true"><span>★</span><span>★</span><span>★</span></div><p className="eyebrow">PETUALANGAN SELESAI</p><h2>Hebat, {user?.username}!{topic ? ` Topik ${topic.title} selesai!` : ""}</h2><p>Benar {correctCount} dari {questions.length} soal. Setiap latihan membuatmu makin paham.</p>
       <div className="finish-stats">
         <div className="stat-card"><span className="stat-icon teal"><BadgeCheck size={22} /></span><strong>Benar {correctCount} dari {questions.length}</strong><span>Jawaban benar</span></div>
         <div className="stat-card"><span className="stat-icon amber"><Star size={22} fill="currentColor" /></span><strong>+{correctCount * 10} XP</strong><span>Bintang baru</span></div>

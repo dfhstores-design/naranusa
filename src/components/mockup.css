@@ -81,3 +81,34 @@
   .greeting-row h2 { font-size: 22px; }
   .stat-card .stat-icon { width: 38px; height: 38px; }
 }
+
+/* ---- Latar adegan (banner) — halaman 01 Masuk & 05 Hasil di mockup ----
+   Latarnya sesuai Space: bg #f7f8fc (latar aplikasi, terkunci), awan putih,
+   peta, 1-2-3, buku, bintang — semuanya warna palet terkunci. Panel kiri
+   login tetap cream #fff8e9 (sesuai catatan palet di Space); kartu selesai
+   tetap putih; yang berubah hanya latar adegannya, dari polos jadi banner. */
+.scene-banner { position: relative; width: 100%; min-height: 320px; overflow: hidden; border: 2px solid #e7e8ef; border-radius: 20px; background: #f7f8fc; box-shadow: 0 6px 0 rgba(47, 49, 91, .06), 0 14px 28px rgba(47, 49, 91, .08); }
+.scene-banner-art { position: absolute; inset: 0; width: 100%; height: 100%; }
+.scene-banner-characters { position: relative; z-index: 1; display: flex; justify-content: center; align-items: flex-end; gap: 4px; min-height: 320px; padding: 18px 12px 0; }
+.scene-banner-characters img { width: min(34%, 140px); height: auto; object-fit: contain; animation: float 3.7s ease-in-out infinite; }
+.scene-banner-characters img:last-child { animation-delay: .5s; }
+.scene-banner.compact { min-height: 220px; }
+.scene-banner.compact .scene-banner-characters { min-height: 220px; padding-top: 12px; }
+.scene-banner.compact .scene-banner-characters img { width: min(38%, 150px); }
+
+@media (max-width: 780px) {
+  .scene-banner { min-height: 220px; }
+  .scene-banner-characters { min-height: 220px; }
+  .scene-banner-characters img { width: min(36%, 120px); }
+  .scene-banner.compact { min-height: 190px; }
+  .scene-banner.compact .scene-banner-characters { min-height: 190px; }
+  .scene-banner.compact .scene-banner-characters img { width: min(40%, 120px); }
+  /* Login di HP: panel seni jadi kolom sempit (headline kiri, gambar kanan).
+     Banner adegan tidak muat di sana — tampilkan kartunya saja berisi dua
+     karakter, seperti kartu maskot lama. Banner kartu selesai (compact,
+     lebar penuh) tidak kena aturan ini. */
+  .scene-banner:not(.compact) { min-height: 0; background: #fff; }
+  .scene-banner:not(.compact) .scene-banner-art { display: none; }
+  .scene-banner:not(.compact) .scene-banner-characters { min-height: 0; padding: 8px 4px 2px; gap: 2px; }
+  .scene-banner:not(.compact) .scene-banner-characters img { width: 48%; }
+}
