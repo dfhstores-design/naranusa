@@ -1,28 +1,42 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { ArrowRight, BadgeCheck, Flame, LogOut, Star } from "lucide-react";
-import AppShell, { useSessionUser } from "@/components/app-shell";
-import { CharacterArt } from "@/components/character-art";
+import { useEffect, useMemo, useState } from "react";
+import { BadgeCheck, BookOpen, Calculator, Flame, Globe2, Heart, Monitor, Star } from "lucide-react";
+import AppShell, { useSessionUser, useUpdateSessionUser } from "@/components/app-shell";
+import { CharacterImage, StudentCharacterName } from "@/components/character-art";
 import { gasAction, ProgressRow } from "@/lib/api";
 import { starsFor, streakFrom } from "@/lib/progress-summary";
-import { clearSessionToken, readSessionToken } from "@/lib/session";
+import { readSessionToken } from "@/lib/session";
+import { subjects, topics } from "@/content/curriculum";
 import "@/components/student-alignment.css";
 import "@/components/mockup.css";
 
 type ProgressResponse = { ok: true; progress: ProgressRow[] };
+type CharacterResponse = { ok: true };
+
+const characters: { id: StudentCharacterName; name: string }[] = [
+  { id: "nara", name: "Nara" },
+  { id: "nusa", name: "Nusa" },
+  { id: "sari", name: "Sari" },
+  { id: "bima", name: "Bima" },
+  { id: "dita", name: "Dita" },
+  { id: "rafi", name: "Rafi" },
+  { id: "lina", name: "Lina" },
+  { id: "wayan", name: "Wayan" },
+];
 
 export default function ProfilePage() {
-  return <AppShell audience="student" title="Profil"><ProfileContent /></AppShell>;
+  return <AppShell audience="student" title="Profilku"><ProfileContent /></AppShell>;
 }
 
 function ProfileContent() {
   const user = useSessionUser();
-  const router = useRouter();
+  const updateSessionUser = useUpdateSessionUser();
   const [rows, setRows] = useState<ProgressRow[]>([]);
   const [busy, setBusy] = useState(true);
+  const [character, setCharacter] = useState<StudentCharacterName>(user?.karakter || "nara");
+  const [saving, setSaving] = useState(false);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     let active = true;
@@ -34,31 +48,103 @@ function ProfileContent() {
     return () => { active = false; };
   }, []);
 
-  const answered = rows.reduce((sum, row) => sum + row.percobaan, 0);
-  const correct = rows.reduce((sum, row) => sum + row.benar, 0);
+  useEffect(() => {
+    if (user?.karakter) setCharacter(user.karakter);
+  }, [user?.karakter]);
 
-  async function logout() {
+  const correct = rows.reduce((sum, row) => sum + row.benar, 0);
+  const answered = rows.reduce((sum, row) => sum + row.percobaan, 0);
+  const subjectStars = useMemo(() => {
+    const totals = new Map<string, number>();
+    for (const row of rows) {
+      const subjectId = topics.find((topic) => topic.id === row.topicId)?.subjectId;
+      if (subjectId) totals.set(subjectId, (totals.get(subjectId) || 0) + row.benar);
+    }
+    return subjects.map((subject) => ({
+      ...subject,
+      stars: starsFor(totals.get(subject.id) || 0),
+    }));
+  }, [rows]);
+
+  async function chooseCharacter(next: StudentCharacterName) {
+    if (next === character || saving) return;
+    const previous = user?.karakter || character;
     const token = readSessionToken();
-    try { if (token) await gasAction<{ ok: true }>("auth.logout", { token }); } catch { /* Keluar lokal tetap jalan. */ }
-    clearSessionToken();
-    router.replace("/masuk");
+    if (!token) {
+      setMessage("Sesi belajar tidak ditemukan. Masuk kembali, ya.");
+      return;
+    }
+    setSaving(true);
+    setMessage("");
+    setCharacter(next);
+    updateSessionUser?.({ karakter: next });
+    try {
+      await gasAction<CharacterResponse>("me.setKarakter", { token, karakter: next });
+    } catch (reason) {
+      setCharacter(previous);
+      updateSessionUser?.({ karakter: previous });
+      setMessage(reason instanceof Error ? reason.message : "Karakter belum tersimpan. Coba lagi.");
+    } finally {
+      setSaving(false);
+    }
   }
 
-  return <div className="student-alignment">
-    <section className="profile-card">
-      <CharacterArt character="nara" variant={{ type: "avatar" }} size={72} className="profile-avatar" alt="Avatar Nara" />
-      <div><h2>{user?.username}</h2><p>Murid · Kelas 4 · Fase B</p></div>
+  const displayName = user?.nama_tampilan?.trim() || user?.username || "Murid";
+  const characterName = characters.find((item) => item.id === character)?.name || "Nara";
+  const starScale = Math.max(1, ...subjectStars.map((subject) => subject.stars));
+  const subjectIcons = [Calculator, BookOpen, Globe2, Heart, Monitor];
+
+  return <div className="student-alignment student-profile">
+    <section className="profile-card profile-hero" aria-label="Profil anak">
+      <div className="profile-art-frame">
+        <CharacterImage character={character} variant="full" size={188} className="profile-character-full" alt={`${characterName}, karakter terpilih`} />
+      </div>
+      <div className="profile-identity">
+        <span className="profile-character-label">Karakter: {characterName}</span>
+        <h2>{displayName}</h2>
+        <span className="profile-username">{user?.username}</span>
+        <div className="profile-stat-cards" aria-label="Statistik belajar">
+          <div><Star size={18} fill="currentColor" /><strong>{busy ? "…" : starsFor(correct)}</strong><span>Bintang</span></div>
+          <div><Flame size={18} /><strong>{busy ? "…" : streakFrom(rows)}</strong><span>Hari streak</span></div>
+          <div><BadgeCheck size={18} /><strong>{busy ? "…" : answered}</strong><span>Soal selesai</span></div>
+        </div>
+      </div>
     </section>
-    <section className="stat-row" aria-label="Ringkasan progres">
-      <div className="stat-card"><span className="stat-icon amber"><Star size={22} fill="currentColor" /></span><strong>{busy ? "…" : starsFor(correct)}</strong><span>Bintang</span></div>
-      <div className="stat-card"><span className="stat-icon coral"><Flame size={22} fill="currentColor" /></span><strong>{busy ? "…" : streakFrom(rows)}</strong><span>Hari beruntun</span></div>
-      <div className="stat-card"><span className="stat-icon teal"><BadgeCheck size={22} /></span><strong>{busy ? "…" : answered}</strong><span>Soal selesai</span></div>
+
+    <section className="profile-section" aria-labelledby="choose-character-title">
+      <div className="profile-section-heading"><h2 id="choose-character-title">Pilih Karaktermu</h2>{saving && <span role="status">Menyimpan…</span>}</div>
+      <div className="character-grid" role="radiogroup" aria-label="Pilih karakter">
+        {characters.map((item) => <button
+          key={item.id}
+          type="button"
+          role="radio"
+          aria-checked={character === item.id}
+          aria-label={`Wajah ${item.name}`}
+          disabled={saving}
+          onClick={() => void chooseCharacter(item.id)}
+          className={`character-option${character === item.id ? " selected" : ""}`}
+        >
+          <CharacterImage character={item.id} variant="face" size={70} className="character-face" alt="" />
+          <span>{item.name}</span>
+          {character === item.id && <span className="character-selected-mark" aria-hidden="true">✓</span>}
+        </button>)}
+      </div>
+      {message && <p className="notice profile-message" role="alert">{message}</p>}
     </section>
-    <section className="content-section">
-      <div className="section-heading"><div><p className="eyebrow">AKUNMU</p><h2>Apa yang bisa kamu lakukan di sini?</h2></div></div>
-      <p><Link href="/hasil" className="text-link">Lihat progres belajarku <ArrowRight size={15} /></Link></p>
-      <p style={{ color: "#73758f", fontSize: 14, marginTop: 12 }}>Tutor belum aktif. Lupa kata sandi? Minta bantuan guru atau wali untuk meresetnya.</p>
-      <button className="button secondary" onClick={logout}><LogOut size={18} /> Keluar</button>
+
+    <section className="profile-section" aria-labelledby="subject-stars-title">
+      <div className="profile-section-heading"><h2 id="subject-stars-title">Bintang per Mapel</h2><span>progres belajar</span></div>
+      <div className="subject-star-list">
+        {subjectStars.map((subject, index) => {
+          const Icon = subjectIcons[index];
+          const name = subject.shortName === "MTK" ? "Matematika" : subject.shortName === "B. Indo" ? "B. Indonesia" : subject.shortName === "P. Pancasila" ? "PP" : subject.shortName;
+          return <div className="subject-star-row" key={subject.id} style={{ "--subject-color": subject.color } as React.CSSProperties}>
+            <span className="subject-star-icon" aria-hidden="true"><Icon size={18} /></span>
+            <span className="subject-star-detail"><strong>{name}</strong><span className="subject-star-track" aria-hidden="true"><i style={{ width: `${subject.stars / starScale * 100}%` }} /></span></span>
+            <span className="subject-star-count"><Star size={15} fill="currentColor" />{busy ? "…" : subject.stars}</span>
+          </div>;
+        })}
+      </div>
     </section>
   </div>;
 }

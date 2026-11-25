@@ -1,4 +1,4 @@
-export type SubjectId = "matematika" | "bahasa-indonesia" | "ipas" | "pendidikan-pancasila";
+export type SubjectId = "matematika" | "bahasa-indonesia" | "ipas" | "pendidikan-pancasila" | "teknologi-informasi-komunikasi";
 
 export type CurriculumSource = {
   id: string;
@@ -212,6 +212,17 @@ export const subjects: {
       "Mengenali aturan, hak, dan kewajiban di keluarga, sekolah, serta lingkungan sekitar.",
       "Menghargai identitas dan keberagaman serta bekerja sama dalam lingkungan yang beragam.",
     ],
+  },
+  {
+    id: "teknologi-informasi-komunikasi",
+    name: "Informatika",
+    shortName: "TIK",
+    icon: "▣",
+    color: "#2e7cd6",
+    tint: "#e8f1fc",
+    description: "Berpikir komputasional dan teknologi",
+    sourceIds: [],
+    objectives: ["Mengenal konsep informatika melalui delapan topik TIK yang disediakan backend."],
   },
 ];
 
@@ -449,6 +460,78 @@ export const topics: Topic[] = [
     objective: "Mengenali makna dan pengamalan sila-sila Pancasila serta karakter para perumus sesuai batas CP Fase B.",
     sourceIds: ["pancasila-bs-catalog", "pancasila-bs-2023", "pancasila-bg-2021", "cp-046-2025"],
     status: "verified-book",
+  },
+  {
+    id: "tik-berpikir-komputasional",
+    subjectId: "teknologi-informasi-komunikasi",
+    title: "Berpikir komputasional",
+    chapter: "Bab 1 · Berpikir Komputasional",
+    objective: "Mengenali cara berpikir komputasional.",
+    sourceIds: [],
+    status: "phase-context",
+  },
+  {
+    id: "tik-teknologi-informasi",
+    subjectId: "teknologi-informasi-komunikasi",
+    title: "Teknologi informasi",
+    chapter: "Bab 2 · Teknologi Informasi",
+    objective: "Mengenali pemanfaatan teknologi informasi.",
+    sourceIds: [],
+    status: "phase-context",
+  },
+  {
+    id: "tik-sistem-komputer",
+    subjectId: "teknologi-informasi-komunikasi",
+    title: "Sistem komputer",
+    chapter: "Bab 3 · Sistem Komputer",
+    objective: "Mengenali bagian dan kegunaan sistem komputer.",
+    sourceIds: [],
+    status: "phase-context",
+  },
+  {
+    id: "tik-jaringan-internet",
+    subjectId: "teknologi-informasi-komunikasi",
+    title: "Jaringan dan internet",
+    chapter: "Bab 4 · Jaringan dan Internet",
+    objective: "Mengenali jaringan komputer dan internet.",
+    sourceIds: [],
+    status: "phase-context",
+  },
+  {
+    id: "tik-analisis-data",
+    subjectId: "teknologi-informasi-komunikasi",
+    title: "Analisis data",
+    chapter: "Bab 5 · Analisis Data",
+    objective: "Mengenali cara mengelola dan menganalisis data.",
+    sourceIds: [],
+    status: "phase-context",
+  },
+  {
+    id: "tik-algoritma",
+    subjectId: "teknologi-informasi-komunikasi",
+    title: "Algoritma",
+    chapter: "Bab 6 · Algoritma",
+    objective: "Mengenali langkah-langkah algoritma sederhana.",
+    sourceIds: [],
+    status: "phase-context",
+  },
+  {
+    id: "tik-dampak-sosial",
+    subjectId: "teknologi-informasi-komunikasi",
+    title: "Dampak sosial informatika",
+    chapter: "Bab 7 · Dampak Sosial",
+    objective: "Mengenali dampak sosial dari penggunaan teknologi.",
+    sourceIds: [],
+    status: "phase-context",
+  },
+  {
+    id: "tik-praktik-lintas-bidang",
+    subjectId: "teknologi-informasi-komunikasi",
+    title: "Praktik lintas bidang",
+    chapter: "Bab 8 · Praktik Lintas Bidang",
+    objective: "Menerapkan informatika dalam kegiatan lintas bidang.",
+    sourceIds: [],
+    status: "phase-context",
   },
 ];
 

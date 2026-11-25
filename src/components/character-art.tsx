@@ -98,3 +98,48 @@ export function CharacterArt<Character extends CharacterName>({
     />
   );
 }
+
+
+export type StudentCharacterName = "nara" | "nusa" | "sari" | "bima" | "dita" | "rafi" | "lina" | "wayan";
+export type CharacterImageVariant = "face" | "full";
+
+const characterDimensions: Record<StudentCharacterName, { width: number; height: number }> = {
+  nara: { width: 380, height: 533 },
+  nusa: { width: 400, height: 538 },
+  sari: { width: 270, height: 275 },
+  bima: { width: 270, height: 275 },
+  dita: { width: 260, height: 275 },
+  rafi: { width: 260, height: 275 },
+  lina: { width: 232, height: 275 },
+  wayan: { width: 191, height: 280 },
+};
+
+/** Render an approved character PNG without recreating or transforming the artwork. */
+export function CharacterImage({
+  character,
+  variant = "full",
+  size = 180,
+  className,
+  alt,
+}: {
+  character: StudentCharacterName;
+  variant?: CharacterImageVariant;
+  size?: number;
+  className?: string;
+  alt?: string;
+}) {
+  const natural = variant === "face" ? { width: 260, height: 260 } : characterDimensions[character];
+  const width = variant === "face" ? size : Math.round((size * natural.width) / natural.height);
+  const height = variant === "face" ? size : size;
+  return (
+    <Image
+      src={`${BASE_PATH}/characters/${character}-${variant}.png`}
+      alt={alt ?? character[0].toUpperCase() + character.slice(1)}
+      width={width}
+      height={height}
+      className={className}
+      unoptimized
+      draggable={false}
+    />
+  );
+}
