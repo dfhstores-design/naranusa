@@ -1,35 +1,18 @@
-# NaraNusa character art
+# Karakter Nara & Nusa
 
-Flat, source-controlled SVG illustrations based on the character preview. The designs keep their identity anchors across every asset: Nara is a girl with black twin braids, a yellow star clip, a teal long-sleeved top, coral backpack straps, amber trousers, and white shoes. Nusa is a boy with tousled black hair, a coral-orange hoodie, a navy compass backpack, navy trousers, and white/blue shoes. Every expression and pose is a distinct illustration rather than a label-only reuse of generic art.
+Art karakter di sini adalah **potongan langsung dari lembar karakter yang
+dikirim Andri** (`IMG-20261124-WA0006.jpg`, 25 Nov 2026) — bukan gambar baru
+dan bukan revisi SVG lama. Bentuk wajah, bentuk tubuh, warna, dan detail
+lainnya persis seperti di lembar. Jangan diganti dengan gambar karangan.
 
-## Asset catalog
+- `nara-full.png` (380×533) — Nara utuh: kepang dua + pita kuning, jepit
+  bintang, baju hijau motif peta Indonesia, tali ransel pink, buku oranye,
+  celana kuning panjang, sepatu putih. Background dihapus (transparan).
+- `nusa-full.png` (400×538) — Nusa utuh: hoodie oranye, celana biru,
+  ransel biru + kompas, jempol ke atas. Background dihapus (transparan).
+- `nara-face.png` / `nusa-face.png` (260×260) — potongan wajah untuk avatar.
 
-### Nara
-
-- Expressions: `nara-expression-greeting.svg` (warm greeting smile), `nara-expression-thinking.svg` (gaze upward and hand at chin), `nara-expression-aha.svg` (bright realization), `nara-expression-celebrating.svg` (joyful celebration), and `nara-expression-gentle-concern.svg` (soft, caring concern).
-- Poses: `nara-pose-wave.svg` (wave hello), `nara-pose-holding-book.svg` (holds an open book), `nara-pose-pointing.svg` (points toward a board/question), and `nara-pose-star-high-five.svg` (reaches up for a star high-five).
-- Avatar: `nara-avatar.svg`.
-
-### Nusa
-
-- Expressions: `nusa-expression-thumbs-up.svg` (encouraging thumbs-up), `nusa-expression-surprised.svg` (playful surprise), `nusa-expression-confused.svg` (scratches his head), `nusa-expression-laughing.svg` (laughing), and `nusa-expression-ready.svg` (confident and ready).
-- Poses: `nusa-pose-thumbs-up.svg` (gives a thumbs-up), `nusa-pose-holding-pencil.svg` (holds a pencil), `nusa-pose-looking-at-map.svg` (studies a map and compass), and `nusa-pose-jogging-backpack.svg` (jogs with his backpack).
-- Avatar: `nusa-avatar.svg`.
-
-All illustrations have transparent backgrounds; the compact avatars use circular backgrounds. The SVG colors follow the Naranusa palette. The rangkong logo is a separate brand asset, not a character.
-
-## React API
-
-`src/components/character-art.tsx` exports `CharacterArt`, `CharacterName`, the per-character expression/pose types, and the combined `CharacterExpression` and `CharacterPose` types. Its discriminated prop types prevent choosing a Nusa-only variant for Nara (or vice versa).
-
-```tsx
-import { CharacterArt } from "@/components/character-art";
-
-<CharacterArt character="nara" variant={{ type: "expression", name: "aha" }} size={200} />
-<CharacterArt character="nara" variant={{ type: "pose", name: "holding-book" }} size={240} />
-<CharacterArt character="nusa" variant={{ type: "expression", name: "confused" }} size={200} />
-<CharacterArt character="nusa" variant={{ type: "pose", name: "jogging-backpack" }} size={240} />
-<CharacterArt character="nara" variant={{ type: "avatar" }} size={40} alt="Avatar Nara" />
-```
-
-When `variant` is omitted, Nara's waving pose or Nusa's thumbs-up pose is rendered. `CharacterArt` explicitly prefixes local Next Image sources with `/naranusa`, matching the app's static-export `basePath`.
+Dipakai lewat `src/components/character-art.tsx`: semua varian ekspresi &
+pose memakai file full-body yang sama, karena lembar hanya punya satu pose
+tiap karakter. Kalau suatu hari ada pose/ekspresi baru dari lembar yang sama,
+tambahkan file PNG potongan baru di sini dan petakan di komponen itu.
