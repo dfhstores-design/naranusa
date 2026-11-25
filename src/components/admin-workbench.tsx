@@ -18,6 +18,8 @@ type FlagGroup = { questionId: string; topicId: string; jumlah: number; murid: s
 type GuardianLink = { pemegang: string; murid: string; peran_pemegang: string; dibuat_oleh: string; dibuat_pada: string };
 type Account = { username: string; peran: string; gagal_beruntun: number; terkunci_sampai: string; dibuat_oleh: string; dibuat_pada: string };
 type AuditRow = { waktu: string; pelaku: string; aksi: string; rincian: string };
+type PullBankError = { index: number; id: string; reason: string };
+type PullBankResult = { mapel: "mtk" | "tik"; total: number; ditambah: number; sudahAda: number; ditolak: number; errors: PullBankError[]; selesai: boolean };
 type QuestionDraft = { id: string; subjectId: string; topicId: string; stem: string; choices: string; correctChoice: string; explanation: string; sourceIds: string; sourceLocator: string; cp_ref: string; atp_goal_id: string; difficulty: string; reviewStatus: string; learnerAvailability: string };
 type WorkTab = "questions" | "marked" | "review" | "accounts" | "links" | "audit" | "progress";
 
@@ -64,6 +66,9 @@ function WorkbenchContent() {
   const [student, setStudent] = useState("");
   const [audit, setAudit] = useState<AuditRow[]>([]);
   const [importResult, setImportResult] = useState("");
+  const [pullBankMapel, setPullBankMapel] = useState<"mtk" | "tik">("mtk");
+  const [pullBankBusy, setPullBankBusy] = useState(false);
+  const [pullBankResult, setPullBankResult] = useState<PullBankResult | null>(null);
 
   const isOwner = user?.peran === "pemilik_admin";
   const canReview = user?.peran === "guru" || isOwner;
@@ -202,6 +207,17 @@ function WorkbenchContent() {
     finally { setBusy(false); event.target.value = ""; }
   }
 
+  async function pullBank() {
+    if (!isOwner || pullBankBusy) return;
+    setPullBankBusy(true); setError(""); setPullBankResult(null);
+    try {
+      const response = await run<{ ok: true; result: PullBankResult }>("admin.pullBank", { mapel: pullBankMapel });
+      setPullBankResult(response.result);
+      if (response.result.ditambah > 0) await loadQuestions();
+    } catch (reason) { setError(reason instanceof Error ? reason.message : "Tarikan bank soal belum berhasil."); }
+    finally { setPullBankBusy(false); }
+  }
+
   async function submitReview(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); setBusy(true); setError(""); setMessage("");
     try {
@@ -302,6 +318,17 @@ function WorkbenchContent() {
       <div className="filters-row"><label><span>Mapel</span><select value={filterSubject} onChange={(event) => { setFilterSubject(event.target.value); setFilterTopic(""); }}><option value="">Semua mapel</option>{subjects.map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}</select></label><label><span>Topik</span><select value={filterTopic} onChange={(event) => setFilterTopic(event.target.value)}><option value="">Semua topik</option>{activeTopics.map((item) => <option value={item.id} key={item.id}>{item.title}</option>)}</select></label><label><span>Tinjauan soal</span><select value={filterReview} onChange={(event) => setFilterReview(event.target.value)}><option value="">Semua status</option>{reviewStatuses.map((value) => <option key={value} value={value}>{reviewLabel(value)}</option>)}</select></label><button className="button secondary" onClick={() => void refresh()}><Search size={17} /> Terapkan</button></div>
       {adultCanCreate && <label className="button secondary import-button"><ArrowDownToLine size={17} /> Impor JSON<input type="file" accept="application/json,.json" onChange={importFile} /></label>}
       {importResult && <p className="import-result">Hasil impor: {importResult}</p>}
+      {isOwner && <div className="tool-card" aria-busy={pullBankBusy}>
+        <h3>Tarik dari bank soal</h3>
+        <div className="filters-row">
+          <label><span>Mapel</span><select value={pullBankMapel} disabled={pullBankBusy} onChange={(event) => { setPullBankMapel(event.target.value as "mtk" | "tik"); setPullBankResult(null); setError(""); }}><option value="mtk">Matematika (MTK)</option><option value="tik">TIK</option></select><small className="panel-footnote">v1: hanya MTK dan TIK. PJOK, Seni, Inggris, PAI menyusul setelah mapelnya ada di aplikasi.</small></label>
+          <button className="button secondary" disabled={pullBankBusy} onClick={() => void pullBank()}>{pullBankBusy ? <><span className="mini-spinner" aria-hidden="true" /> Menarik soal…</> : "Tarik soal"}</button>
+        </div>
+        {pullBankResult && <div role="status" aria-live="polite">
+          <p className="import-result">Ditambah {pullBankResult.ditambah} · Sudah ada {pullBankResult.sudahAda} · Ditolak {pullBankResult.ditolak}{!pullBankResult.selesai && ` · belum selesai — panggil ulang untuk melanjutkan (sisa ${Math.max(0, pullBankResult.total - pullBankResult.ditambah - pullBankResult.sudahAda - pullBankResult.ditolak)})`}</p>
+          {pullBankResult.errors.length > 0 && <ul className="panel-footnote">{pullBankResult.errors.slice(0, 5).map((item) => <li key={`${item.index}-${item.id}`}>{item.id}: {item.reason}</li>)}</ul>}
+        </div>}
+      </div>}
       <div className="question-table">{questionsList.map((question) => {
         const topic = topics.find((item) => item.id === question.topicId);
         const subject = subjects.find((item) => item.id === question.subjectId);
