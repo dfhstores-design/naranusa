@@ -49,3 +49,23 @@ test("login uses the approved palette and a reversible password visibility contr
   assert.doesNotMatch(css, /(?:linear|radial|conic)-gradient\s*\(/i);
   assert.doesNotMatch(css, /#6654c9|#8474dc|#725de5|#4c3da2|#e9e5ff|#fcfbff|#8879df/i);
 });
+
+test("profile character selection and practice source clusters use the v6 server contract", () => {
+  const profile = read("src/app/profil/page.tsx");
+  const quiz = read("src/components/quiz-screen.tsx");
+  const dashboard = read("src/components/learning-dashboard.tsx");
+  const curriculum = read("src/content/curriculum.ts");
+  assert.match(profile, /"me\.setKarakter"/);
+  assert.match(profile, /"progress\.get"/);
+  assert.match(profile, /"wayan"/);
+  assert.doesNotMatch(profile, /localStorage|sessionStorage/);
+  assert.match(quiz, /"topics\.list"/);
+  assert.match(quiz, /cluster: sourceChoice/);
+  assert.match(quiz, /soalErlangga/);
+  assert.match(quiz, /soalBebas/);
+  assert.match(dashboard, /"topics\.list"/);
+  assert.match(curriculum, /teknologi-informasi-komunikasi/);
+  for (const id of ["tik-berpikir-komputasional", "tik-teknologi-informasi", "tik-sistem-komputer", "tik-jaringan-internet", "tik-analisis-data", "tik-algoritma", "tik-dampak-sosial", "tik-praktik-lintas-bidang"]) {
+    assert.match(curriculum, new RegExp(id));
+  }
+});

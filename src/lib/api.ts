@@ -15,10 +15,11 @@ export class ApiError extends Error {
 
 export type PublicSubject = {
   id: string; name: string; shortName: string; icon: string; color: string; tint: string;
-  description: string; soalTersedia: number;
+  description: string; soalTersedia: number; soalErlangga?: number; soalBebas?: number;
 };
 export type PublicTopic = {
   id: string; subjectId: string; title: string; chapter: string; objective: string; soalTersedia: number;
+  soalErlangga?: number; soalBebas?: number;
 };
 export type PublicQuestion = {
   id: string; subjectId: string; topicId: string; type: string; stem: string;

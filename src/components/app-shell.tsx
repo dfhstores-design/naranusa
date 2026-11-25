@@ -4,15 +4,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from "react";
-import { BookOpen, GraduationCap, LogOut, ShieldCheck, Trophy, UserRound } from "lucide-react";
+import { BookOpen, GraduationCap, Home, LogOut, ShieldCheck, Trophy, UserRound } from "lucide-react";
 import { ApiError, gasAction } from "@/lib/api";
-import { CharacterArt } from "@/components/character-art";
+import { CharacterImage, StudentCharacterName } from "@/components/character-art";
 import { clearSessionToken, readSessionToken } from "@/lib/session";
 
 export type AppRole = "murid" | "orang_tua" | "guru" | "pemilik_admin";
-export type SessionUser = { username: string; peran: AppRole };
+export type SessionUser = { username: string; peran: AppRole; nama_tampilan?: string; karakter?: StudentCharacterName };
 const SessionContext = createContext<SessionUser | null>(null);
+const SessionUpdateContext = createContext<((patch: Partial<SessionUser>) => void) | null>(null);
 export function useSessionUser() { return useContext(SessionContext); }
+export function useUpdateSessionUser() { return useContext(SessionUpdateContext); }
 
 export default function AppShell({ children, audience, title }: { children: ReactNode; audience: "student" | "adult"; title: string }) {
   const router = useRouter();
@@ -20,6 +22,7 @@ export default function AppShell({ children, audience, title }: { children: Reac
   const [user, setUser] = useState<SessionUser | null>(null);
   const [loading, setLoading] = useState(true);
   const [problem, setProblem] = useState("");
+  const updateSessionUser = (patch: Partial<SessionUser>) => setUser((current) => current ? { ...current, ...patch } : current);
 
   useEffect(() => {
     let active = true;
@@ -28,8 +31,8 @@ export default function AppShell({ children, audience, title }: { children: Reac
       router.replace("/masuk");
       return () => { active = false; };
     }
-    gasAction<{ ok: true; username: string; peran: AppRole }>("me.get", { token })
-      .then((result) => { if (active) setUser({ username: result.username, peran: result.peran }); })
+    gasAction<{ ok: true; username: string; peran: AppRole; nama_tampilan?: string; karakter?: StudentCharacterName }>("me.get", { token })
+      .then((result) => { if (active) setUser({ username: result.username, peran: result.peran, nama_tampilan: result.nama_tampilan || undefined, karakter: result.karakter || "nara" }); })
       .catch((error: unknown) => {
         if (!active) return;
         if (error instanceof ApiError && error.code === "UNAUTHORIZED") {
@@ -72,22 +75,28 @@ export default function AppShell({ children, audience, title }: { children: Reac
 
   const isLinkActive = (href: string) =>
     pathname === href || (href === "/mapel/matematika" && pathname.startsWith("/mapel/")) || (href === "/" && pathname === "/");
+  const approvedScreen = audience === "student" && ["/", "/profil", "/latihan"].includes(pathname.replace(/\/$/, "") || "/");
+  const mobileLinks = approvedScreen
+    ? [{ href: "/", label: "Beranda", icon: Home }, { href: "/mapel/matematika", label: "Latihan", icon: BookOpen }, { href: "/profil", label: "Profil", icon: UserRound }]
+    : links;
 
   return (
     <SessionContext.Provider value={user}>
+      <SessionUpdateContext.Provider value={updateSessionUser}>
       <div className="app-frame">
         <header className="app-header">
           <Link href={audience === "adult" ? "/admin" : "/"} className="brand-link"><span className="brand-mark"><Image src="/naranusa/icon.svg" alt="" aria-hidden="true" width={44} height={44} /></span><span className="brand-text"><strong>NaraNusa</strong><small>{audience === "adult" ? "Workbench dewasa" : "jelajah ilmu, seru!"}</small></span></Link>
           <nav className="header-nav" aria-label={audience === "adult" ? "Menu dewasa" : "Menu belajar"}>
             {links.map((item) => { const Icon = item.icon; return <Link className={isLinkActive(item.href) ? "nav-link active" : "nav-link"} href={item.href} key={item.href}><Icon size={18} /><span>{item.label}</span></Link>; })}
           </nav>
-          <div className="account-bar">{audience === "student" && <CharacterArt character="nara" variant={{ type: "avatar" }} size={40} className="header-avatar" alt="" />}<span className="role-chip">{roleLabel}</span><span className="account-name">{user.username}</span><button className="icon-button" onClick={logout} aria-label="Keluar" title="Keluar"><LogOut size={18} /></button></div>
+          <div className="account-bar">{audience === "student" && <CharacterImage character={user.karakter || "nara"} variant="face" size={40} className="header-avatar" alt="" />}<span className="role-chip">{roleLabel}</span><span className="account-name">{user.username}</span><button className="icon-button" onClick={logout} aria-label="Keluar" title="Keluar"><LogOut size={18} /></button></div>
         </header>
         <main className="page-main"><div className="page-heading"><div><p className="eyebrow">{audience === "adult" ? "AREA DEWASA" : "RUANG BELAJAR KELAS 4"}</p><h1>{title}</h1></div>{audience === "adult" && <span className="secure-label"><ShieldCheck size={16} /> Akses terkelola</span>}</div>{children}</main>
         <nav className="mobile-dock" aria-label="Navigasi bawah">
-          {links.map((item) => { const Icon = item.icon; return <Link className={isLinkActive(item.href) ? "active" : ""} href={item.href} key={item.href}><Icon size={19} /><span>{item.label}</span></Link>; })}
+          {mobileLinks.map((item) => { const Icon = item.icon; const active = isLinkActive(item.href) || (item.label === "Latihan" && pathname.startsWith("/latihan")); return <Link className={active ? "active" : ""} href={item.href} key={item.href}><Icon size={19} /><span>{item.label}</span></Link>; })}
         </nav>
       </div>
+      </SessionUpdateContext.Provider>
     </SessionContext.Provider>
   );
 }
