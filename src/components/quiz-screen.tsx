@@ -2,14 +2,16 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, BookOpen, Check, Heart, X } from "lucide-react";
-import AppShell from "@/components/app-shell";
+import { ArrowRight, BadgeCheck, BookOpen, Check, Flag, Heart, Star, X } from "lucide-react";
+import AppShell, { useSessionUser } from "@/components/app-shell";
 import NaraMascot from "@/components/nara-mascot";
 import { CharacterArt } from "@/components/character-art";
+import { SceneBanner } from "@/components/scene-banner";
 import { subjects, topics, sourcesByIds } from "@/content/curriculum";
 import { AnswerResult, gasAction, PublicQuestion } from "@/lib/api";
 import { readSessionToken } from "@/lib/session";
 import "@/components/student-alignment.css";
+import "@/components/mockup.css";
 
 type QuestionListResponse = { ok: true; questions: PublicQuestion[] };
 type QuizMode = "topic" | "misi" | "ujian" | "cepat";
@@ -19,6 +21,7 @@ export default function QuizScreen() {
 }
 
 function QuizContent() {
+  const user = useSessionUser();
   const [topicId, setTopicId] = useState("");
   const [mode, setMode] = useState<QuizMode>("topic");
   const [questions, setQuestions] = useState<PublicQuestion[]>([]);
@@ -80,6 +83,8 @@ function QuizContent() {
   const sourceLinks = useMemo(() => current ? sourcesByIds(current.sourceIds) : [], [current]);
   const isMarked = current ? marked.has(current.id) : false;
   const label = mode === "misi" ? "Tantangan harian" : mode === "ujian" ? "Ujian mini" : mode === "cepat" ? "Mode cepat" : "Latihan topik";
+  const sameSubjectTopics = topic ? topics.filter((item) => item.subjectId === topic.subjectId) : [];
+  const nextTopic = topic ? sameSubjectTopics[sameSubjectTopics.findIndex((item) => item.id === topic.id) + 1] : undefined;
 
   async function submitAnswer() {
     if (!current || choice === null || result || submitting) return;
@@ -131,27 +136,35 @@ function QuizContent() {
     {busy && <div className="message-card inline-loading"><div className="mini-spinner" /><p>Menyiapkan soal dari server…</p></div>}
     {!busy && error && questions.length === 0 && <div className="message-card"><div className="mascot-disc"><NaraMascot small /></div><p>{error}</p><button className="button secondary" onClick={() => window.location.reload()}>Coba lagi</button></div>}
     {!busy && current && subject && topic && <section className="quiz-card">
-      <div className="quiz-topline"><div className="quiz-subject"><span className="subject-icon" style={{ color: subject.color, background: subject.tint }}>{subject.icon}</span><div><strong>{subject.name}</strong><small>{topic.chapter} · {topic.title}</small></div></div><span className="question-counter">Soal {index + 1} dari {questions.length}</span></div>
+      <div className="quiz-topline"><div className="quiz-subject"><span className="subject-icon" style={{ color: subject.color, background: subject.tint }}>{subject.icon}</span><div><strong>{subject.name} • {topic.title}</strong></div></div><div className="quiz-topline-right"><span className="quiz-stars-chip"><Star size={15} fill="currentColor" />+10</span><span className="question-counter">{index + 1} / {questions.length}</span></div></div>
       <div className="quiz-progress"><span style={{ width: `${((index + (result ? 1 : 0)) / questions.length) * 100}%`, background: subject.color }} /></div>
-      <div className="quiz-difficult-row"><button className={`difficult-toggle ${isMarked ? "marked" : ""}`} onClick={toggleDifficult} disabled={markBusy} aria-pressed={isMarked}><Heart size={19} fill={isMarked ? "currentColor" : "none"} />{isMarked ? "Soal ditandai sulit" : "Soal ini susah"}</button><span>Guru bisa melihat soal yang ditandai</span></div>
+      <div className="quiz-difficult-row"><button className={`flag-button ${isMarked ? "marked" : ""}`} onClick={toggleDifficult} disabled={markBusy} aria-pressed={isMarked}><Flag size={18} fill={isMarked ? "currentColor" : "none"} />{isMarked ? "Soal ditandai sulit" : "Soal ini susah"}</button><span>Guru bisa melihat soal yang ditandai</span></div>
       <h2 className="question-text">{current.stem}</h2>
       <div className="answer-options" role="radiogroup" aria-label="Pilih satu jawaban">
         {current.choices.map((text, optionIndex) => {
           const selected = choice === optionIndex;
           const incorrectSelection = result && selected && !result.correct;
-          return <button className={`answer-choice ${selected ? "selected" : ""} ${result && result.correct && selected ? "is-correct" : ""} ${incorrectSelection ? "is-wrong" : ""}`} key={`${current.id}-${optionIndex}`} role="radio" aria-checked={selected} disabled={!!result} onClick={() => setChoice(optionIndex)}>
-            <span className="choice-bullet">{String.fromCharCode(65 + optionIndex)}</span><span>{text}</span>{result && selected && result.correct && <Check size={21} className="choice-check" />}{incorrectSelection && <X size={21} className="choice-check" />}
+          return <button className={`answer-choice no-bullet ${selected ? "selected" : ""} ${result && result.correct && selected ? "is-correct" : ""} ${incorrectSelection ? "is-wrong" : ""}`} key={`${current.id}-${optionIndex}`} role="radio" aria-checked={selected} disabled={!!result} onClick={() => setChoice(optionIndex)}>
+            <span>{text}</span>{result && selected && result.correct && <Check size={21} className="choice-check" />}{incorrectSelection && <X size={21} className="choice-check" />}
           </button>;
         })}
       </div>
       {error && questions.length > 0 && <p className="notice" role="status">{error}</p>}
       {result && <div className={`answer-result ${result.correct ? "success" : "try-again"}`} role="status">
         <span className="result-icon">{result.correct ? <Check size={21} /> : <Heart size={21} />}</span><div><strong>{result.correct ? "Hebat, jawabanmu benar!" : "Belum tepat, yuk belajar lagi."}</strong><p>{result.explanation}</p><small>Rujukan: {current.sourceLocator || "materi belajar Kelas 4"}</small></div>
+        {result.correct && <span className="floating-star">⭐ +10</span>}
       </div>}
       <div className="quiz-sources"><span><BookOpen size={16} /> Rujukan materi</span><div>{sourceLinks.map((source) => <a href={source.url} target="_blank" rel="noreferrer" key={source.id}>{source.title} ↗</a>)}</div></div>
-      <div className="quiz-controls">{!result ? <button className="button primary" disabled={choice === null || submitting} onClick={submitAnswer}>{submitting ? "Memeriksa…" : "Periksa jawaban"} <ArrowRight size={18} /></button> : <button className="button primary" onClick={nextQuestion}>{index + 1 === questions.length ? "Lihat hasil" : "Soal berikutnya"} <ArrowRight size={18} /></button>}</div>
+      <div className="quiz-controls">{!result ? <button className="button primary" disabled={choice === null || submitting} onClick={submitAnswer}>{submitting ? "Memeriksa…" : "Periksa dulu, baru lanjut"} <ArrowRight size={18} /></button> : <button className="button primary" onClick={nextQuestion}>{index + 1 === questions.length ? "Lihat hasil" : "Soal berikutnya"} <ArrowRight size={18} /></button>}</div>
     </section>}
-    {!busy && !error && !current && questions.length > 0 && <section className="message-card finish-card"><div className="result-characters"><CharacterArt character="nara" variant={{ type: "expression", name: "celebrating" }} size={124} alt="Nara merayakan usahamu" /><CharacterArt character="nusa" variant={{ type: "expression", name: "laughing" }} size={124} alt="Nusa ikut merayakan" /></div><p className="eyebrow">PETUALANGAN SELESAI</p><h2>Kamu sudah berusaha hebat!</h2><p>Benar {correctCount} dari {questions.length} soal. Setiap latihan membuatmu makin paham.</p><div className="quiz-score">{correctCount}<span>dari {questions.length} benar</span></div><div className="finish-actions">{topic && <Link className="button secondary" href={`/mapel/${topic.subjectId}`}>Pilih topik lain <ArrowRight size={18} /></Link>}<Link className="button primary" href="/">Kembali ke beranda <ArrowRight size={18} /></Link></div></section>}
+    {!busy && !error && !current && questions.length > 0 && <section className="message-card finish-card"><SceneBanner className="compact" numbersDy={48}><CharacterArt character="nara" variant={{ type: "expression", name: "celebrating" }} size={124} alt="Nara merayakan usahamu" /><CharacterArt character="nusa" variant={{ type: "expression", name: "laughing" }} size={124} alt="Nusa ikut merayakan" /></SceneBanner><div className="finish-stars" aria-hidden="true"><span>★</span><span>★</span><span>★</span></div><p className="eyebrow">PETUALANGAN SELESAI</p><h2>Hebat, {user?.username}!{topic ? ` Topik ${topic.title} selesai!` : ""}</h2><p>Benar {correctCount} dari {questions.length} soal. Setiap latihan membuatmu makin paham.</p>
+      <div className="finish-stats">
+        <div className="stat-card"><span className="stat-icon teal"><BadgeCheck size={22} /></span><strong>Benar {correctCount} dari {questions.length}</strong><span>Jawaban benar</span></div>
+        <div className="stat-card"><span className="stat-icon amber"><Star size={22} fill="currentColor" /></span><strong>+{correctCount * 10} XP</strong><span>Bintang baru</span></div>
+        <div className="stat-card"><span className="stat-icon coral"><Flag size={22} /></span><strong>{marked.size} soal</strong><span>Ditandai susah</span></div>
+      </div>
+      {marked.size > 0 && <div className="finish-quote"><CharacterArt character="nara" variant={{ type: "avatar" }} size={52} alt="Avatar Nara" /><p><strong>Soal yang kamu tandai akan dibahas guru di kelas.</strong><br />Hebat, kamu berani bilang soal mana yang susah!</p></div>}
+      <div className="finish-actions">{nextTopic ? <Link className="button primary" href={`/latihan?topicId=${encodeURIComponent(nextTopic.id)}`}>Topik berikutnya <ArrowRight size={18} /></Link> : topic ? <Link className="button primary" href={`/mapel/${topic.subjectId}`}>Topik berikutnya <ArrowRight size={18} /></Link> : null}<Link className="button secondary" href="/">Kembali ke Beranda <ArrowRight size={18} /></Link></div></section>}
     {toast && <div className="toast" role="status">{toast}</div>}
   </div>;
 }

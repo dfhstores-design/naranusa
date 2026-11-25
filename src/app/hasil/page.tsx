@@ -8,6 +8,7 @@ import { subjects, topics } from "@/content/curriculum";
 import { gasAction, ProgressRow } from "@/lib/api";
 import { readSessionToken } from "@/lib/session";
 import "@/components/student-alignment.css";
+import "@/components/mockup.css";
 
 type ProgressResponse = { ok: true; progress: ProgressRow[] };
 
@@ -32,9 +33,9 @@ function ProgressContent() {
   const totalAttempts = rows.reduce((sum, row) => sum + row.percobaan, 0);
 
   return <div className="student-alignment student-progress">
-    <section className="progress-hero"><div><p className="eyebrow light">LANGKAH KECIL, KEMAJUAN BESAR</p><h2>Setiap usaha itu berarti.</h2><p>Ini ringkasan latihanmu yang tersimpan di server.</p></div><div className="score-orb"><strong>{busy ? "…" : error ? "—" : totalCorrect}</strong><span>jawaban benar</span></div></section>
+    <section className="progress-hero"><div><p className="eyebrow light">LANGKAH KECIL, KEMAJUAN BESAR</p><h2>Setiap usaha itu berarti.</h2><p>Ini ringkasan latihanmu sejauh ini.</p></div><div className="score-orb"><strong>{busy ? "…" : error ? "—" : totalCorrect}</strong><span>jawaban benar</span></div></section>
     {error && <div className="notice" role="status">{error} <button className="text-button" onClick={() => window.location.reload()}>Coba lagi</button></div>}
-    <section className="content-section progress-panel"><div className="section-heading"><div><p className="eyebrow">PETA BELAJAR</p><h2>Progres per mapel</h2></div><span className="quiet-note">{busy ? "Memuat…" : error ? "Progres belum tersedia" : `${totalAttempts} percobaan tersimpan`}</span></div>
+    <section className="content-section progress-panel"><div className="section-heading"><div><p className="eyebrow">PETA BELAJAR</p><h2>Progres per mapel</h2></div><span className="quiet-note">{busy ? "Memuat…" : error ? "Progres belum tersedia" : `${totalAttempts} soal dikerjakan`}</span></div>
       {subjects.map((subject) => {
         const subjectTopics = topics.filter((topic) => topic.subjectId === subject.id);
         const topicProgress = subjectTopics.map((topic) => ({ topic, row: rows.find((row) => row.topicId === topic.id) }));
@@ -48,6 +49,6 @@ function ProgressContent() {
       })}
       {!busy && !error && rows.length === 0 && <p className="empty-state">Belum ada latihan tercatat. Mulai dari topik yang kamu suka.</p>}
     </section>
-    <aside className="source-note"><Star size={18} /><p>Jawaban dan progres tersimpan di server agar bisa dilihat bersama orang tua atau guru yang berwenang.</p><BookOpen size={18} /></aside>
+    <aside className="source-note"><Star size={18} /><p>Progresmu bisa dilihat orang tua dan gurumu, supaya mereka bisa membantumu belajar.</p><BookOpen size={18} /></aside>
   </div>;
 }

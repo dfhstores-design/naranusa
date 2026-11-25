@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from "react";
-import { BookOpen, ChartNoAxesColumn, GraduationCap, LogOut, ShieldCheck } from "lucide-react";
+import { BookOpen, GraduationCap, LogOut, ShieldCheck, Trophy, UserRound } from "lucide-react";
 import { ApiError, gasAction } from "@/lib/api";
 import { CharacterArt } from "@/components/character-art";
 import { clearSessionToken, readSessionToken } from "@/lib/session";
@@ -67,8 +67,11 @@ export default function AppShell({ children, audience, title }: { children: Reac
   }
 
   const links = audience === "student"
-    ? [{ href: "/", label: "Beranda", icon: GraduationCap }, { href: "/mapel/matematika", label: "Jelajahi topik", icon: BookOpen }, { href: "/hasil", label: "Progresku", icon: ChartNoAxesColumn }]
+    ? [{ href: "/", label: "Beranda", icon: GraduationCap }, { href: "/mapel/matematika", label: "Topik", icon: BookOpen }, { href: "/hadiah", label: "Hadiah", icon: Trophy }, { href: "/profil", label: "Profil", icon: UserRound }]
     : [{ href: "/admin", label: "Workbench dewasa", icon: ShieldCheck }];
+
+  const isLinkActive = (href: string) =>
+    pathname === href || (href === "/mapel/matematika" && pathname.startsWith("/mapel/")) || (href === "/" && pathname === "/");
 
   return (
     <SessionContext.Provider value={user}>
@@ -76,13 +79,13 @@ export default function AppShell({ children, audience, title }: { children: Reac
         <header className="app-header">
           <Link href={audience === "adult" ? "/admin" : "/"} className="brand-link"><span className="brand-mark"><Image src="/naranusa/icon.svg" alt="" aria-hidden="true" width={44} height={44} /></span><span className="brand-text"><strong>NaraNusa</strong><small>{audience === "adult" ? "Workbench dewasa" : "jelajah ilmu, seru!"}</small></span></Link>
           <nav className="header-nav" aria-label={audience === "adult" ? "Menu dewasa" : "Menu belajar"}>
-            {links.map((item) => { const Icon = item.icon; return <Link className={pathname === item.href ? "nav-link active" : "nav-link"} href={item.href} key={item.href}><Icon size={18} /><span>{item.label}</span></Link>; })}
+            {links.map((item) => { const Icon = item.icon; return <Link className={isLinkActive(item.href) ? "nav-link active" : "nav-link"} href={item.href} key={item.href}><Icon size={18} /><span>{item.label}</span></Link>; })}
           </nav>
           <div className="account-bar">{audience === "student" && <CharacterArt character="nara" variant={{ type: "avatar" }} size={40} className="header-avatar" alt="" />}<span className="role-chip">{roleLabel}</span><span className="account-name">{user.username}</span><button className="icon-button" onClick={logout} aria-label="Keluar" title="Keluar"><LogOut size={18} /></button></div>
         </header>
         <main className="page-main"><div className="page-heading"><div><p className="eyebrow">{audience === "adult" ? "AREA DEWASA" : "RUANG BELAJAR KELAS 4"}</p><h1>{title}</h1></div>{audience === "adult" && <span className="secure-label"><ShieldCheck size={16} /> Akses terkelola</span>}</div>{children}</main>
         <nav className="mobile-dock" aria-label="Navigasi bawah">
-          {links.map((item) => { const Icon = item.icon; return <Link className={pathname === item.href ? "active" : ""} href={item.href} key={item.href}><Icon size={19} /><span>{item.label}</span></Link>; })}
+          {links.map((item) => { const Icon = item.icon; return <Link className={isLinkActive(item.href) ? "active" : ""} href={item.href} key={item.href}><Icon size={19} /><span>{item.label}</span></Link>; })}
         </nav>
       </div>
     </SessionContext.Provider>

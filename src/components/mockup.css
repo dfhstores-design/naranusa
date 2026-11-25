@@ -1,0 +1,114 @@
+/* Tampilan murid sesuai mock-up pratinjau (25 Nov 2026).
+   Palet terkunci: navy #2f315b, teal #249d87, amber #f3b545, coral #ec765f,
+   cream #fff8e9, latar #f7f8fc. Font Nunito. Sudut bulat 16-24px, shadow berlapis,
+   animasi pegas untuk bintang & jawaban benar, goyangan lembut untuk jawaban salah. */
+
+/* ---- Beranda (mockup 02) ---- */
+.greeting-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.greeting-row .greeting-avatar { width: 52px; height: 52px; flex: 0 0 auto; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 4px 0 rgba(47, 49, 91, .07); object-fit: cover; background: #fff8e9; }
+.greeting-row h2 { margin: 0; font-size: clamp(24px, 3.4vw, 30px); font-weight: 950; letter-spacing: -.03em; }
+.greeting-row .star-total { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; border-radius: 999px; background: #fff; box-shadow: 0 4px 0 rgba(47, 49, 91, .06); font-size: 16px; font-weight: 950; white-space: nowrap; }
+.greeting-row .star-total svg { color: #f3b545; }
+.continue-card { position: relative; overflow: hidden; padding: 24px clamp(20px, 4vw, 30px); border-radius: 24px; color: #fff; background: #249d87; box-shadow: 0 6px 0 rgba(47, 49, 91, .1); }
+.continue-card .eyebrow.light { color: rgba(255, 255, 255, .85); }
+.continue-card h3 { margin: 6px 0 4px; font-size: clamp(20px, 3vw, 25px); font-weight: 950; letter-spacing: -.02em; }
+.continue-card p { margin: 0 0 12px; color: rgba(255, 255, 255, .92); font-size: 15px; }
+.continue-progress { height: 10px; margin: 4px 0 14px; border-radius: 99px; background: rgba(255, 255, 255, .28); overflow: hidden; }
+.continue-progress i { display: block; height: 100%; border-radius: inherit; background: #f3b545; transition: width .4s ease; }
+.continue-pill { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 10px 20px; border-radius: 999px; color: #2f315b; background: #f3b545; box-shadow: 0 4px 0 #e4a62b; font-size: 15px; font-weight: 950; text-decoration: none; }
+.continue-pill:active { transform: translateY(2px); box-shadow: 0 2px 0 #e4a62b; }
+.stat-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 16px 0 6px; }
+.stat-card { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 16px 8px 14px; border: 1px solid #e7e8ef; border-radius: 20px; background: #fff; box-shadow: 0 4px 0 rgba(47, 49, 91, .04); text-align: center; }
+.stat-card .stat-icon { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 6px; border-radius: 50%; }
+.stat-card .stat-icon.amber { color: #b97f0e; background: #fff3d6; }
+.stat-card .stat-icon.coral { color: #ec765f; background: #fff0ec; }
+.stat-card .stat-icon.teal { color: #249d87; background: #e7f6f1; }
+.stat-card strong { font-size: clamp(19px, 3vw, 24px); font-weight: 950; line-height: 1.1; }
+.stat-card span { color: #73758f; font-size: 12px; font-weight: 800; }
+.subject-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.subject-tile { display: flex; flex-direction: column; gap: 8px; min-height: 132px; padding: 16px; border-radius: 22px; text-decoration: none; box-shadow: 0 4px 0 rgba(47, 49, 91, .04); transition: transform .16s ease, box-shadow .16s ease; }
+.subject-tile:hover { transform: translateY(-2px); box-shadow: 0 8px 0 rgba(47, 49, 91, .06); }
+.subject-tile .tile-icon { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 15px; background: #fff; font-size: 24px; font-weight: 900; }
+.subject-tile h3 { margin: 0; font-size: 17px; font-weight: 950; letter-spacing: -.02em; }
+.subject-tile span { color: #656781; font-size: 13px; font-weight: 800; }
+.subject-tile .tile-arrow { margin-top: auto; align-self: flex-end; color: #2f315b; opacity: .55; }
+
+/* ---- Topik (mockup 03) ---- */
+.topic-rows { margin-top: 12px; border: 1px solid #e7e8ef; border-radius: 20px; background: #fff; overflow: hidden; box-shadow: 0 4px 0 rgba(47, 49, 91, .035); }
+.topic-row { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 66px; padding: 13px 16px; border: 0; border-bottom: 1px solid #f0f0f5; color: #2f315b; background: #fff; font-size: 16px; font-weight: 900; text-align: left; text-decoration: none; cursor: pointer; }
+.topic-row:last-child { border-bottom: 0; }
+.topic-row:hover { background: #fff8e9; }
+.topic-row .topic-star { color: #f3b545; flex: 0 0 auto; }
+.topic-row .topic-count { margin-left: auto; color: #73758f; font-size: 13px; font-weight: 800; white-space: nowrap; }
+.topic-row .topic-go { flex: 0 0 auto; color: #249d87; }
+
+/* ---- Latihan (mockup 04) ---- */
+.quiz-topline-right { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+.quiz-stars-chip { display: inline-flex; align-items: center; gap: 5px; padding: 7px 11px; border-radius: 999px; color: #976a10; background: #fff1c8; font-size: 14px; font-weight: 950; white-space: nowrap; }
+.quiz-stars-chip svg { color: #f3b545; }
+.flag-button { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 8px 15px; border: 2px solid #ec765f; border-radius: 14px; color: #c14b38; background: #fff; font-size: 14px; font-weight: 900; cursor: pointer; }
+.flag-button.marked { color: #fff; background: #ec765f; }
+.answer-choice.no-bullet { justify-content: flex-start; padding-left: 18px; }
+.finish-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 16px 0 4px; }
+.finish-stats .stat-card { padding: 13px 6px 11px; }
+.finish-quote { display: flex; align-items: center; gap: 11px; margin-top: 16px; padding: 13px 15px; border-radius: 16px; background: #fff8e9; text-align: left; }
+.finish-quote img { width: 52px; height: 52px; flex: 0 0 auto; border-radius: 50%; object-fit: cover; background: #fff; }
+.finish-quote p { margin: 0; color: #55546c; font-size: 14px; line-height: 1.45; }
+.finish-quote strong { color: #2f315b; }
+
+/* ---- Hadiah & Profil ---- */
+.reward-hero { display: flex; align-items: center; gap: 16px; padding: 24px; border-radius: 24px; color: #fff; background: #249d87; box-shadow: 0 6px 0 rgba(47, 49, 91, .1); }
+.reward-hero .big-star { font-size: 52px; line-height: 1; animation: star-pop .5s ease both; }
+.reward-hero h2 { margin: 0 0 4px; font-size: clamp(22px, 3vw, 28px); font-weight: 950; }
+.reward-hero p { margin: 0; color: rgba(255, 255, 255, .92); font-size: 15px; }
+.profile-card { display: flex; align-items: center; gap: 15px; padding: 20px; border: 1px solid #e7e8ef; border-radius: 22px; background: #fff; box-shadow: 0 4px 0 rgba(47, 49, 91, .04); }
+.profile-card .profile-avatar { width: 72px; height: 72px; flex: 0 0 auto; border-radius: 50%; border: 3px solid #fff8e9; object-fit: cover; background: #fff8e9; }
+.profile-card h2 { margin: 0 0 3px; font-size: 22px; font-weight: 950; }
+.profile-card p { margin: 0; color: #73758f; font-size: 14px; }
+
+@media (max-width: 780px) {
+  .stat-card { padding: 12px 4px 10px; }
+  .stat-card strong { font-size: 17px; }
+  .stat-card span { font-size: 11px; }
+  .subject-tiles { gap: 10px; }
+  .subject-tile { min-height: 118px; padding: 13px; border-radius: 19px; }
+  .subject-tile h3 { font-size: 15px; }
+  .finish-stats { gap: 8px; }
+  .finish-stars span { font-size: 38px; }
+  .greeting-row .star-total { padding: 7px 11px; font-size: 14px; }
+}
+@media (max-width: 380px) {
+  .greeting-row h2 { font-size: 22px; }
+  .stat-card .stat-icon { width: 38px; height: 38px; }
+}
+
+/* ---- Latar adegan (banner) — halaman 01 Masuk & 05 Hasil di mockup ----
+   Latarnya sesuai Space: bg #f7f8fc (latar aplikasi, terkunci), awan putih,
+   peta, 1-2-3, buku, bintang — semuanya warna palet terkunci. Panel kiri
+   login tetap cream #fff8e9 (sesuai catatan palet di Space); kartu selesai
+   tetap putih; yang berubah hanya latar adegannya, dari polos jadi banner. */
+.scene-banner { position: relative; width: 100%; min-height: 320px; overflow: hidden; border: 2px solid #e7e8ef; border-radius: 20px; background: #f7f8fc; box-shadow: 0 6px 0 rgba(47, 49, 91, .06), 0 14px 28px rgba(47, 49, 91, .08); }
+.scene-banner-art { position: absolute; inset: 0; width: 100%; height: 100%; }
+.scene-banner-characters { position: relative; z-index: 1; display: flex; justify-content: center; align-items: flex-end; gap: 4px; min-height: 320px; padding: 18px 12px 0; }
+.scene-banner-characters img { width: min(34%, 140px); height: auto; object-fit: contain; animation: float 3.7s ease-in-out infinite; }
+.scene-banner-characters img:last-child { animation-delay: .5s; }
+.scene-banner.compact { min-height: 220px; }
+.scene-banner.compact .scene-banner-characters { min-height: 220px; padding-top: 12px; }
+.scene-banner.compact .scene-banner-characters img { width: min(38%, 150px); }
+
+@media (max-width: 780px) {
+  .scene-banner { min-height: 220px; }
+  .scene-banner-characters { min-height: 220px; }
+  .scene-banner-characters img { width: min(36%, 120px); }
+  .scene-banner.compact { min-height: 190px; }
+  .scene-banner.compact .scene-banner-characters { min-height: 190px; }
+  .scene-banner.compact .scene-banner-characters img { width: min(40%, 120px); }
+  /* Login di HP: panel seni jadi kolom sempit (headline kiri, gambar kanan).
+     Banner adegan tidak muat di sana — tampilkan kartunya saja berisi dua
+     karakter, seperti kartu maskot lama. Banner kartu selesai (compact,
+     lebar penuh) tidak kena aturan ini. */
+  .scene-banner:not(.compact) { min-height: 0; background: #fff; }
+  .scene-banner:not(.compact) .scene-banner-art { display: none; }
+  .scene-banner:not(.compact) .scene-banner-characters { min-height: 0; padding: 8px 4px 2px; gap: 2px; }
+  .scene-banner:not(.compact) .scene-banner-characters img { width: 48%; }
+}
