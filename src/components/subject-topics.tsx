@@ -7,11 +7,11 @@ import AppShell from "@/components/app-shell";
 import { CharacterArt } from "@/components/character-art";
 import { subjectById, subjects } from "@/content/curriculum";
 import { gasAction, ProgressRow, PublicTopic } from "@/lib/api";
+import { getTopicsCached } from "@/lib/catalog-cache";
 import { readSessionToken } from "@/lib/session";
 import "@/components/student-alignment.css";
 import "@/components/mockup.css";
 
-type TopicsResponse = { ok: true; topics: PublicTopic[] };
 type ProgressResponse = { ok: true; progress: ProgressRow[] };
 type TopicFilter = "all" | "not-tried" | "tried";
 
@@ -39,8 +39,8 @@ function TopicContent({ subjectId }: { subjectId: string }) {
         setProgressReady(true);
       }
     }).catch(() => undefined);
-    gasAction<TopicsResponse>("topics.list", { token, subjectId }).then((result) => {
-      if (active) setItems(result.topics);
+    getTopicsCached(token, subjectId).then((topics) => {
+      if (active) setItems(topics);
     }).catch((reason: unknown) => {
       if (active) setError(reason instanceof Error ? reason.message : "Belum bisa memuat topik.");
     }).finally(() => { if (active) setBusy(false); });

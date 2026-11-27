@@ -9,12 +9,12 @@ import { CharacterArt } from "@/components/character-art";
 import { SceneBanner } from "@/components/scene-banner";
 import { subjects, topics, sourcesByIds } from "@/content/curriculum";
 import { AnswerResult, gasAction, PublicQuestion, PublicTopic } from "@/lib/api";
+import { getTopicsCached } from "@/lib/catalog-cache";
 import { readSessionToken } from "@/lib/session";
 import "@/components/student-alignment.css";
 import "@/components/mockup.css";
 
 type QuestionListResponse = { ok: true; questions: PublicQuestion[] };
-type TopicsResponse = { ok: true; topics: PublicTopic[] };
 type QuizMode = "topic" | "misi" | "ujian" | "cepat";
 type Cluster = "erlangga" | "bebas";
 
@@ -83,10 +83,10 @@ function QuizContent() {
     setSourceChoice(null);
     setQuestions([]);
     setError("");
-    gasAction<TopicsResponse>("topics.list", { token, subjectId: localTopic.subjectId })
-      .then((response) => {
+    getTopicsCached(token, localTopic.subjectId)
+      .then((topics) => {
         if (!active) return;
-        const current = response.topics.find((item) => item.id === topicId);
+        const current = topics.find((item) => item.id === topicId);
         if (!current) throw new Error("Topik belum tersedia dari server.");
         if (typeof current.soalErlangga !== "number" || typeof current.soalBebas !== "number") throw new Error("Jumlah soal belum tersedia dari server. Coba lagi, ya.");
         setSourceTopic(current);

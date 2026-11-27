@@ -55,15 +55,28 @@ test("profile character selection and practice source clusters use the v6 server
   const quiz = read("src/components/quiz-screen.tsx");
   const dashboard = read("src/components/learning-dashboard.tsx");
   const curriculum = read("src/content/curriculum.ts");
+  const cache = read("src/lib/catalog-cache.ts");
+  const jenjang = read("src/lib/jenjang.ts");
   assert.match(profile, /"me\.setKarakter"/);
   assert.match(profile, /"progress\.get"/);
   assert.match(profile, /"wayan"/);
   assert.doesNotMatch(profile, /localStorage|sessionStorage/);
-  assert.match(quiz, /"topics\.list"/);
+  // topics.list hanya lewat cache sesi (bukan panggilan langsung dari layar):
+  // beranda tidak lagi memuat topik sembilan mapel sekaligus.
+  assert.doesNotMatch(dashboard, /"topics\.list"/);
+  assert.match(dashboard, /getSubjectsCached/);
+  assert.match(dashboard, /JenjangPicker/);
+  assert.doesNotMatch(quiz, /"topics\.list"/);
+  assert.match(quiz, /getTopicsCached/);
   assert.match(quiz, /cluster: sourceChoice/);
   assert.match(quiz, /soalErlangga/);
   assert.match(quiz, /soalBebas/);
-  assert.match(dashboard, /"topics\.list"/);
+  assert.match(cache, /"topics\.list"/);
+  assert.match(cache, /"subjects\.list"/);
+  assert.match(cache, /sessionStorage/);
+  assert.doesNotMatch(cache, /localStorage/);
+  // Hanya Kelas 4 yang terbuka; kartu jenjang baru dorman sampai ada yang baru.
+  assert.match(jenjang, /JENJANG_TERSEDIA: number\[\] = \[4\]/);
   assert.match(curriculum, /teknologi-informasi-komunikasi/);
   for (const id of ["tik-berpikir-komputasional", "tik-teknologi-informasi", "tik-sistem-komputer", "tik-jaringan-internet", "tik-analisis-data", "tik-algoritma", "tik-dampak-sosial", "tik-praktik-lintas-bidang"]) {
     assert.match(curriculum, new RegExp(id));
