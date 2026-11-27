@@ -18,6 +18,16 @@ type TopicsResponse = { ok: true; topics: PublicTopic[] };
 type QuizMode = "topic" | "misi" | "ujian" | "cepat";
 type Cluster = "erlangga" | "bebas";
 
+// Rotasi: acak Fisher–Yates, dipakai untuk urutan soal dan posisi jawaban.
+function shuffled<T>(items: readonly T[]): T[] {
+  const copy = [...items];
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
 export default function QuizScreen() {
   return <AppShell audience="student" title="Latihan soal"><QuizContent /></AppShell>;
 }
@@ -37,6 +47,9 @@ function QuizContent() {
   const [markBusy, setMarkBusy] = useState(false);
   const [toast, setToast] = useState("");
   const [correctCount, setCorrectCount] = useState(0);
+  const [choiceOrders, setChoiceOrders] = useState<Record<string, number[]>>({});
+  const [retried, setRetried] = useState<Set<string>>(() => new Set());
+  const [totalCount, setTotalCount] = useState(0);
   const [sourceTopic, setSourceTopic] = useState<PublicTopic | null>(null);
   const [sourceReady, setSourceReady] = useState(false);
   const [sourceChoice, setSourceChoice] = useState<Cluster | null>(null);
@@ -103,11 +116,19 @@ function QuizContent() {
     })))
       .then((responses) => {
         if (!active) return;
-        const lists = responses.map((response) => response.questions);
+        // Rotasi: acak urutan soal tiap sesi (per topik dulu, supaya mode
+        // misi/ujian/cepat juga mengambil soal acak, bukan soal pertama terus).
+        const lists = responses.map((response) => shuffled(response.questions));
         let merged = lists.flat();
         if (mode === "misi") merged = lists.map((list) => list[0]).filter((item): item is PublicQuestion => !!item);
         if (mode === "ujian") merged = lists.flatMap((list) => list.slice(0, 2));
         if (mode === "cepat") merged = lists.map((list) => list[0]).filter((item): item is PublicQuestion => !!item).slice(0, 1);
+        // Rotasi: acak posisi jawaban A–D tiap soal, sekali per sesi.
+        const orders: Record<string, number[]> = {};
+        merged.forEach((item) => { orders[item.id] = shuffled([0, 1, 2, 3]); });
+        setChoiceOrders(orders);
+        setRetried(new Set());
+        setTotalCount(merged.length);
         setQuestions(merged);
         setIndex(0);
         if (merged.length === 0) setError("Belum ada soal untuk latihan ini. Pilih sumber atau topik lain, ya.");
@@ -132,6 +153,9 @@ function QuizContent() {
   const subject = current ? subjects.find((item) => item.id === current.subjectId) : topic ? subjects.find((item) => item.id === topic.subjectId) : null;
   const sourceLinks = useMemo(() => current ? sourcesByIds(current.sourceIds) : [], [current]);
   const isMarked = current ? marked.has(current.id) : false;
+  // Urutan tampil jawaban soal ini (permutasi indeks asli), dibuat sekali
+  // per sesi supaya posisi jawaban benar tidak berubah antar percobaan.
+  const displayOrder = current ? choiceOrders[current.id] ?? [0, 1, 2, 3] : [0, 1, 2, 3];
   const label = mode === "misi" ? "Tantangan harian" : mode === "ujian" ? "Ujian mini" : mode === "cepat" ? "Mode cepat" : "Latihan topik";
   const sameSubjectTopics = topic ? topics.filter((item) => item.subjectId === topic.subjectId) : [];
   const nextTopic = topic ? sameSubjectTopics[sameSubjectTopics.findIndex((item) => item.id === topic.id) + 1] : undefined;
@@ -145,9 +169,14 @@ function QuizContent() {
     setSubmitting(true);
     setError("");
     try {
-      const answer = await gasAction<{ ok: true } & AnswerResult>("answers.submit", { token, questionId: current.id, choice });
+      // Kirim indeks ASLI jawaban (server menilai berdasarkan answerIndex
+      // di Sheet), bukan posisi tampil setelah jawaban diacak.
+      const order = choiceOrders[current.id] ?? [0, 1, 2, 3];
+      const answer = await gasAction<{ ok: true } & AnswerResult>("answers.submit", { token, questionId: current.id, choice: order[choice] });
       setResult(answer);
-      if (answer.correct) setCorrectCount((count) => count + 1);
+      // Skor hanya untuk benar pada percobaan pertama; benar pada ulangan
+      // tidak menambah skor/bintang.
+      if (answer.correct && !retried.has(current.id)) setCorrectCount((count) => count + 1);
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "Jawaban belum terkirim. Coba lagi.");
     } finally {
@@ -177,6 +206,13 @@ function QuizContent() {
   }
 
   function nextQuestion() {
+    // Rotasi: soal yang salah (mode latihan topik, belum pernah diulang)
+    // kembali 3 soal kemudian — disisipkan di posisi index+4.
+    if (result && !result.correct && mode === "topic" && current && !retried.has(current.id)) {
+      const insertAt = Math.min(index + 4, questions.length);
+      setQuestions((before) => [...before.slice(0, insertAt), current, ...before.slice(insertAt)]);
+      setRetried((before) => new Set(before).add(current.id));
+    }
     setIndex((value) => value + 1);
     setChoice(null);
     setResult(null);
@@ -217,10 +253,11 @@ function QuizContent() {
       <div className="quiz-difficult-row"><button className={`flag-button ${isMarked ? "marked" : ""}`} onClick={toggleDifficult} disabled={markBusy} aria-pressed={isMarked}><Flag size={18} fill={isMarked ? "currentColor" : "none"} />{isMarked ? "Soal ditandai sulit" : "Soal ini susah"}</button><span>Guru bisa melihat soal yang ditandai</span></div>
       <h2 className="question-text">{current.stem}</h2>
       <div className="answer-options" role="radiogroup" aria-label="Pilih satu jawaban">
-        {current.choices.map((text, optionIndex) => {
+        {displayOrder.map((originalIndex, optionIndex) => {
+          const text = current.choices[originalIndex];
           const selected = choice === optionIndex;
           const incorrectSelection = result && selected && !result.correct;
-          return <button className={`answer-choice no-bullet ${selected ? "selected" : ""} ${result && result.correct && selected ? "is-correct" : ""} ${incorrectSelection ? "is-wrong" : ""}`} key={`${current.id}-${optionIndex}`} role="radio" aria-checked={selected} disabled={!!result} onClick={() => setChoice(optionIndex)}>
+          return <button className={`answer-choice no-bullet ${selected ? "selected" : ""} ${result && result.correct && selected ? "is-correct" : ""} ${incorrectSelection ? "is-wrong" : ""}`} key={`${current.id}-${originalIndex}`} role="radio" aria-checked={selected} disabled={!!result} onClick={() => setChoice(optionIndex)}>
             <span>{text}</span>{result && result.correct && selected && <Check size={21} className="choice-check" />}{incorrectSelection && <X size={21} className="choice-check" />}
           </button>;
         })}
@@ -228,14 +265,14 @@ function QuizContent() {
       {error && questions.length > 0 && <p className="notice" role="status">{error}</p>}
       {result && <div className={`answer-result ${result.correct ? "success" : "try-again"}`} role="status">
         <span className="result-icon">{result.correct ? <Check size={21} /> : <Heart size={21} />}</span><div><strong>{result.correct ? "Hebat, jawabanmu benar!" : "Belum tepat, yuk belajar lagi."}</strong><p>{result.explanation}</p><small>Rujukan: {current.sourceLocator || "materi belajar Kelas 4"}</small></div>
-        {result.correct && <span className="floating-star">⭐ +10</span>}
+        {result.correct && !retried.has(current.id) && <span className="floating-star">⭐ +10</span>}
       </div>}
       <div className="quiz-sources"><span><BookOpen size={16} /> Rujukan materi</span><div>{sourceLinks.map((source) => <a href={source.url} target="_blank" rel="noreferrer" key={source.id}>{source.title} ↗</a>)}</div></div>
       <div className="quiz-controls">{!result ? <button className="button primary" disabled={choice === null || submitting} onClick={submitAnswer}>{submitting ? "Memeriksa…" : "Periksa dulu, baru lanjut"} <ArrowRight size={18} /></button> : <button className="button primary" onClick={nextQuestion}>{index + 1 === questions.length ? "Lihat hasil" : "Soal berikutnya"} <ArrowRight size={18} /></button>}</div>
     </section>}
-    {!busy && !error && !current && questions.length > 0 && <section className="message-card finish-card"><SceneBanner className="compact" numbersDy={48}><CharacterArt character="nara" variant={{ type: "expression", name: "celebrating" }} size={124} alt="Nara merayakan usahamu" /><CharacterArt character="nusa" variant={{ type: "expression", name: "laughing" }} size={124} alt="Nusa ikut merayakan" /></SceneBanner><div className="finish-stars" aria-hidden="true"><span>★</span><span>★</span><span>★</span></div><p className="eyebrow">PETUALANGAN SELESAI</p><h2>Hebat, {user?.nama_tampilan?.trim() || user?.username}!{topic ? ` Topik ${topic.title} selesai!` : ""}</h2><p>Benar {correctCount} dari {questions.length} soal. Setiap latihan membuatmu makin paham.</p>
+    {!busy && !error && !current && questions.length > 0 && <section className="message-card finish-card"><SceneBanner className="compact" numbersDy={48}><CharacterArt character="nara" variant={{ type: "expression", name: "celebrating" }} size={124} alt="Nara merayakan usahamu" /><CharacterArt character="nusa" variant={{ type: "expression", name: "laughing" }} size={124} alt="Nusa ikut merayakan" /></SceneBanner><div className="finish-stars" aria-hidden="true"><span>★</span><span>★</span><span>★</span></div><p className="eyebrow">PETUALANGAN SELESAI</p><h2>Hebat, {user?.nama_tampilan?.trim() || user?.username}!{topic ? ` Topik ${topic.title} selesai!` : ""}</h2><p>Benar {correctCount} dari {totalCount} soal. Setiap latihan membuatmu makin paham.</p>
       <div className="finish-stats">
-        <div className="stat-card"><span className="stat-icon teal"><BadgeCheck size={22} /></span><strong>Benar {correctCount} dari {questions.length}</strong><span>Jawaban benar</span></div>
+        <div className="stat-card"><span className="stat-icon teal"><BadgeCheck size={22} /></span><strong>Benar {correctCount} dari {totalCount}</strong><span>Jawaban benar</span></div>
         <div className="stat-card"><span className="stat-icon amber"><Star size={22} fill="currentColor" /></span><strong>+{correctCount * 10} XP</strong><span>Bintang baru</span></div>
         <div className="stat-card"><span className="stat-icon coral"><Flag size={22} /></span><strong>{marked.size} soal</strong><span>Ditandai susah</span></div>
       </div>
