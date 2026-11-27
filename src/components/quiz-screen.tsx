@@ -232,7 +232,7 @@ function QuizContent() {
           <button type="button" role="radio" aria-checked={sourceChoice === "erlangga"} disabled={erlanggaCount < 1 || busy} className={`source-option${sourceChoice === "erlangga" ? " selected" : ""}`} onClick={() => setSourceChoice("erlangga")}>
             <span className="source-option-head"><span className="source-option-icon"><BookOpen size={23} /></span><strong>Latihan buku Erlangga</strong><span className="source-option-check">{sourceChoice === "erlangga" && <Check size={15} />}</span></span>
             <span className="source-option-description">Soal yang mengikuti bab di buku Erlangga.</span>
-            {erlanggaCount > 0 ? <span className="source-count warning">{sourceTopic?.title || "Topik"} · {erlanggaCount} soal · Belum ditinjau guru</span> : <span className="source-empty">Belum ada soal</span>}
+            {erlanggaCount > 0 ? <span className="source-count warning">{sourceTopic?.title || "Topik"} · {erlanggaCount} soal</span> : <span className="source-empty">Belum ada soal</span>}
           </button>
           <button type="button" role="radio" aria-checked={sourceChoice === "bebas"} disabled={freeCount < 1 || busy} className={`source-option${sourceChoice === "bebas" ? " selected" : ""}`} onClick={() => setSourceChoice("bebas")}>
             <span className="source-option-head"><span className="source-option-icon"><Globe2 size={23} /></span><strong>Latihan dari sumber bebas</strong><span className="source-option-check">{sourceChoice === "bebas" && <Check size={15} />}</span></span>

@@ -163,6 +163,22 @@
   flex: 0 0 auto;
   color: #73758f;
 }
+.student-alignment.student-home.home-approved .home-footer {
+  margin-top: 28px;
+  padding-bottom: 8px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 800;
+}
+.student-alignment.student-home.home-approved .home-footer-link {
+  color: #249d87;
+  text-decoration: underline;
+}
+.student-alignment.student-home.home-approved .home-footer span {
+  margin: 0 10px;
+  color: #2f315b;
+  opacity: .55;
+}
 
 @media (max-width: 780px) {
   .student-alignment.student-home.home-approved { width: 100%; }

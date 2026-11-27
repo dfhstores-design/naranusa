@@ -110,5 +110,11 @@ function DashboardContent() {
         })}
       </div>
     </section>
+
+    <footer className="home-footer">
+      <Link className="home-footer-link" href="/tentang">Tentang NaraNusa</Link>
+      <span aria-hidden="true">·</span>
+      <a className="home-footer-link" href="https://sociabuzz.com/andri_ndi/tribe" target="_blank" rel="noreferrer">Dukung NaraNusa</a>
+    </footer>
   </div>;
 }
