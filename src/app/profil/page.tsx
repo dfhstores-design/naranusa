@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { BadgeCheck, BookOpen, Calculator, Flame, Globe2, Heart, Monitor, Star } from "lucide-react";
+import { BadgeCheck, BookOpen, Calculator, Flame, Globe2, Heart, Languages, Monitor, MoonStar, Music, Star, Volleyball } from "lucide-react";
 import AppShell, { useSessionUser, useUpdateSessionUser } from "@/components/app-shell";
 import { CharacterImage, StudentCharacterName } from "@/components/character-art";
 import { gasAction, ProgressRow } from "@/lib/api";
+import { JenjangPicker } from "@/components/jenjang-picker";
+import { jenjangLabel, readJenjang, saveJenjang } from "@/lib/jenjang";
 import { starsFor, streakFrom } from "@/lib/progress-summary";
 import { readSessionToken } from "@/lib/session";
 import { subjects, topics } from "@/content/curriculum";
@@ -37,6 +39,12 @@ function ProfileContent() {
   const [character, setCharacter] = useState<StudentCharacterName>(user?.karakter || "nara");
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
+  const [jenjangSekarang, setJenjangSekarang] = useState(4);
+  const [pickerOpen, setPickerOpen] = useState(false);
+
+  useEffect(() => {
+    if (user?.username) setJenjangSekarang(readJenjang(user.username));
+  }, [user?.username]);
 
   useEffect(() => {
     let active = true;
@@ -92,7 +100,17 @@ function ProfileContent() {
   const displayName = user?.nama_tampilan?.trim() || user?.username || "Murid";
   const characterName = characters.find((item) => item.id === character)?.name || "Nara";
   const starScale = Math.max(1, ...subjectStars.map((subject) => subject.stars));
-  const subjectIcons = [Calculator, BookOpen, Globe2, Heart, Monitor];
+  const subjectIcons: Record<string, typeof Calculator> = {
+    matematika: Calculator,
+    "bahasa-indonesia": BookOpen,
+    ipas: Globe2,
+    "pendidikan-pancasila": Heart,
+    "teknologi-informasi-komunikasi": Monitor,
+    "pendidikan-agama-islam": MoonStar,
+    pjok: Volleyball,
+    seni: Music,
+    "bahasa-inggris": Languages,
+  };
 
   return <div className="student-alignment student-profile">
     <section className="profile-card profile-hero" aria-label="Profil anak">
@@ -132,11 +150,28 @@ function ProfileContent() {
       {message && <p className="notice profile-message" role="alert">{message}</p>}
     </section>
 
+    <section className="profile-section" aria-labelledby="profile-kelas-heading">
+      <div className="profile-section-heading">
+        <h2 id="profile-kelas-heading">Kelasku</h2>
+        <span>Sekarang kamu di {jenjangLabel(jenjangSekarang)}.</span>
+      </div>
+      <button type="button" className="jenjang-pill" aria-expanded={pickerOpen} aria-label="Ganti kelas" onClick={() => setPickerOpen((v) => !v)}>{jenjangLabel(jenjangSekarang)} ▾</button>
+      {pickerOpen && <JenjangPicker
+        username={user?.username}
+        value={jenjangSekarang}
+        onChange={(n) => {
+          saveJenjang(user?.username, n);
+          setJenjangSekarang(n);
+          setPickerOpen(false);
+        }}
+      />}
+    </section>
+
     <section className="profile-section" aria-labelledby="subject-stars-title">
       <div className="profile-section-heading"><h2 id="subject-stars-title">Bintang per Mapel</h2><span>progres belajar</span></div>
       <div className="subject-star-list">
-        {subjectStars.map((subject, index) => {
-          const Icon = subjectIcons[index];
+        {subjectStars.map((subject) => {
+          const Icon = subjectIcons[subject.id] || BookOpen;
           const name = subject.shortName === "MTK" ? "Matematika" : subject.shortName === "B. Indo" ? "B. Indonesia" : subject.shortName === "P. Pancasila" ? "PP" : subject.shortName;
           return <div className="subject-star-row" key={subject.id} style={{ "--subject-color": subject.color } as React.CSSProperties}>
             <span className="subject-star-icon" aria-hidden="true"><Icon size={18} /></span>

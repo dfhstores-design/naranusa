@@ -455,3 +455,120 @@
   .student-profile .subject-star-row { grid-template-columns: 32px minmax(0, 1fr) auto; }
   .student-profile .subject-star-detail strong { font-size: 11px; }
 }
+
+.jenjang-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1.5px solid rgba(47, 49, 91, 0.16);
+  border-radius: 16px;
+  background: #ffffff;
+  color: #2f315b;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.jenjang-pill:hover {
+  background: #f7f8fc;
+}
+
+.jenjang-picker {
+  background: #ffffff;
+  border: 1.5px solid rgba(47, 49, 91, 0.1);
+  border-radius: 20px;
+  padding: 14px;
+  margin: 12px 0;
+}
+
+.jenjang-option-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+}
+
+.jenjang-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 14px;
+  border: 1.5px solid rgba(47, 49, 91, 0.12);
+  border-radius: 16px;
+  background: #f7f8fc;
+  color: #2f315b;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.jenjang-option:hover {
+  background: #fff8e9;
+}
+
+.jenjang-option.selected {
+  border-color: #249d87;
+  background: #249d87;
+  color: #ffffff;
+}
+
+.jenjang-option.segera {
+  background: #fff8e9;
+  color: #2f315b;
+  opacity: 0.9;
+}
+
+.jenjang-segera-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: lowercase;
+  color: #ec765f;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 2px 8px;
+  border: 1px solid rgba(236, 118, 95, 0.35);
+}
+
+.jenjang-note {
+  margin: 12px 0 0;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: #fff8e9;
+  color: #2f315b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.kartu-jenjang-baru {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fff8e9;
+  border: 1.5px solid rgba(243, 181, 69, 0.5);
+  border-radius: 20px;
+  padding: 16px;
+  margin: 12px 0;
+}
+
+.kartu-jenjang-baru-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.kartu-jenjang-baru-copy h3 {
+  margin: 0;
+  color: #2f315b;
+  font-size: 18px;
+}
+
+.kartu-jenjang-baru-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}

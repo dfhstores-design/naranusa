@@ -5,16 +5,17 @@ import { ArrowRight, BookOpen, Calculator, Flame, Globe2, Heart, Languages, Moni
 import Link from "next/link";
 import AppShell, { useSessionUser } from "@/components/app-shell";
 import { CharacterImage } from "@/components/character-art";
-import { gasAction, PublicSubject, PublicTopic, ProgressRow } from "@/lib/api";
+import { gasAction, PublicSubject, ProgressRow } from "@/lib/api";
 import { streakFrom } from "@/lib/progress-summary";
 import { readSessionToken } from "@/lib/session";
-import { subjects as subjectInfo } from "@/content/curriculum";
+import { subjects as subjectInfo, topics as staticTopics } from "@/content/curriculum";
+import { getSubjectsCached } from "@/lib/catalog-cache";
+import { readJenjang, saveJenjang, readJenjangBaru, tandaiJenjangDilihat, jenjangLabel } from "@/lib/jenjang";
+import { JenjangPicker, KartuJenjangBaru } from "@/components/jenjang-picker";
 import "@/components/student-alignment.css";
 import "@/components/mockup.css";
 import "@/components/home-approved.css";
 
-type SubjectResponse = { ok: true; subjects: PublicSubject[] };
-type TopicsResponse = { ok: true; topics: PublicTopic[] };
 type ProgressResponse = { ok: true; progress: ProgressRow[] };
 
 const subjectIcons = {
@@ -36,34 +37,47 @@ export default function LearningDashboard() {
 function DashboardContent() {
   const user = useSessionUser();
   const [catalog, setCatalog] = useState<PublicSubject[]>([]);
-  const [topicLists, setTopicLists] = useState<Record<string, PublicTopic[]>>({});
   const [progress, setProgress] = useState<ProgressRow[]>([]);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(true);
+  const [jenjang, setJenjang] = useState(4);
+  const [pickerOpen, setPickerOpen] = useState(false);
+  const [jenjangBaru, setJenjangBaru] = useState<number | null>(null);
 
   useEffect(() => {
     let active = true;
     const token = readSessionToken();
     if (!token) return;
     Promise.all([
-      gasAction<SubjectResponse>("subjects.list", { token }),
+      getSubjectsCached(token),
       gasAction<ProgressResponse>("progress.get", { token }),
-    ]).then(async ([subjectResult, progressResult]) => {
+    ]).then(([subjects, progressResult]) => {
       if (!active) return;
-      setCatalog(subjectResult.subjects);
+      setCatalog(subjects);
       setProgress(progressResult.progress);
-      const fetchedTopics = await Promise.allSettled(subjectResult.subjects.map(async (subject) => {
-        const response = await gasAction<TopicsResponse>("topics.list", { token, subjectId: subject.id });
-        return [subject.id, response.topics] as const;
-      }));
-      if (!active) return;
-      setTopicLists(Object.fromEntries(fetchedTopics.flatMap((result) => result.status === "fulfilled" ? [result.value] : [])));
-      if (fetchedTopics.some((result) => result.status === "rejected")) setError("Sebagian jumlah soal belum bisa dimuat. Coba lagi, ya.");
     }).catch((reason: unknown) => {
       if (active) setError(reason instanceof Error ? reason.message : "Belum bisa memuat data belajar.");
     }).finally(() => { if (active) setBusy(false); });
     return () => { active = false; };
   }, []);
+
+  useEffect(() => {
+    if (!user?.username) return;
+    setJenjang(readJenjang(user.username));
+    setJenjangBaru(readJenjangBaru(user.username));
+  }, [user?.username]);
+
+  function pilihJenjang(n: number) {
+    saveJenjang(user?.username, n);
+    setJenjang(n);
+    setPickerOpen(false);
+  }
+
+  function tutupKartuBaru(coba: boolean) {
+    if (coba && jenjangBaru !== null) pilihJenjang(jenjangBaru);
+    if (jenjangBaru !== null) tandaiJenjangDilihat(user?.username, jenjangBaru);
+    setJenjangBaru(null);
+  }
 
   const streak = streakFrom(progress);
   const displayName = user?.nama_tampilan?.trim() || user?.username || "Teman";
@@ -75,7 +89,11 @@ function DashboardContent() {
         <h2>Halo, {displayName}!</h2>
         <p>Mau belajar apa hari ini?</p>
       </div>
+      <button type="button" className="jenjang-pill" aria-expanded={pickerOpen} aria-label="Ganti kelas" onClick={() => setPickerOpen((v) => !v)}>{jenjangLabel(jenjang)} ▾</button>
     </header>
+
+    {pickerOpen && <JenjangPicker username={user?.username} value={jenjang} onChange={pilihJenjang} />}
+    {jenjangBaru !== null && <KartuJenjangBaru jenjang={jenjangBaru} onCoba={() => tutupKartuBaru(true)} onNanti={() => tutupKartuBaru(false)} />}
 
     <section className="home-streak-card" aria-label={`Streak ${streak} hari`}>
       <Flame className="home-streak-icon" size={31} fill="currentColor" aria-hidden="true" />
@@ -92,13 +110,12 @@ function DashboardContent() {
       <div className="home-subject-list">
         {subjectInfo.map((info) => {
           const subject = catalog.find((item) => item.id === info.id);
-          const items = topicLists[info.id];
-          const questionCount = items?.reduce((sum, topic) => sum + topic.soalTersedia, 0);
-          const topicCount = items?.length;
+          const topicCount = staticTopics.filter((t) => t.subjectId === info.id).length;
+          const questionCount = subject?.soalTersedia;
           const newSubject = info.id === "teknologi-informasi-komunikasi" || info.id === "pendidikan-agama-islam" || info.id === "pjok" || info.id === "seni" || info.id === "bahasa-inggris";
           const Icon = subjectIcons[info.id];
           const name = subject?.name || info.name;
-          const meta = busy ? "Memuat…" : items ? `${topicCount} bab · ${questionCount} soal` : "Jumlah soal belum tersedia";
+          const meta = busy ? "Memuat…" : subject ? `${topicCount} bab · ${questionCount} soal` : "Jumlah soal belum tersedia";
           return <Link key={info.id} href={`/mapel/${info.id}`} className={`home-subject-card${newSubject ? " home-subject-card-new" : ""}`} style={{ "--subject-color": info.color } as React.CSSProperties} aria-label={`${name}${newSubject ? " Baru" : ""} ${meta}`}>
             <span className="home-subject-icon" aria-hidden="true"><Icon size={25} strokeWidth={2.25} /></span>
             <span className="home-subject-copy">
