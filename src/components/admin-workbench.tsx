@@ -19,7 +19,7 @@ type GuardianLink = { pemegang: string; murid: string; peran_pemegang: string; d
 type Account = { username: string; peran: string; gagal_beruntun: number; terkunci_sampai: string; dibuat_oleh: string; dibuat_pada: string };
 type AuditRow = { waktu: string; pelaku: string; aksi: string; rincian: string };
 type PullBankError = { index: number; id: string; reason: string };
-type PullBankResult = { mapel: "mtk" | "tik" | "bi" | "ipas" | "pp" | "pai"; total: number; ditambah: number; sudahAda: number; ditolak: number; errors: PullBankError[]; selesai: boolean };
+type PullBankResult = { mapel: "mtk" | "tik" | "bi" | "ipas" | "pp" | "pai" | "pjok" | "seni" | "inggris"; total: number; ditambah: number; sudahAda: number; ditolak: number; errors: PullBankError[]; selesai: boolean };
 type QuestionDraft = { id: string; subjectId: string; topicId: string; stem: string; choices: string; correctChoice: string; explanation: string; sourceIds: string; sourceLocator: string; cp_ref: string; atp_goal_id: string; difficulty: string; reviewStatus: string; learnerAvailability: string };
 type WorkTab = "questions" | "marked" | "review" | "accounts" | "links" | "audit" | "progress";
 
@@ -66,7 +66,7 @@ function WorkbenchContent() {
   const [student, setStudent] = useState("");
   const [audit, setAudit] = useState<AuditRow[]>([]);
   const [importResult, setImportResult] = useState("");
-  const [pullBankMapel, setPullBankMapel] = useState<"mtk" | "tik" | "bi" | "ipas" | "pp" | "pai">("mtk");
+  const [pullBankMapel, setPullBankMapel] = useState<"mtk" | "tik" | "bi" | "ipas" | "pp" | "pai" | "pjok" | "seni" | "inggris">("mtk");
   const [pullBankBusy, setPullBankBusy] = useState(false);
   const [pullBankResult, setPullBankResult] = useState<PullBankResult | null>(null);
 
@@ -321,7 +321,7 @@ function WorkbenchContent() {
       {isOwner && <div className="tool-card" aria-busy={pullBankBusy}>
         <h3>Tarik dari bank soal</h3>
         <div className="filters-row">
-          <label><span>Mapel</span><select value={pullBankMapel} disabled={pullBankBusy} onChange={(event) => { setPullBankMapel(event.target.value as "mtk" | "tik" | "bi" | "ipas" | "pp" | "pai"); setPullBankResult(null); setError(""); }}><option value="mtk">Matematika (MTK)</option><option value="tik">TIK</option><option value="bi">Bahasa Indonesia (BI)</option><option value="ipas">IPAS</option><option value="pp">Pendidikan Pancasila (PP)</option><option value="pai">Pendidikan Agama Islam (PAI)</option></select><small className="panel-footnote">v3: MTK, TIK, BI, IPAS, PP, PAI. PJOK, Seni, Inggris menyusul setelah mapelnya ada di aplikasi.</small></label>
+          <label><span>Mapel</span><select value={pullBankMapel} disabled={pullBankBusy} onChange={(event) => { setPullBankMapel(event.target.value as "mtk" | "tik" | "bi" | "ipas" | "pp" | "pai" | "pjok" | "seni" | "inggris"); setPullBankResult(null); setError(""); }}><option value="mtk">Matematika (MTK)</option><option value="tik">TIK</option><option value="bi">Bahasa Indonesia (BI)</option><option value="ipas">IPAS</option><option value="pp">Pendidikan Pancasila (PP)</option><option value="pai">Pendidikan Agama Islam (PAI)</option><option value="pjok">PJOK</option><option value="seni">Seni</option><option value="inggris">Bahasa Inggris</option></select><small className="panel-footnote">v4: MTK, TIK, BI, IPAS, PP, PAI, PJOK, Seni, Inggris. Semua 9 mapel sudah ada di aplikasi.</small></label>
           <button className="button secondary" disabled={pullBankBusy} onClick={() => void pullBank()}>{pullBankBusy ? <><span className="mini-spinner" aria-hidden="true" /> Menarik soal…</> : "Tarik soal"}</button>
         </div>
         {pullBankResult && <div role="status" aria-live="polite">
