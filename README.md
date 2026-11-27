@@ -43,3 +43,11 @@ CP Fase B umumnya mencakup Kelas III–IV; bab buku resmi Kelas IV memberi konte
 ## Deployment
 
 Push ke `main` menjalankan workflow GitHub Actions: lint, test, build static export, lalu publish `out/` ke GitHub Pages. Alamat pilot yang direncanakan adalah `https://dfhstores-design.github.io/naranusa/`. Verifikasi deployment hanya memastikan shell statis dan aset termuat; jangan masuk dengan akun pilot saat uji penerbitan.
+
+## Dukung NaraNusa
+
+NaraNusa gratis dan akan tetap gratis untuk semua anak. Kalau aplikasi ini membantu anakmu belajar, kamu bisa mendukung pengembangannya lewat Sociabuzz — sekadar traktir kopi, supaya saya bisa terus menambah soal dan fitur baru.
+
+[Dukung lewat Sociabuzz](https://sociabuzz.com/andri_ndi/tribe)
+
+Tentang pengembang: saya Andri, ayah dari seorang anak Kelas 4. NaraNusa saya buat karena saya ingin anak saya belajar dengan soal-soal yang sesuai bukunya, dengan cara yang menyenangkan.
