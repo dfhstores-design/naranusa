@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowRight, BookOpen, Calculator, Flame, Globe2, Heart, Monitor } from "lucide-react";
+import { ArrowRight, BookOpen, Calculator, Flame, Globe2, Heart, Monitor, MoonStar } from "lucide-react";
 import Link from "next/link";
 import AppShell, { useSessionUser } from "@/components/app-shell";
 import { CharacterImage } from "@/components/character-art";
@@ -23,6 +23,7 @@ const subjectIcons = {
   ipas: Globe2,
   "pendidikan-pancasila": Heart,
   "teknologi-informasi-komunikasi": Monitor,
+  "pendidikan-agama-islam": MoonStar,
 };
 
 export default function LearningDashboard() {
@@ -91,7 +92,7 @@ function DashboardContent() {
           const items = topicLists[info.id];
           const questionCount = items?.reduce((sum, topic) => sum + topic.soalTersedia, 0);
           const topicCount = items?.length;
-          const newSubject = info.id === "teknologi-informasi-komunikasi";
+          const newSubject = info.id === "teknologi-informasi-komunikasi" || info.id === "pendidikan-agama-islam";
           const Icon = subjectIcons[info.id];
           const name = subject?.name || info.name;
           const meta = busy ? "Memuat…" : items ? `${topicCount} bab · ${questionCount} soal` : "Jumlah soal belum tersedia";

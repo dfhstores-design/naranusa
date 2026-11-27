@@ -43,7 +43,7 @@ function RewardsContent() {
       <div className="section-heading"><div><p className="eyebrow">BINTANG PER MAPEL</p><h2>Dari mana bintangmu datang?</h2></div></div>
       <div className="stat-row" style={{ gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}>
         {subjects.map((subject) => {
-          const subjectRows = rows.filter((row) => row.topicId.startsWith(subject.id === "matematika" ? "mtk-" : subject.id === "bahasa-indonesia" ? "indo-" : subject.id === "pendidikan-pancasila" ? "pancasila-" : "ipas-"));
+          const subjectRows = rows.filter((row) => row.topicId.startsWith(subject.id === "matematika" ? "mtk-" : subject.id === "bahasa-indonesia" ? "indo-" : subject.id === "pendidikan-pancasila" ? "pancasila-" : subject.id === "teknologi-informasi-komunikasi" ? "tik-" : subject.id === "pendidikan-agama-islam" ? "pai-" : "ipas-"));
           const correct = subjectRows.reduce((sum, row) => sum + row.benar, 0);
           const attempts = subjectRows.reduce((sum, row) => sum + row.percobaan, 0);
           return <div className="stat-card" key={subject.id}>
