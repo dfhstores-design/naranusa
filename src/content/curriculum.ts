@@ -1,4 +1,4 @@
-export type SubjectId = "matematika" | "bahasa-indonesia" | "ipas" | "pendidikan-pancasila" | "teknologi-informasi-komunikasi";
+export type SubjectId = "matematika" | "bahasa-indonesia" | "ipas" | "pendidikan-pancasila" | "teknologi-informasi-komunikasi" | "pendidikan-agama-islam";
 
 export type CurriculumSource = {
   id: string;
@@ -223,6 +223,17 @@ export const subjects: {
     description: "Berpikir komputasional dan teknologi",
     sourceIds: [],
     objectives: ["Mengenal konsep informatika melalui delapan topik TIK yang disediakan backend."],
+  },
+  {
+    id: "pendidikan-agama-islam",
+    name: "Pendidikan Agama Islam",
+    shortName: "PAI",
+    icon: "☪",
+    color: "#2f9e44",
+    tint: "#e6f5e9",
+    description: "Iman, akhlak, dan ibadah",
+    sourceIds: [],
+    objectives: ["Mengenal iman, akhlak, dan ibadah melalui sebelas topik PAI yang disediakan backend."],
   },
 ];
 
@@ -605,6 +616,105 @@ export const topics: Topic[] = [
     sourceIds: [],
     status: "phase-context",
   },
+  {
+    id: "pai-hubungan-baik",
+    subjectId: "pendidikan-agama-islam",
+    title: "Menjaga Hubungan Baik dengan Sesama",
+    chapter: "Bab 1 · Menjaga Hubungan Baik dengan Sesama",
+    objective: "Menjaga hubungan baik dengan sesama berdasarkan Q.S. Al-Hujurat/49:13 serta adab berteman dan bertetangga.",
+    sourceIds: [],
+    status: "phase-context",
+  },
+  {
+    id: "pai-asmaulhusna",
+    subjectId: "pendidikan-agama-islam",
+    title: "Asmaulhusna",
+    chapter: "Bab 2 · Asmaulhusna",
+    objective: "Mengenal Asmaulhusna beserta arti dan contoh pengamalannya dalam kehidupan sehari-hari.",
+    sourceIds: [],
+    status: "phase-context",
+  },
+  {
+    id: "pai-keragaman",
+    subjectId: "pendidikan-agama-islam",
+    title: "Indahnya Keragaman",
+    chapter: "Bab 3 · Indahnya Keragaman",
+    objective: "Menghargai keragaman sebagai sunatullah dan hidup rukun dalam perbedaan.",
+    sourceIds: [],
+    status: "phase-context",
+  },
+  {
+    id: "pai-norma",
+    subjectId: "pendidikan-agama-islam",
+    title: "Norma dalam Kehidupan",
+    chapter: "Bab 4 · Norma dalam Kehidupan",
+    objective: "Mengenal pengertian dan macam-macam norma serta menerapkannya dalam kehidupan sehari-hari.",
+    sourceIds: [],
+    status: "phase-context",
+  },
+  {
+    id: "pai-balig",
+    subjectId: "pendidikan-agama-islam",
+    title: "Tanda-Tanda Balig",
+    chapter: "Bab 5 · Tanda-Tanda Balig",
+    objective: "Mengenal pengertian dan tanda-tanda balig serta kewajiban yang menyertainya.",
+    sourceIds: [],
+    status: "phase-context",
+  },
+  {
+    id: "pai-hijrah",
+    subjectId: "pendidikan-agama-islam",
+    title: "Hijrahnya Nabi Muhammad Saw.",
+    chapter: "Bab 6 · Hijrahnya Nabi Muhammad Saw.",
+    objective: "Menceritakan sebab dan peristiwa hijrah Nabi Muhammad Saw. ke Madinah serta hikmahnya.",
+    sourceIds: [],
+    status: "phase-context",
+  },
+  {
+    id: "pai-silaturahim",
+    subjectId: "pendidikan-agama-islam",
+    title: "Pentingnya Silaturahim",
+    chapter: "Bab 7 · Pentingnya Silaturahim",
+    objective: "Memahami pentingnya silaturahim dan Surah At-Tin serta adab menjaga hubungan keluarga.",
+    sourceIds: [],
+    status: "phase-context",
+  },
+  {
+    id: "pai-nabi-rasul",
+    subjectId: "pendidikan-agama-islam",
+    title: "Iman kepada Nabi dan Rasul",
+    chapter: "Bab 8 · Iman kepada Nabi dan Rasul",
+    objective: "Mengenal pengertian iman kepada nabi dan rasul beserta nama-nama nabi dan rasul yang wajib diketahui.",
+    sourceIds: [],
+    status: "phase-context",
+  },
+  {
+    id: "pai-sikap-terpuji",
+    subjectId: "pendidikan-agama-islam",
+    title: "Sikap Terpuji",
+    chapter: "Bab 9 · Sikap Terpuji",
+    objective: "Membiasakan sikap terpuji seperti percaya diri, jujur, dan peduli kepada sesama.",
+    sourceIds: [],
+    status: "phase-context",
+  },
+  {
+    id: "pai-salat",
+    subjectId: "pendidikan-agama-islam",
+    title: "Salat Jumat dan Salat Sunah",
+    chapter: "Bab 10 · Salat Jumat dan Salat Sunah",
+    objective: "Mengenal pelaksanaan salat Jumat dan salat sunah beserta ketentuannya.",
+    sourceIds: [],
+    status: "phase-context",
+  },
+  {
+    id: "pai-madinah",
+    subjectId: "pendidikan-agama-islam",
+    title: "Nabi Muhammad Saw. Membangun Kota Madinah",
+    chapter: "Bab 11 · Nabi Muhammad Saw. Membangun Kota Madinah",
+    objective: "Menceritakan upaya Nabi Muhammad Saw. membangun Kota Madinah, mulai dari masjid hingga persaudaraan antarwarga.",
+    sourceIds: [],
+    status: "phase-context",
+  }
 ];
 
 export const subjectById = (id: SubjectId) => subjects.find((subject) => subject.id === id)!;
