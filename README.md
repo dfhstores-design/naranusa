@@ -23,7 +23,7 @@ Hasil ekspor berada di `out/`. Build mengatur `basePath` `/naranusa`, memakai tr
 ## Fitur pilot
 
 - Login username dan kata sandi melalui GAS; tidak ada pendaftaran mandiri dan browser hanya menyimpan token sesi di `sessionStorage`.
-- Beranda anak, empat mata pelajaran, 26 topik kurikulum, latihan topik, Tantangan harian, Ujian mini, dan Mode cepat.
+- Beranda anak, sembilan mata pelajaran, 75 topik kurikulum, latihan topik, Tantangan harian, Ujian mini, dan Mode cepat.
 - Setiap jawaban diperiksa server. Umpan balik dan penjelasan muncul setelah jawaban dikirim.
 - Tombol “Soal ini susah” mengelola tanda lewat backend; workbench dewasa menampilkan grup soal, jumlah murid, dan filter. “Sudah dibahas di kelas” hanya menyembunyikan grup pada tampilan saat itu.
 - Workbench dewasa untuk bank soal, pembuatan/edit/impor, tinjauan topik, reset kata sandi, akun, pemetaan wali–murid, dan jejak audit sesuai peran backend.

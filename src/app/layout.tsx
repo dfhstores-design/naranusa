@@ -6,7 +6,7 @@ const basePath = "/naranusa";
 
 export const metadata: Metadata = {
   title: "NaraNusa — Belajar Seru Kelas 4",
-  description: "Latihan Kelas 4 dengan soal kurasi dan progres yang tersimpan aman di server.",
+  description: "Latihan Kelas 4 — 9 mata pelajaran, 1.185 soal kurasi Erlangga dengan pembahasan, progres tersimpan aman di server.",
   applicationName: "NaraNusa",
   manifest: `${basePath}/manifest.webmanifest`,
   appleWebApp: { capable: true, title: "NaraNusa", statusBarStyle: "default" },
